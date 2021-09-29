@@ -1,0 +1,22 @@
+#+TITLE: Dev Docs
+
+* About
+This DBT/Mindfulness app will provide a way to track customizable skills, offer practices and provide data on progress.
+
+It will be a web-based application. The home-screen will require the user to log into their account. They will then be able to select the date from a calendar they want to add data. It will display the skills they have chosen have displayed and they will input data. The data will be saved in the database. Users can view historical data and view the help section.
+
+* Approach
+- problem-based learning drawn from "Zero to Prod in Rust"
+** User Stories
+- capture the who we are building it for, the actions they want to perform, and their motives
+- as a ... I want to.. so that...
+1) As a user,
+    I want to store my scores for skills each day,
+    So that I can track progress
+2) As a user,
+    I want to view stored scores,
+    So that I can review progress
+** Strategy
+- choose a web framework
+- define testing strategy
+- choose a crate
