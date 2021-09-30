@@ -20,3 +20,18 @@ It will be a web-based application. The home-screen will require the user to log
 - choose a web framework
 - define testing strategy
 - choose a crate
+* API
+** Health Check
+#+begin_src restclient
+GET http://localhost:8080/health_check
+#+end_src
+
+When running a health check we should return a 200.
+#+NAME: Expected Health Check Response
+#+BEGIN_SRC js
+ // GET http://localhost:8080/health_check
+ // HTTP/1.1 200 OK
+ // content-length: 0
+ // date: Thu, 30 Sep 2021 03:37:37 GMT
+ // Request duration 0.029655s
+#+END_SRC
