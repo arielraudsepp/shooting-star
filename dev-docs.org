@@ -11,7 +11,7 @@ It will be a web-based application. The home-screen will require the user to log
 - capture the who we are building it for, the actions they want to perform, and their motives
 - as a ... I want to.. so that...
 1) As a user,
-    I want to store my scores for skills each day,
+    I want to store my scores for multiple skills each day,
     So that I can track progress
 2) As a user,
     I want to view stored scores,
@@ -20,6 +20,27 @@ It will be a web-based application. The home-screen will require the user to log
 - choose a web framework
 - define testing strategy
 - choose a crate
+* Linting and Formatting
+** Linting
+#+begin_src
+cargo clippy
+#+end_src
+** Formatting
+#+begin_src
+cargo fmt
+#+end_src
+* Docker
+** Launch Postgres server
+#+begin_src shell
+chmod +x scripts/init_db.sh
+./scripts/init_db.sh
+#+end_src
+
+** Kill Postgres Server
+#+begin_src shell
+docker kill $(docker ps -q)
+#+end_src
+
 * API
 ** Health Check
 #+begin_src restclient
