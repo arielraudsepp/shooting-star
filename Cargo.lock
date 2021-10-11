@@ -1269,8 +1269,10 @@ name = "shooting-star"
 version = "0.1.0"
 dependencies = [
  "actix-http",
+ "actix-rt",
  "actix-web",
  "reqwest",
+ "tokio",
 ]
 
 [[package]]

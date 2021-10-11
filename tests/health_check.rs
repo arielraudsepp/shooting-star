@@ -1,10 +1,8 @@
 //! tests/health_check.rs
 
-use shooting_star::run;
-
 #[actix_rt::test]
  async fn health_check_works() {
-     spawn_app().await.expect("Failed to spawn app");
+     spawn_app();
      let client = reqwest::Client::new();
 
      let response = client
@@ -17,6 +15,7 @@ use shooting_star::run;
      assert_eq!(Some(0), response.content_length());
  }
 
-async fn spawn_app() -> std::io::Result<()> {
-    todo!()
+fn spawn_app() {
+    let server = shooting_star::run().expect("Failed to bind address");
+    let _ = tokio::spawn(server);
 }
