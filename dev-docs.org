@@ -40,6 +40,11 @@ chmod +x scripts/init_db.sh
 #+begin_src shell
 docker kill $(docker ps -q)
 #+end_src
+* Postgres
+** Migrate Database
+#+begin_src shell
+SKIP_DOCKER=true ./scripts/init_db.sh
+#+end_src
 
 * API
 ** Health Check
