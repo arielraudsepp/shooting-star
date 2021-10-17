@@ -18,3 +18,12 @@ pub fn get_configuration() -> Result<Settings, config::ConfigError> {
     settings.merge(config::File::with_name("configuration"))?;
     settings.try_into()
 }
+
+impl DatabaseSettings {
+    pub fn connection_string(&self) -> String {
+        format!(
+            "postgres://{}:{}@{}:{}/{}",
+            self.username, self.password, self.host, self.port, self.database_name
+        )
+    }
+}
