@@ -3,12 +3,10 @@ pub mod configuration;
 use actix_web::dev::Server;
 use actix_web::web::Data;
 use actix_web::{web, App, HttpResponse, HttpServer};
-use std::net::TcpListener;
-use sqlx::PgPool;
-use uuid::Uuid;
 use chrono::Utc;
-
-
+use sqlx::PgPool;
+use std::net::TcpListener;
+use uuid::Uuid;
 
 async fn health_check() -> HttpResponse {
     HttpResponse::Ok().finish()
@@ -19,7 +17,7 @@ struct FormData {
     skill_name: String,
     completed: bool,
 }
-
+#[allow(clippy::async_yields_async)]
 #[tracing::instrument(
     name = "Adding a new subscriber",
     skip(form, pool),
@@ -31,24 +29,21 @@ struct FormData {
 async fn enter_data(form: web::Form<FormData>, pool: web::Data<PgPool>) -> HttpResponse {
     match insert_entry(&pool, &form).await {
         Ok(_) => HttpResponse::Ok().finish(),
-        Err(_) => HttpResponse::InternalServerError().finish()
+        Err(_) => HttpResponse::InternalServerError().finish(),
     }
 }
 
-#[tracing::instrument(
-    name = "Saving data in the databse",
-    skip(form, pool)
-)]
+#[tracing::instrument(name = "Saving data in the databse", skip(form, pool))]
 async fn insert_entry(pool: &PgPool, form: &FormData) -> Result<(), sqlx::Error> {
     sqlx::query!(
         r#"
     INSERT INTO skills_tracker (id, skill_name, completed, entered_at)
     VALUES ($1, $2, $3, $4)
         "#,
-    Uuid::new_v4(),
-    form.skill_name,
-    form.completed,
-    Utc::now()
+        Uuid::new_v4(),
+        form.skill_name,
+        form.completed,
+        Utc::now()
     )
     .execute(pool)
     .await
@@ -64,7 +59,7 @@ pub fn run(listener: TcpListener, db_pool: PgPool) -> Result<Server, std::io::Er
     let server = HttpServer::new(move || {
         App::new()
             .route("/health_check", web::get().to(health_check))
-            .route("/enter_data",web::post().to(enter_data))
+            .route("/enter_data", web::post().to(enter_data))
             .app_data(db_pool.clone())
     })
     .listen(listener)?

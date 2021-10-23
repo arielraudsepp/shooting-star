@@ -1,7 +1,7 @@
 //! main.rs
 use shooting_star::{configuration::get_configuration, run};
-use std::net::TcpListener;
 use sqlx::postgres::PgPool;
+use std::net::TcpListener;
 
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
