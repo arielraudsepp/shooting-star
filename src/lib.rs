@@ -59,12 +59,29 @@ async fn insert_entry(pool: &PgPool, skill: &Skill) -> Result<String, sqlx::Erro
     Ok(format!("{:?}", query))
 }
 
+#[tracing::instrument(name = "Retrieving data from the database", skip(pool))]
+async fn get_data(pool: &PgPool) -> Result<HttpResponse, sqlx::Error> {
+    sqlx::query!(
+        r#"
+    SELECT * FROM skills_tracker
+"#,
+    )
+    .fetch_one(pool)
+    .await
+    .map_err(|e| {
+        tracing::error!("Failed to execute query: {:?}", e);
+        e
+    })?;
+    Ok(HttpResponse::Ok().finish())
+}
+
 pub fn run(listener: TcpListener, db_pool: PgPool) -> Result<Server, std::io::Error> {
     let db_pool = Data::new(db_pool);
     let server = HttpServer::new(move || {
         App::new()
             .route("/health_check", web::get().to(health_check))
             .route("/enter_data", web::post().to(enter_data))
+            //.route("/get_data", web::get().to(get_data))
             .app_data(db_pool.clone())
     })
     .listen(listener)?
