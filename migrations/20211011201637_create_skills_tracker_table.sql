@@ -3,5 +3,5 @@ CREATE TABLE skills_tracker(
        PRIMARY KEY (id),
        skill_name TEXT NOT NULL,
        completed BOOL NOT NULL,
-       entered_at timestamptz NOT NULL
+       created_at timestamptz NOT NULL
 );

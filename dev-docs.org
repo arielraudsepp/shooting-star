@@ -49,15 +49,22 @@ SKIP_DOCKER=true ./scripts/init_db.sh
 * API
 ** Health Check
 #+begin_src restclient
-GET http://localhost:8080/health_check
+GET http://localhost:8000/health_check
 #+end_src
 
 When running a health check we should return a 200.
 #+NAME: Expected Health Check Response
 #+BEGIN_SRC js
- // GET http://localhost:8080/health_check
+ // GET http://localhost:8000/health_check
  // HTTP/1.1 200 OK
  // content-length: 0
  // date: Thu, 30 Sep 2021 03:37:37 GMT
  // Request duration 0.029655s
 #+END_SRC
+
+#+RESULTS: Expected Health Check Response
+
+** Enter Data
+#+begin_src shell
+curl -i -X POST -d 'skill_name=mindfulness&completed=true' http://localhost:8000/enter_data
+#+end_src

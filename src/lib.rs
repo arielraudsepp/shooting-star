@@ -37,8 +37,8 @@ async fn enter_data(form: web::Form<FormData>, pool: web::Data<PgPool>) -> HttpR
 async fn insert_entry(pool: &PgPool, form: &FormData) -> Result<String, sqlx::Error> {
     let query = sqlx::query!(
         r#"
-    INSERT INTO skills_tracker (id, skill_name, completed, entered_at)
-    VALUES ($1, $2, $3, $4) RETURNING id, skill_name, completed, entered_at
+    INSERT INTO skills_tracker (id, skill_name, completed, created_at)
+    VALUES ($1, $2, $3, $4) RETURNING id, skill_name, completed, created_at
 "#,
         Uuid::new_v4(),
         form.skill_name,
