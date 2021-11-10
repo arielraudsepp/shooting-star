@@ -13,24 +13,28 @@ async fn health_check() -> HttpResponse {
 }
 
 #[derive(serde::Deserialize)]
+struct SkillForm {
+    name: String,
+    completed: bool
+}
+
+#[derive(Debug)]
 struct Skill {
-    #[serde(skip_deserializing)]
-    id: Option<Uuid>,
+    id: sqlx::types::Uuid,
     name: String,
     completed: bool,
-    #[serde(skip_deserializing)]
-    created_at: Option<Utc>,
+    created_at: sqlx::types::chrono::DateTime<Utc>,
 }
 #[allow(clippy::async_yields_async)]
 #[tracing::instrument(
-    name = "Adding a new subscriber",
+    name = "Adding a new entry",
     skip(skill, pool),
     fields(
         data_name = %skill.name,
         data_completed = %skill.completed
     )
 )]
-async fn enter_data(skill: web::Form<Skill>, pool: web::Data<PgPool>) -> HttpResponse {
+async fn enter_data(skill: web::Form<SkillForm>, pool: web::Data<PgPool>) -> HttpResponse {
     match insert_entry(&pool, &skill).await {
         Ok(record) => HttpResponse::Ok().body(record),
         Err(_) => HttpResponse::InternalServerError().finish(),
@@ -38,11 +42,11 @@ async fn enter_data(skill: web::Form<Skill>, pool: web::Data<PgPool>) -> HttpRes
 }
 
 #[tracing::instrument(name = "Saving data in the database", skip(skill, pool))]
-async fn insert_entry(pool: &PgPool, skill: &Skill) -> Result<String, sqlx::Error> {
+async fn insert_entry(pool: &PgPool, skill: &SkillForm) -> Result<String, sqlx::Error> {
     let query = sqlx::query!(
         r#"
-    INSERT INTO skills_tracker (id, skill_name, completed, created_at)
-    VALUES ($1, $2, $3, $4) RETURNING id, skill_name, completed, created_at
+    INSERT INTO skills (id, name, completed, created_at)
+    VALUES ($1, $2, $3, $4) RETURNING id, name, completed, created_at
 "#,
         Uuid::new_v4(),
         skill.name,
@@ -55,24 +59,31 @@ async fn insert_entry(pool: &PgPool, skill: &Skill) -> Result<String, sqlx::Erro
         tracing::error!("failed to execute query: {:?}", e);
         e
     })?;
-
     Ok(format!("{:?}", query))
 }
 
+async fn get_data(params: web::Path<(String,)>, pool: web::Data<PgPool>) -> HttpResponse {
+    let id = &params.0;
+    let rid = match Uuid::parse_str(id) {
+        Ok(rid) => rid,
+        Err(_) => return HttpResponse::BadRequest().finish(),
+    };
+    match get_entry(&pool, rid).await {
+        Ok(entry) => HttpResponse::Ok().body(format!("{:?}", entry)),
+        Err(_) => HttpResponse::InternalServerError().finish()
+    }
+}
+
 #[tracing::instrument(name = "Retrieving data from the database", skip(pool))]
-async fn get_data(pool: &PgPool) -> Result<HttpResponse, sqlx::Error> {
-    sqlx::query!(
-        r#"
-    SELECT * FROM skills_tracker
-"#,
-    )
-    .fetch_one(pool)
-    .await
-    .map_err(|e| {
-        tracing::error!("Failed to execute query: {:?}", e);
-        e
-    })?;
-    Ok(HttpResponse::Ok().finish())
+async fn get_entry(pool: &PgPool, id: Uuid) -> Result<Skill, sqlx::Error> {
+    let skill = sqlx::query_as!(Skill, "SELECT * from skills WHERE id = $1", id)
+        .fetch_one(pool)
+        .await
+        .map_err(|e| {
+            tracing::error!("Failed to execute query: {:?}", e);
+            e
+        })?;
+    Ok(skill)
 }
 
 pub fn run(listener: TcpListener, db_pool: PgPool) -> Result<Server, std::io::Error> {
@@ -81,7 +92,7 @@ pub fn run(listener: TcpListener, db_pool: PgPool) -> Result<Server, std::io::Er
         App::new()
             .route("/health_check", web::get().to(health_check))
             .route("/enter_data", web::post().to(enter_data))
-            //.route("/get_data", web::get().to(get_data))
+            .route("/get_data/{id}", web::get().to(get_data))
             .app_data(db_pool.clone())
     })
     .listen(listener)?

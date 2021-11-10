@@ -1,7 +1,7 @@
-CREATE TABLE skills_tracker(
+CREATE TABLE skills(
        id uuid NOT NULL,
        PRIMARY KEY (id),
-       skill_name TEXT NOT NULL,
+       name TEXT NOT NULL,
        completed BOOL NOT NULL,
        created_at timestamptz NOT NULL
 );
