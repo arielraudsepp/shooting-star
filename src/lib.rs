@@ -2,23 +2,26 @@ pub mod configuration;
 
 use actix_web::dev::Server;
 use actix_web::web::Data;
-use actix_web::{web, App, HttpResponse, HttpServer};
+use actix_web::{App, HttpResponse, HttpServer, web};
 use chrono::Utc;
 use sqlx::PgPool;
 use std::net::TcpListener;
 use uuid::Uuid;
+use serde::{Deserialize, Serialize};
+
 
 async fn health_check() -> HttpResponse {
     HttpResponse::Ok().finish()
 }
 
-#[derive(serde::Deserialize)]
+#[derive(Deserialize, Serialize)]
 struct SkillForm {
     name: String,
     completed: bool
 }
 
 #[derive(Debug)]
+#[derive(Serialize,Deserialize)]
 struct Skill {
     id: sqlx::types::Uuid,
     name: String,
@@ -26,24 +29,18 @@ struct Skill {
     created_at: sqlx::types::chrono::DateTime<Utc>,
 }
 #[allow(clippy::async_yields_async)]
-#[tracing::instrument(
-    name = "Adding a new entry",
-    skip(skill, pool),
-    fields(
-        data_name = %skill.name,
-        data_completed = %skill.completed
-    )
-)]
-async fn enter_data(skill: web::Form<SkillForm>, pool: web::Data<PgPool>) -> HttpResponse {
+/// Adds a new skill from an http form data
+///
+async fn enter_data(skill: web::Json<SkillForm>, pool: web::Data<PgPool>) -> actix_web::Result<HttpResponse> {
     match insert_entry(&pool, &skill).await {
-        Ok(record) => HttpResponse::Ok().body(record),
-        Err(_) => HttpResponse::InternalServerError().finish(),
+        Ok(record) => Ok(HttpResponse::Created().json(record)),
+        Err(_) => Ok(HttpResponse::InternalServerError().finish()),
     }
 }
 
 #[tracing::instrument(name = "Saving data in the database", skip(skill, pool))]
-async fn insert_entry(pool: &PgPool, skill: &SkillForm) -> Result<String, sqlx::Error> {
-    let query = sqlx::query!(
+async fn insert_entry(pool: &PgPool, skill: &SkillForm) -> Result<Skill, sqlx::Error> {
+    let query = sqlx::query_as!(Skill,
         r#"
     INSERT INTO skills (id, name, completed, created_at)
     VALUES ($1, $2, $3, $4) RETURNING id, name, completed, created_at
@@ -59,22 +56,22 @@ async fn insert_entry(pool: &PgPool, skill: &SkillForm) -> Result<String, sqlx::
         tracing::error!("failed to execute query: {:?}", e);
         e
     })?;
-    Ok(format!("{:?}", query))
+    Ok(query)
 }
 
-async fn get_data(params: web::Path<(String,)>, pool: web::Data<PgPool>) -> HttpResponse {
+async fn get_data(params: web::Path<(String,)>, pool: web::Data<PgPool>) -> actix_web::Result<HttpResponse> {
     let id = &params.0;
-    let rid = match Uuid::parse_str(id) {
-        Ok(rid) => rid,
-        Err(_) => return HttpResponse::BadRequest().finish(),
+    let uuid_id = match Uuid::parse_str(id) {
+        Ok(uuid_id) => uuid_id,
+        Err(_) => return Ok(HttpResponse::BadRequest().finish()),
     };
-    match get_entry(&pool, rid).await {
-        Ok(entry) => HttpResponse::Ok().body(format!("{:?}", entry)),
-        Err(_) => HttpResponse::InternalServerError().finish()
+    match get_entry(&pool, uuid_id).await {
+        Ok(entry) => Ok(HttpResponse::Ok().json(entry)),
+        Err(_) => Ok(HttpResponse::InternalServerError().finish())
     }
 }
 
-#[tracing::instrument(name = "Retrieving data from the database", skip(pool))]
+#[tracing::instrument(name = "Retrieving data from the database", skip(pool, id))]
 async fn get_entry(pool: &PgPool, id: Uuid) -> Result<Skill, sqlx::Error> {
     let skill = sqlx::query_as!(Skill, "SELECT * from skills WHERE id = $1", id)
         .fetch_one(pool)

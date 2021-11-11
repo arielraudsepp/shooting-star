@@ -118,29 +118,50 @@ When running a health check we should return a 200.
 #+RESULTS: Expected Health Check Response
 
 ** Enter Data
-#+begin_src shell
-curl -i -X POST -d 'name=mindfulness&completed=true' http://localhost:8000/enter_data
+#+begin_src restclient
+POST http://localhost:8000/enter_data
+Content-Type: application/json
+{
+"name": "mindfulness",
+"completed": true
+}
 #+end_src
 
 #+RESULTS:
-| HTTP/1.1        |  200 | OK  |                                       |             |             |            |       |             |                             |   |
-| content-length: |  136 |     |                                       |             |             |            |       |             |                             |   |
-| date:           | Wed, | 10  | Nov                                   |        2021 |    00:15:44 | GMT        |       |             |                             |   |
-|                 |      |     |                                       |             |             |            |       |             |                             |   |
-| Record          |    { | id: | d8a0e2af-bd32-4057-9d72-e1755346cfcb, | skill_name: | mindfulness | completed: | true, | created_at: | 2021-11-10T00:15:44.894107Z | } |
+#+BEGIN_SRC js
+{
+  "id": "9d4a2613-d385-4dec-a55b-6e03983553b1",
+  "name": "mindfulness",
+  "completed": true,
+  "created_at": "2021-11-11T21:17:34.769743Z"
+}
+// POST http://localhost:8000/enter_data
+// HTTP/1.1 201 Created
+// content-length: 126
+// content-type: application/json
+// date: Thu, 11 Nov 2021 21:17:34 GMT
+// Request duration: 0.032623s
+#+END_SRC
 
 ** GET Data
 #+begin_src restclient
-GET http://localhost:8000/get_data/d8a0e2af-bd32-4057-9d72-e1755346cfc
+GET http://localhost:8000/get_data/6b11a905-ca2b-4bcd-9c88-1a2365b53b42
 #+end_src
 
 #+RESULTS:
-: #+BEGIN_SRC text
-: ID: d8a0e2af-bd32-4057-9d72-e1755346cfc
-: GET http://localhost:8000/get_data/d8a0e2af-bd32-4057-9d72-e1755346cfc
-: HTTP/1.1 200 OK
-: content-length: 39
-: content-type: text/plain
-: date: Wed, 10 Nov 2021 00:16:10 GMT
-: Request duration: 0.029802s
-: #+END_SRC
+#+begin_example
+,#+BEGIN_SRC js
+{
+  "id": "6b11a905-ca2b-4bcd-9c88-1a2365b53b42",
+  "name": "mindfulness",
+  "completed": true,
+  "created_at": "2021-11-10T03:58:46.323480Z"
+}
+// GET http://localhost:8000/get_data/6b11a905-ca2b-4bcd-9c88-1a2365b53b42
+// HTTP/1.1 200 OK
+// content-length: 126
+// content-type: application/json
+// date: Thu, 11 Nov 2021 18:39:22 GMT
+// Request duration: 0.040012s
+,#+END_SRC
+#+end_example
