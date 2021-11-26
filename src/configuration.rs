@@ -1,4 +1,10 @@
 #[derive(serde::Deserialize)]
+pub struct EnvSettings {
+    pub dev: Settings,
+    pub test: Settings,
+}
+
+#[derive(serde::Deserialize)]
 pub struct Settings {
     pub database: DatabaseSettings,
     pub application_port: u16,
