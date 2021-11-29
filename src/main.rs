@@ -1,4 +1,3 @@
-//! main.rs
 use shooting_star::{configuration::get_configuration, run};
 use sqlx::postgres::PgPool;
 use std::net::TcpListener;

@@ -19,6 +19,7 @@ actix-http = "3.0.0-beta.9"
 config = "0.11.0"
 serde = { version = "1", features = ["derive"]}
 sqlx = {version = "0.5.5", default-features = false, features = [ "runtime-actix-rustls", "macros", "postgres", "uuid", "chrono", "migrate" ]}
+reqwest = {version = "0.11", default-features = false, features = ["json"]}
 uuid = { version = "0.8.1", features = ["serde", "v4"] }
 chrono = { version = "0.4", features = ["serde"] }
 tracing = "0.1.19"
@@ -31,5 +32,5 @@ serde_json = "1.0"
 
 [dev-dependencies]
 actix-rt = "2"
-reqwest = "0.11"
 tokio = "1"
+wiremock = "0.5"

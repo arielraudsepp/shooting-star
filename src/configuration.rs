@@ -1,3 +1,5 @@
+use std::convert::{TryFrom, TryInto};
+
 #[derive(serde::Deserialize)]
 pub struct EnvSettings {
     pub dev: Settings,
@@ -19,10 +21,49 @@ pub struct DatabaseSettings {
     pub database_name: String,
 }
 
+// Possible environments for the app
+#[derive(Debug)]
+pub enum Environment {
+    Dev,
+    Test,
+}
+
+impl TryFrom<String> for Environment {
+    type Error = String;
+
+    fn try_from(s: String) -> Result<Self, Self::Error> {
+        match s.to_lowercase().as_str() {
+            "dev" => Ok(Self::Dev),
+            "test" => Ok(Self::Test),
+            other => Err(format!(
+                "{} is not a supported environment. Use either 'dev' or 'test'.",
+                other
+            )),
+        }
+    }
+}
+
+/// get_configuration returns the apps settings based on the app environment:
+/// loads in the configuration file, detects the app environment and
+/// returns the correct app settings
 pub fn get_configuration() -> Result<Settings, config::ConfigError> {
-    let mut settings = config::Config::default();
-    settings.merge(config::File::with_name("configuration"))?;
-    settings.try_into()
+    let mut config = config::Config::default();
+    config.merge(config::File::with_name("configuration"))?;
+    let settings: EnvSettings = config.try_into()?;
+
+    // Takes in an environment variable (Result type), unwraps it (defaulting to "dev" if unwrap fails),
+    // and calls try_into (as we defined try_from on Environment type) on the str to convert
+    // it to Environment type.
+    let environment: Environment = std::env::var("APP_ENVIRONMENT")
+        .unwrap_or_else(|_| "dev".into())
+        .try_into()
+        .expect("Failed to parse APP_ENVIRONMENT.");
+
+    // matches app environment to correct app settings
+    match environment {
+        Environment::Dev => Ok(settings.dev),
+        Environment::Test => Ok(settings.test),
+    }
 }
 
 impl DatabaseSettings {

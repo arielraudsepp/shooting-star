@@ -20,13 +20,13 @@ struct SkillForm {
     completed: bool
 }
 
-#[derive(Debug)]
-#[derive(Serialize,Deserialize)]
-struct Skill {
-    id: sqlx::types::Uuid,
-    name: String,
-    completed: bool,
-    created_at: sqlx::types::chrono::DateTime<Utc>,
+
+#[derive(Serialize,Deserialize,Debug,PartialEq)]
+pub struct Skill {
+    pub id: sqlx::types::Uuid,
+    pub name: String,
+    pub completed: bool,
+    pub created_at: sqlx::types::chrono::DateTime<Utc>,
 }
 #[allow(clippy::async_yields_async)]
 /// Adds a new skill from an http form data
