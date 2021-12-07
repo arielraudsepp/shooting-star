@@ -1,0 +1,71 @@
+<!doctype html>
+<!doctype html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js" integrity="sha512-dqw6X88iGgZlTsONxZK9ePmJEFrmHwpuMrsUChjAw1mRUhUITE5QU9pkcSox+ynfLhL15Sv2al5A0LVyDCmtUw==" crossorigin="anonymous"></script>
+             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" integrity="sha512-8bHTC73gkZ7rZ7vpqUQThUDhqcNFyYi2xgDgPDHc+GXVGHXq+xPjynxIopALmOPqzo9JZj0k6OqqewdGO3EsrQ==" crossorigin="anonymous" /> -->
+        <title>Skills Tracker</title>
+        <style>
+         .small {
+             max-width: 80px;
+         }
+
+        </style>
+    </meta>
+    </head>
+
+    <body>
+        <div class="main ui container">
+            <form class="ui form" id="test-form" >
+                <h1 class="ui center aligned header">Skills Tracker</h1>
+                <div class="field">
+                    <label>Skill Name</label>
+                    <input type="text" id="name" class="small">
+                </div>
+
+                <div>
+                    <p>Did you complete this skill?</p>
+                    <div>
+                        <input type="radio" id="complete" name= "complete" value="True" class="small">
+                        <label for="complete">Yes</label>
+                    </div>
+
+                    <div>
+                        <input type="radio" id="complete" name= "complete" value="False" class="small">
+                        <label for="complete">No</label>
+                    </div>
+                </div>
+
+                <button class="ui primary submit button" type="submit" style="margin-top: 10px">Submit</button>
+            </form>
+        </div>
+        <script>
+         let headers = new Headers();
+         headers.append(
+             "Content-Type", "application/json"
+         )
+         console.log( headers);
+         function postData (event){
+             event.preventDefault();
+             fetch('http://localhost:8000/enter_data', {
+                 method: 'POST',
+                 headers: new Headers({
+                     "Accept": "application/json",
+                     "Content-Type": "application/json"
+                 }),
+                 body: JSON.stringify({
+                     "name": "mindfulness",
+                     "completed": true
+                 })
+             })
+                 .then(response => console.log(response));
+         }
+
+         const form = document.getElementById("test-form");
+         form.onsubmit = postData;
+        </script>
+
+    </body>
+</html>
