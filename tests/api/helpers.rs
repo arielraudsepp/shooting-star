@@ -5,7 +5,6 @@ use shooting_star::run;
 use sqlx::{Connection, Executor, PgConnection, PgPool};
 use std::net::TcpListener;
 
-
 pub struct TestApp {
     pub address: String,
     pub db_pool: PgPool,
@@ -18,7 +17,12 @@ pub async fn spawn_app() -> TestApp {
 
     let configuration = get_configuration().expect("Failed to read configuration.");
 
-    let connection_pool = configure_database(&configuration.database).await;
+    // This is not done yet, we need to change the type of server to accept a transaction or a PgPool
+    let connection_pool = configure_database(&configuration.database)
+        .await
+        .begin()
+        .await
+        .expect("Unable to start transaction");
     let server = run(listener, connection_pool.clone()).expect("Failed to bind address");
     let _ = tokio::spawn(server);
     TestApp {
@@ -27,14 +31,14 @@ pub async fn spawn_app() -> TestApp {
     }
 }
 
-pub async fn delete_database(connection: &mut PgConnection, name: &str) -> Result<(), sqlx::Error>{
+pub async fn delete_database(connection: &mut PgConnection, name: &str) -> Result<(), sqlx::Error> {
     connection
         .execute(&*format!(r#"DROP DATABASE IF EXISTS "{}";"#, name))
         .await?;
     Ok(())
 }
 
-pub async fn create_database(connection: &mut PgConnection, name: &str) -> Result<() , sqlx::Error>{
+pub async fn create_database(connection: &mut PgConnection, name: &str) -> Result<(), sqlx::Error> {
     connection
         .execute(&*format!(r#"CREATE DATABASE "{}";"#, name))
         .await?;
@@ -47,8 +51,12 @@ pub async fn configure_database(config: &DatabaseSettings) -> PgPool {
         .await
         .expect("Failed to connect to Postgres");
 
-    delete_database(&mut connection, &config.database_name).await.unwrap();
-    create_database(&mut connection, &config.database_name).await.unwrap();
+    delete_database(&mut connection, &config.database_name)
+        .await
+        .unwrap();
+    create_database(&mut connection, &config.database_name)
+        .await
+        .unwrap();
 
     let connection_pool = PgPool::connect(&config.connection_string())
         .await
