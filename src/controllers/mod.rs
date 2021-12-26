@@ -1,5 +1,5 @@
-mod health_check;
-mod skills;
+mod health_check_controller;
+mod skills_controller;
 
-pub use health_check::*;
-pub use skills::*;
+pub use health_check_controller::*;
+pub use skills_controller::*;
