@@ -34,6 +34,7 @@ pub enum Environment {
 #[derive(Clone)]
 pub struct AppData {
     pub env: Environment,
+    pub db_name: String,
     pub pg_pool: sqlx::PgPool
 }
 
@@ -48,6 +49,7 @@ impl AppData{
             .try_into()
             .expect("Failed to parse APP_ENVIRONMENT.");
         AppData{
+            db_name: setting.database.database_name.clone(),
             env,
             pg_pool
         }

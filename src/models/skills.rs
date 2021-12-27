@@ -1,12 +1,12 @@
 use crate::{configuration::{AppData, Environment}, controllers::SkillForm};
 use crate::models::Record;
-
+use sqlx::FromRow;
 use async_trait::async_trait;
 use chrono::Utc;
 use serde::{Deserialize, Serialize};
 use uuid::Uuid;
 
-#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[derive(Serialize, Deserialize, Debug, PartialEq, FromRow)]
 pub struct Skill {
     pub id: sqlx::types::Uuid,
     pub name: String,
@@ -30,17 +30,16 @@ impl Record for Skill {
     #[tracing::instrument(name = "Saving data in the database", skip(self, config))]
     async fn save(self, config: &AppData) -> Result<Self, sqlx::Error> {
         let mut transaction = config.pg_pool.begin().await?;
-        let query: Skill = sqlx::query_as!(
-            Skill,
-            r#"
-    INSERT INTO skills (id, name, completed, created_at)
+        let query_statement = format!("
+    INSERT INTO ${}.skills (id, name, completed, created_at)
     VALUES ($1, $2, $3, $4) RETURNING id, name, completed, created_at
-    "#,
-            self.id,
-            self.name,
-            self.completed,
-            self.created_at,
-        ).fetch_one(&mut transaction)
+    ", config.db_name);
+        let query: Skill = sqlx::query_as(&query_statement)
+            .bind(self.id)
+            .bind(self.name)
+            .bind(self.completed)
+            .bind(self.created_at)
+            .fetch_one(&mut transaction)
         .await
         .map_err(|e| {
             tracing::error!("failed to execute query: {:?}", e);
@@ -58,8 +57,9 @@ impl Record for Skill {
     async fn find_by_id(config: &AppData, id: Uuid) -> Result<Self, sqlx::Error> {
         // Transaction might not be needed here
         let mut transaction = config.pg_pool.begin().await?;
-
-        let skill = sqlx::query_as!(Skill, "SELECT * from skills WHERE id = $1", id)
+        let query_statement = format!("SELECT * from {}.skills WHERE id = $1", config.db_name);
+            let skill = sqlx::query_as(&query_statement)
+            .bind(id)
             .fetch_one(&mut transaction)
             .await
             .map_err(|e| {

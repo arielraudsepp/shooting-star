@@ -5,7 +5,7 @@ dev:
     port: 5432
     username: "postgres"
     password: "password"
-    database_name: "skills"
+    database_name: "skills_dev"
 test:
   application_port: 8000
   database:
@@ -13,4 +13,4 @@ test:
     port: 5432
     username: "postgres"
     password: "password"
-    database_name: "test_skills"
+    database_name: "skills_test"
