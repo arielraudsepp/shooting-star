@@ -2,18 +2,17 @@ pub mod configuration;
 pub mod controllers;
 pub mod models;
 
-use crate::controllers::{create, health_check, show};
-
+use controllers::{create, health_check, show};
 use actix_cors::Cors;
 use actix_web::dev::Server;
 use actix_web::web::Data;
 use actix_web::{web, App, HttpServer};
+use configuration::AppData;
 
-use sqlx::PgPool;
 use std::net::TcpListener;
 
-pub fn run(listener: TcpListener, db_pool: PgPool) -> Result<Server, std::io::Error> {
-    let db_pool = Data::new(db_pool);
+pub fn run(listener: TcpListener, app_config: AppData) -> Result<Server, std::io::Error> {
+    let app_data: Data<AppData> = Data::new(app_config);
     let server = HttpServer::new(move || {
         let cors = Cors::default()
             .allow_any_header()
@@ -25,7 +24,7 @@ pub fn run(listener: TcpListener, db_pool: PgPool) -> Result<Server, std::io::Er
             .route("/health_check", web::get().to(health_check))
             .route("/create", web::post().to(create))
             .route("/show/{id}", web::get().to(show))
-            .app_data(db_pool.clone())
+            .app_data(app_data.clone())
     })
     .listen(listener)?
     .run();

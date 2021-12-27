@@ -1,5 +1,5 @@
 use crate::helpers::spawn_app;
-use shooting_star::Skill;
+use shooting_star::models::Skill;
 use shooting_star::{configuration::get_configuration, run};
 use sqlx::{postgres::PgConnection, Connection};
 

@@ -1,3 +1,4 @@
+use crate::configuration::AppData;
 use crate::models::{Record, Skill};
 
 use actix_web::web;
@@ -16,11 +17,11 @@ pub struct SkillForm {
 /// Adds a new skill from an http form data
 pub async fn create(
     form: web::Json<SkillForm>,
-    pool: web::Data<PgPool>,
+    config: web::Data<AppData>,
 ) -> actix_web::Result<HttpResponse> {
     let skill = Skill::init_from_form(form.into_inner());
 
-    match skill.save(&pool).await {
+    match skill.save(&config).await {
         Ok(record) => Ok(HttpResponse::Created().json(record)),
         Err(_) => Ok(HttpResponse::InternalServerError().finish()),
     }
@@ -28,14 +29,14 @@ pub async fn create(
 
 pub async fn show(
     params: web::Path<(String,)>,
-    pool: web::Data<PgPool>,
+    config: web::Data<AppData>,
 ) -> actix_web::Result<HttpResponse> {
     let id = &params.0;
     let uuid_id = match Uuid::parse_str(id) {
         Ok(uuid_id) => uuid_id,
         Err(_) => return Ok(HttpResponse::BadRequest().finish()),
     };
-    match Skill::find_by_id(&pool, uuid_id).await {
+    match Skill::find_by_id(&config, uuid_id).await {
         Ok(entry) => Ok(HttpResponse::Ok().json(entry)),
         Err(_) => Ok(HttpResponse::InternalServerError().finish()),
     }

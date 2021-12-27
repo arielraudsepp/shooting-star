@@ -1,10 +1,9 @@
-use crate::controllers::SkillForm;
+use crate::{configuration::{AppData, Environment}, controllers::SkillForm};
 use crate::models::Record;
 
 use async_trait::async_trait;
 use chrono::Utc;
 use serde::{Deserialize, Serialize};
-use sqlx::PgPool;
 use uuid::Uuid;
 
 #[derive(Serialize, Deserialize, Debug, PartialEq)]
@@ -28,9 +27,10 @@ impl Skill {
 
 #[async_trait]
 impl Record for Skill {
-    #[tracing::instrument(name = "Saving data in the database", skip(self, pool))]
-    async fn save(self, pool: &PgPool) -> Result<Self, sqlx::Error> {
-        let query = sqlx::query_as!(
+    #[tracing::instrument(name = "Saving data in the database", skip(self, config))]
+    async fn save(self, config: &AppData) -> Result<Self, sqlx::Error> {
+        let mut transaction = config.pg_pool.begin().await?;
+        let query: Skill = sqlx::query_as!(
             Skill,
             r#"
     INSERT INTO skills (id, name, completed, created_at)
@@ -40,24 +40,37 @@ impl Record for Skill {
             self.name,
             self.completed,
             self.created_at,
-        )
-        .fetch_one(pool)
+        ).fetch_one(&mut transaction)
         .await
         .map_err(|e| {
             tracing::error!("failed to execute query: {:?}", e);
             e
         })?;
+
+        if let Environment::Dev = config.env {
+            transaction.commit().await?;
+        }
+
         Ok(query)
     }
-    #[tracing::instrument(name = "Retrieving data from the database", skip(pool, id))]
-    async fn find_by_id(pool: &PgPool, id: Uuid) -> Result<Self, sqlx::Error> {
+
+    #[tracing::instrument(name = "Retrieving data from the database", skip(config, id))]
+    async fn find_by_id(config: &AppData, id: Uuid) -> Result<Self, sqlx::Error> {
+        // Transaction might not be needed here
+        let mut transaction = config.pg_pool.begin().await?;
+
         let skill = sqlx::query_as!(Skill, "SELECT * from skills WHERE id = $1", id)
-            .fetch_one(pool)
+            .fetch_one(&mut transaction)
             .await
             .map_err(|e| {
                 tracing::error!("Failed to execute query: {:?}", e);
                 e
             })?;
+
+        if let Environment::Dev = config.env {
+            transaction.commit().await?;
+        }
+
         Ok(skill)
     }
 }
