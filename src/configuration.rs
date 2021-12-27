@@ -1,5 +1,7 @@
 use std::convert::{TryFrom, TryInto};
 
+use sqlx::PgPool;
+
 #[derive(serde::Deserialize)]
 pub struct EnvSettings {
     pub dev: Settings,
@@ -22,10 +24,34 @@ pub struct DatabaseSettings {
 }
 
 // Possible environments for the app
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 pub enum Environment {
     Dev,
     Test,
+}
+
+
+#[derive(Clone)]
+pub struct AppData {
+    pub env: Environment,
+    pub pg_pool: sqlx::PgPool
+}
+
+impl AppData{
+    pub async fn init(setting: &Settings) -> Self{
+        let pg_pool = PgPool::connect(&setting.database.connection_string())
+        .await
+        .expect("Failed to connect to Postgres");
+
+        let env: Environment = std::env::var("APP_ENVIRONMENT")
+            .unwrap_or_else(|_| "dev".into())
+            .try_into()
+            .expect("Failed to parse APP_ENVIRONMENT.");
+        AppData{
+            env,
+            pg_pool
+        }
+    }
 }
 
 impl TryFrom<String> for Environment {
