@@ -6,7 +6,7 @@ set -eo pipefail
 DB_USER=${POSTGRES_USER:=postgres}
 DB_PASSWORD="${POSTGRES_PASSWORD:=password}"
 DB_NAME_DEV="${POSTGRES_DB:=skills_dev}"
-DB_NAME_TEST="${POSTGRES_DB:=skills_test}"
+DB_NAME_TEST="skills_test"
 DB_PORT="${POSTGRES_PORT:=5432}"
 
 if [[ -z "${SKIP_DOCKER}" ]]
