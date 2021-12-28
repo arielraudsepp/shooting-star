@@ -41,52 +41,13 @@ chmod +x scripts/init_db.sh
 #+end_src
 
 #+RESULTS:
-| c8ab39118f46a92d46930915da95c45376de7aa9d08f70d681c9f5e8453dadbd |                        |                                                                                                                                                                                                                                                          |        |         |       |           |
-| declare                                                          | -x                     | 15;0                                                                                                                                                                                                                                                     |        |         |       |           |
-| declare                                                          | -x                     | truecolor                                                                                                                                                                                                                                                |        |         |       |           |
-| declare                                                          | -x                     | unix2003                                                                                                                                                                                                                                                 |        |         |       |           |
-| declare                                                          | -x                     | Ariel                                                                                                                                                                                                                                                    |        |         |       |           |
-| declare                                                          | -x                     | Disthene.local                                                                                                                                                                                                                                           |        |         |       |           |
-| declare                                                          | -x                     | /Users/ariel/.zsh_history                                                                                                                                                                                                                                |        |         |       |           |
-| declare                                                          | -x                     | /Users/ariel                                                                                                                                                                                                                                             |        |         |       |           |
-| declare                                                          | -x                     | /opt/homebrew/Cellar                                                                                                                                                                                                                                     |        |         |       |           |
-| declare                                                          | -x                     | /opt/homebrew                                                                                                                                                                                                                                            |        |         |       |           |
-| declare                                                          | -x                     | /opt/homebrew                                                                                                                                                                                                                                            |        |         |       |           |
-| declare                                                          | -x                     | /opt/homebrew                                                                                                                                                                                                                                            |        |         |       |           |
-| declare                                                          | -x                     | /opt/homebrew/share/info:                                                                                                                                                                                                                                |        |         |       |           |
-| declare                                                          | -x                     | Default                                                                                                                                                                                                                                                  |        |         |       |           |
-| declare                                                          | -x                     | w0t1p0:408929A3-FEA1-4495-B7C3-78A27021BA1F                                                                                                                                                                                                              |        |         |       |           |
-| declare                                                          | -x                     | en_CA.UTF-8                                                                                                                                                                                                                                              |        |         |       |           |
-| declare                                                          | -x                     | iTerm2                                                                                                                                                                                                                                                   |        |         |       |           |
-| declare                                                          | -x                     | 3.4.12                                                                                                                                                                                                                                                   |        |         |       |           |
-| declare                                                          | -x                     | ariel                                                                                                                                                                                                                                                    |        |         |       |           |
-| declare                                                          | -x                     | CD40051B-F6CB-46C9-B212-9C4512E9E411                                                                                                                                                                                                                     |        |         |       |           |
-| declare                                                          | -x                     | /opt/homebrew/share/man::                                                                                                                                                                                                                                |        |         |       |           |
-| declare                                                          | -x                     | OLDPWD                                                                                                                                                                                                                                                   |        |         |       |           |
-| declare                                                          | -x                     | /Users/ariel/.local/bin:/Users/ariel/.zinit/polaris/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/TeX/texbin:/Users/ariel/.cargo/bin:/Users/ariel/bin:/Users/ariel/.cargo/bin:/Users/ariel/.emacs.d/bin |        |         |       |           |
-| declare                                                          | -x                     | password                                                                                                                                                                                                                                                 |        |         |       |           |
-| declare                                                          | -x                     | 0uUpiPsf                                                                                                                                                                                                                                                 |        |         |       |           |
-| declare                                                          | -x                     | /Users/ariel/dev/shooting-star                                                                                                                                                                                                                           |        |         |       |           |
-| declare                                                          | -x                     | 186b9                                                                                                                                                                                                                                                    |        |         |       |           |
-| declare                                                          | -x                     | /bin/zsh                                                                                                                                                                                                                                                 |        |         |       |           |
-| declare                                                          | -x                     | 3                                                                                                                                                                                                                                                        |        |         |       |           |
-| declare                                                          | -x                     | /private/tmp/com.apple.launchd.uxhbk7CzjA/Listeners                                                                                                                                                                                                      |        |         |       |           |
-| declare                                                          | -x                     | 1401715107246031                                                                                                                                                                                                                                         |        |         |       |           |
-| declare                                                          | -x                     | zsh                                                                                                                                                                                                                                                      |        |         |       |           |
-| declare                                                          | -x                     | dumb                                                                                                                                                                                                                                                     |        |         |       |           |
-| declare                                                          | -x                     | iTerm.app                                                                                                                                                                                                                                                |        |         |       |           |
-| declare                                                          | -x                     | 3.4.12                                                                                                                                                                                                                                                   |        |         |       |           |
-| declare                                                          | -x                     | w0t1p0:408929A3-FEA1-4495-B7C3-78A27021BA1F                                                                                                                                                                                                              |        |         |       |           |
-| declare                                                          | -x                     | .:/Users/ariel/.emacs.d/.local/straight/build-28.0.50/auctex/latex:                                                                                                                                                                                      |        |         |       |           |
-| declare                                                          | -x                     | /var/folders/tb/xxqcp_td4f122vqjvf7nrwm00000gn/T/                                                                                                                                                                                                        |        |         |       |           |
-| declare                                                          | -x                     | ariel                                                                                                                                                                                                                                                    |        |         |       |           |
-| declare                                                          | -x                     | 0x0                                                                                                                                                                                                                                                      |        |         |       |           |
-| declare                                                          | -x                     | 0                                                                                                                                                                                                                                                        |        |         |       |           |
-| declare                                                          | -x                     | /Users/ariel/.zinit/polaris                                                                                                                                                                                                                              |        |         |       |           |
-| declare                                                          | -x                     | /Users/ariel/.cache/zinit                                                                                                                                                                                                                                |        |         |       |           |
-| declare                                                          | -x                     | com.googlecode.iterm2                                                                                                                                                                                                                                    |        |         |       |           |
-| declare                                                          | -x                     | 0x1F5:0x0:0x52                                                                                                                                                                                                                                           |        |         |       |           |
-| Applied                                                          | 20211011201637/migrate | create                                                                                                                                                                                                                                                   | skills | tracker | table | (4.033ms) |
+| e278d35bea0374593b476e5c7cede15b058169d07f6f4af8569550aa8b783f0a |                        |        |        |        |              |              |
+| Applied                                                          | 20211228003329/migrate | create | diary  | skills | table        | (1.659541ms) |
+| Applied                                                          | 20211228005507/migrate | create | skills | table  | (4.430125ms) |              |
+| Applied                                                          | 20211228005520/migrate | create | diary  | table  | (2.990083ms) |              |
+| Applied                                                          | 20211228003329/migrate | create | diary  | skills | table        | (1.706875ms) |
+| Applied                                                          | 20211228005507/migrate | create | skills | table  | (6.221875ms) |              |
+| Applied                                                          | 20211228005520/migrate | create | diary  | table  | (3.238583ms) |              |
 
 
 ** Kill Postgres Server
@@ -95,7 +56,7 @@ docker kill $(docker ps -q)
 #+end_src
 
 #+RESULTS:
-: 84e16abd889d
+: 98dfe34b68e2
 
 * Postgres
 ** Migrate Database
@@ -103,11 +64,22 @@ docker kill $(docker ps -q)
 SKIP_DOCKER=true ./scripts/init_db.sh
 #+end_src
 
+#+RESULTS:
+
 * API
 ** Health Check
 #+begin_src restclient
 GET http://localhost:8000/health_check
 #+end_src
+
+#+RESULTS:
+#+BEGIN_SRC js
+// GET http://localhost:8000/health_check
+// HTTP/1.1 200 OK
+// content-length: 0
+// date: Mon, 27 Dec 2021 20:04:15 GMT
+// Request duration: 0.004877s
+#+END_SRC
 
 When running a health check we should return a 200.
 #+NAME: Expected Health Check Response
@@ -123,7 +95,7 @@ When running a health check we should return a 200.
 
 ** Enter Data
 #+begin_src restclient
-POST http://localhost:8000/enter_data
+POST http://localhost:8000/create
 Content-Type: application/json
 {
 "name": "mindfulness",
@@ -131,25 +103,39 @@ Content-Type: application/json
 }
 #+end_src
 
+#+RESULTS:
+#+BEGIN_SRC js
+{
+  "id": "51d7ea5e-95f5-4782-8653-0b90f5354526",
+  "name": "mindfulness",
+  "completed": true,
+  "created_at": "2021-12-27T22:35:13.755543Z"
+}
+// POST http://localhost:8000/create
+// HTTP/1.1 201 Created
+// content-length: 126
+// content-type: application/json
+// date: Mon, 27 Dec 2021 22:35:13 GMT
+// Request duration: 0.030315s
+#+END_SRC
+
 ** GET Data
 #+begin_src restclient
-GET http://localhost:8000/get_data/6b11a905-ca2b-4bcd-9c88-1a2365b53b42
+GET http://localhost:8000/show/51d7ea5e-95f5-4782-8653-0b90f5354526
 #+end_src
 
 #+RESULTS:
-#+begin_example
-,#+BEGIN_SRC js
+#+BEGIN_SRC js
 {
-  "id": "6b11a905-ca2b-4bcd-9c88-1a2365b53b42",
+  "id": "51d7ea5e-95f5-4782-8653-0b90f5354526",
   "name": "mindfulness",
   "completed": true,
-  "created_at": "2021-11-10T03:58:46.323480Z"
+  "created_at": "2021-12-27T22:35:13.755543Z"
 }
-// GET http://localhost:8000/get_data/6b11a905-ca2b-4bcd-9c88-1a2365b53b42
+// GET http://localhost:8000/show/51d7ea5e-95f5-4782-8653-0b90f5354526
 // HTTP/1.1 200 OK
 // content-length: 126
 // content-type: application/json
-// date: Thu, 11 Nov 2021 18:39:22 GMT
-// Request duration: 0.040012s
-,#+END_SRC
-#+end_example
+// date: Mon, 27 Dec 2021 22:36:32 GMT
+// Request duration: 0.020039s
+#+END_SRC

@@ -1,10 +1,10 @@
-use config::Environment;
 use shooting_star::{configuration::{get_configuration, AppData}, run};
-use sqlx::postgres::PgPool;
 use std::net::TcpListener;
+use tracing_subscriber;
 
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
+    tracing_subscriber::fmt::init();
     let configuration = get_configuration().expect("Failed to read configuration.");
     let app_data = AppData::init(&configuration).await;
 

@@ -1,6 +1,6 @@
 use crate::{configuration::{AppData, Environment}, controllers::SkillForm};
 use crate::models::Record;
-use sqlx::FromRow;
+use sqlx::{FromRow, ConnectOptions};
 use async_trait::async_trait;
 use chrono::Utc;
 use serde::{Deserialize, Serialize};
@@ -31,9 +31,9 @@ impl Record for Skill {
     async fn save(self, config: &AppData) -> Result<Self, sqlx::Error> {
         let mut transaction = config.pg_pool.begin().await?;
         let query_statement = format!("
-    INSERT INTO ${}.skills (id, name, completed, created_at)
+    INSERT INTO skills (id, name, completed, created_at)
     VALUES ($1, $2, $3, $4) RETURNING id, name, completed, created_at
-    ", config.db_name);
+    ");
         let query: Skill = sqlx::query_as(&query_statement)
             .bind(self.id)
             .bind(self.name)
@@ -57,7 +57,7 @@ impl Record for Skill {
     async fn find_by_id(config: &AppData, id: Uuid) -> Result<Self, sqlx::Error> {
         // Transaction might not be needed here
         let mut transaction = config.pg_pool.begin().await?;
-        let query_statement = format!("SELECT * from {}.skills WHERE id = $1", config.db_name);
+        let query_statement = format!("SELECT * from skills WHERE id = $1");
             let skill = sqlx::query_as(&query_statement)
             .bind(id)
             .fetch_one(&mut transaction)
