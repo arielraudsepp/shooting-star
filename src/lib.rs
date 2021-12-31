@@ -2,7 +2,9 @@ pub mod configuration;
 pub mod controllers;
 pub mod models;
 
-use controllers::{create, health_check, show};
+use controllers::health_check;
+use controllers::create;
+
 use actix_cors::Cors;
 use actix_web::dev::Server;
 use actix_web::web::Data;
@@ -22,8 +24,8 @@ pub fn run(listener: TcpListener, app_config: AppData) -> Result<Server, std::io
         App::new()
             .wrap(cors)
             .route("/health_check", web::get().to(health_check))
-            .route("/create", web::post().to(create))
-            .route("/show/{id}", web::get().to(show))
+            .route("/diary_entries", web::post().to(create))
+//          .route("/show/{id}", web::get().to(show))
             .app_data(app_data.clone())
     })
     .listen(listener)?
