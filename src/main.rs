@@ -1,6 +1,8 @@
-use shooting_star::{configuration::{get_configuration, AppData}, run};
+use shooting_star::{
+    configuration::{get_configuration, AppData},
+    run,
+};
 use std::net::TcpListener;
-use tracing_subscriber;
 
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {

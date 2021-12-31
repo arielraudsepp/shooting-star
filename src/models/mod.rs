@@ -1,12 +1,12 @@
 use async_trait::async_trait;
 
-pub mod skills;
-pub mod diary_entries_skills;
 pub mod diary_entries;
+pub mod diary_entries_skills;
+pub mod skills;
 
-pub use skills::*;
-pub use diary_entries_skills::*;
 pub use diary_entries::*;
+pub use diary_entries_skills::*;
+pub use skills::*;
 
 use crate::configuration::AppData;
 

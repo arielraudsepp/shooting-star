@@ -30,28 +30,27 @@ pub enum Environment {
     Test,
 }
 
-
 #[derive(Clone)]
 pub struct AppData {
     pub env: Environment,
     pub db_name: String,
-    pub pg_pool: sqlx::PgPool
+    pub pg_pool: sqlx::PgPool,
 }
 
-impl AppData{
-    pub async fn init(setting: &Settings) -> Self{
+impl AppData {
+    pub async fn init(setting: &Settings) -> Self {
         let pg_pool = PgPool::connect(&setting.database.connection_string())
-        .await
-        .expect("Failed to connect to Postgres");
+            .await
+            .expect("Failed to connect to Postgres");
 
         let env: Environment = std::env::var("APP_ENVIRONMENT")
             .unwrap_or_else(|_| "dev".into())
             .try_into()
             .expect("Failed to parse APP_ENVIRONMENT.");
-        AppData{
+        AppData {
             db_name: setting.database.database_name.clone(),
             env,
-            pg_pool
+            pg_pool,
         }
     }
 }

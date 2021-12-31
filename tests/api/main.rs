@@ -1,5 +1,3 @@
-//!tests/main.rs
-
-mod enter_data;
+mod create_skill_entry;
 mod health_check;
 mod helpers;

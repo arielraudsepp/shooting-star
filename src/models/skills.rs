@@ -1,34 +1,33 @@
 use crate::configuration::{AppData, Environment};
 use crate::models::Record;
-use sqlx::{FromRow, ConnectOptions};
 use async_trait::async_trait;
 use serde::{Deserialize, Serialize};
+use sqlx::FromRow;
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, FromRow)]
 pub struct Skill {
     pub id: i32,
-    pub name: String
+    pub name: String,
 }
-
 
 #[async_trait]
 impl Record for Skill {
-    #[tracing::instrument(name = "Saving skill in the database", skip(self, config))]
+    #[tracing::instrument(name = "Saving skill in the database", skip(config))]
     async fn save(self, config: &AppData) -> Result<Self, sqlx::Error> {
         let mut transaction = config.pg_pool.begin().await?;
-        let query_statement = format!("
+        let query_statement = r#"
     INSERT INTO skills (id, name)
     VALUES ($1, $2) RETURNING id, name
-    ");
-        let query: Skill = sqlx::query_as(&query_statement)
+    "#;
+        let query: Skill = sqlx::query_as(query_statement)
             .bind(self.id)
             .bind(self.name)
             .fetch_one(&mut transaction)
-        .await
-        .map_err(|e| {
-            tracing::error!("failed to execute query: {:?}", e);
-            e
-        })?;
+            .await
+            .map_err(|e| {
+                tracing::error!("failed to execute query: {:?}", e);
+                e
+            })?;
 
         if let Environment::Dev = config.env {
             transaction.commit().await?;
@@ -37,11 +36,11 @@ impl Record for Skill {
         Ok(query)
     }
 
-    //#[tracing::instrument(name = "Retrieving skill by id from the database", skip(config, id))]
+    #[tracing::instrument(name = "Retrieving skill by id from the database", skip(config))]
     async fn find_by_id(config: &AppData, id: i32) -> Result<Self, sqlx::Error> {
         let mut transaction = config.pg_pool.begin().await?;
-        let query_statement = format!("SELECT * from skills WHERE id = $1");
-            let skill: Skill  = sqlx::query_as(&query_statement)
+        let query_statement = r#"SELECT * from skills WHERE id = $1"#;
+        let skill: Skill = sqlx::query_as(query_statement)
             .bind(id)
             .fetch_one(&mut transaction)
             .await
@@ -60,18 +59,21 @@ impl Record for Skill {
 
 impl Skill {
     #[tracing::instrument(name = "Retrieving skill id by name from the database", skip(config))]
-    pub async fn find_by_name(config: &AppData, skill_names: &[String]) -> Result<Vec<Self>, sqlx::Error> {
+    pub async fn find_by_name(
+        config: &AppData,
+        skill_names: &[String],
+    ) -> Result<Vec<Self>, sqlx::Error> {
         let mut transaction = config.pg_pool.begin().await?;
         println!("{:?}", skill_names);
-        let list = skill_names.into_iter().fold(String::new(), |str: String, item|{
-            if str.is_empty(){
-                format!("'{}'", item).to_string()
+        let list = skill_names.iter().fold(String::new(), |str: String, item| {
+            if str.is_empty() {
+                format!("'{}'", item)
             } else {
-                format!("{}, '{}'", str, item).to_string()
+                format!("{}, '{}'", str, item)
             }
         });
         let query_statement = format!("SELECT * from skills WHERE name IN ({});", list);
-            let skills: Vec<Skill>  = sqlx::query_as(&query_statement)
+        let skills: Vec<Skill> = sqlx::query_as(&query_statement)
             .fetch_all(&mut transaction)
             .await
             .map_err(|e| {

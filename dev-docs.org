@@ -41,13 +41,13 @@ chmod +x scripts/init_db.sh
 #+end_src
 
 #+RESULTS:
-| e278d35bea0374593b476e5c7cede15b058169d07f6f4af8569550aa8b783f0a |                        |        |        |        |              |              |
-| Applied                                                          | 20211228003329/migrate | create | diary  | skills | table        | (1.659541ms) |
-| Applied                                                          | 20211228005507/migrate | create | skills | table  | (4.430125ms) |              |
-| Applied                                                          | 20211228005520/migrate | create | diary  | table  | (2.990083ms) |              |
-| Applied                                                          | 20211228003329/migrate | create | diary  | skills | table        | (1.706875ms) |
-| Applied                                                          | 20211228005507/migrate | create | skills | table  | (6.221875ms) |              |
-| Applied                                                          | 20211228005520/migrate | create | diary  | table  | (3.238583ms) |              |
+| 8e36c549a4ce9bc0151cb14b73707c211184690e9351f9a3c2ade1cd3d9bd935 |                        |        |        |        |              |              |
+| Applied                                                          | 20211228003329/migrate | create | diary  | skills | table        | (1.789583ms) |
+| Applied                                                          | 20211228005507/migrate | create | skills | table  | (4.741708ms) |              |
+| Applied                                                          | 20211228005520/migrate | create | diary  | table  | (3.060958ms) |              |
+| Applied                                                          | 20211228003329/migrate | create | diary  | skills | table        | (1.672625ms) |
+| Applied                                                          | 20211228005507/migrate | create | skills | table  | (4.482375ms) |              |
+| Applied                                                          | 20211228005520/migrate | create | diary  | table  | (3.15ms)     |              |
 
 
 ** Kill Postgres Server
@@ -56,7 +56,7 @@ docker kill $(docker ps -q)
 #+end_src
 
 #+RESULTS:
-: 98dfe34b68e2
+: e278d35bea03
 
 * Postgres
 ** Migrate Database
@@ -95,29 +95,13 @@ When running a health check we should return a 200.
 
 ** Enter Data
 #+begin_src restclient
-POST http://localhost:8000/create
+POST http://localhost:8000/diary_entries
 Content-Type: application/json
 {
-"name": "mindfulness",
-"completed": true
+"entry_date": "2021-12-30T17:53:59Z",
+"skill_names": ["observe", "describe", "participate"]
 }
 #+end_src
-
-#+RESULTS:
-#+BEGIN_SRC js
-{
-  "id": "51d7ea5e-95f5-4782-8653-0b90f5354526",
-  "name": "mindfulness",
-  "completed": true,
-  "created_at": "2021-12-27T22:35:13.755543Z"
-}
-// POST http://localhost:8000/create
-// HTTP/1.1 201 Created
-// content-length: 126
-// content-type: application/json
-// date: Mon, 27 Dec 2021 22:35:13 GMT
-// Request duration: 0.030315s
-#+END_SRC
 
 ** GET Data
 #+begin_src restclient
