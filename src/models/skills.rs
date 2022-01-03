@@ -64,7 +64,6 @@ impl Skill {
         skill_names: &[String],
     ) -> Result<Vec<Self>, sqlx::Error> {
         let mut transaction = config.pg_pool.begin().await?;
-        println!("{:?}", skill_names);
         let list = skill_names.iter().fold(String::new(), |str: String, item| {
             if str.is_empty() {
                 format!("'{}'", item)
@@ -74,6 +73,29 @@ impl Skill {
         });
         let query_statement = format!("SELECT * from skills WHERE name IN ({});", list);
         let skills: Vec<Skill> = sqlx::query_as(&query_statement)
+            .fetch_all(&mut transaction)
+            .await
+            .map_err(|e| {
+                tracing::error!("Failed to execute query: {:?}", e);
+                e
+            })?;
+
+        if let Environment::Dev = config.env {
+            transaction.commit().await?;
+        }
+
+        Ok(skills)
+    }
+}
+
+impl Skill {
+    #[tracing::instrument(name = "Retrieving all skills from the database", skip(config))]
+    pub async fn find_all(config: &AppData) -> Result<Vec<Self>, sqlx::Error> {
+        let mut transaction = config.pg_pool.begin().await?;
+        let query_statement = r#"
+    SELECT * from skills
+    "#;
+        let skills: Vec<Skill> = sqlx::query_as(query_statement)
             .fetch_all(&mut transaction)
             .await
             .map_err(|e| {

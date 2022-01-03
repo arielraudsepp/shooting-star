@@ -16,3 +16,10 @@ pub async fn show(
         Err(_) => Ok(HttpResponse::InternalServerError().finish()),
     }
 }
+
+pub async fn index(config: web::Data<AppData>) -> actix_web::Result<HttpResponse> {
+    match Skill::find_all(&config).await {
+        Ok(entries) => Ok(HttpResponse::Ok().json(entries)),
+        Err(_) => Ok(HttpResponse::InternalServerError().finish()),
+    }
+}

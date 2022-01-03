@@ -2,8 +2,7 @@ pub mod configuration;
 pub mod controllers;
 pub mod models;
 
-use controllers::{create, show};
-use controllers::health_check;
+use controllers::{diary_entries_controller, health_check_controller, skills_controller};
 
 use actix_cors::Cors;
 use actix_web::dev::Server;
@@ -23,9 +22,20 @@ pub fn run(listener: TcpListener, app_config: AppData) -> Result<Server, std::io
             .max_age(3600);
         App::new()
             .wrap(cors)
-            .route("/health_check", web::get().to(health_check))
-            .route("/diary_entries", web::post().to(create))
-            .route("/skills/{id}", web::get().to(show))
+            .route(
+                "/health_check",
+                web::get().to(health_check_controller::health_check),
+            )
+            .route(
+                "/diary_entries",
+                web::post().to(diary_entries_controller::create),
+            )
+            .route(
+                "/diary_entries/{id}",
+                web::get().to(diary_entries_controller::show),
+            )
+            .route("/skills", web::get().to(skills_controller::index))
+            .route("/skills/{id}", web::get().to(skills_controller::show))
             .app_data(app_data.clone())
     })
     .listen(listener)?

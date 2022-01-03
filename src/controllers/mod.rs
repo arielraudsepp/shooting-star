@@ -1,7 +1,12 @@
-mod diary_entries_controller;
-mod health_check_controller;
-mod skills_controller;
+use chrono::{DateTime, Utc};
+use serde::{Deserialize, Serialize};
 
-pub use diary_entries_controller::*;
-pub use health_check_controller::*;
-pub use skills_controller::*;
+pub mod diary_entries_controller;
+pub mod health_check_controller;
+pub mod skills_controller;
+
+#[derive(Deserialize, Serialize, Debug)]
+pub struct DiaryForm {
+    pub entry_date: DateTime<Utc>,
+    pub skill_names: Vec<String>,
+}

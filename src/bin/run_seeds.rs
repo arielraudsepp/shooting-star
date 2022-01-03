@@ -5,8 +5,7 @@ use std::fs;
 #[tokio::main]
 async fn main() {
     let file_name = "seeds/seed_skills.sql";
-    let seed =
-        fs::read_to_string(&file_name).expect(&format!("Unable to up read from {}", &file_name));
+    let seed = fs::read_to_string(&file_name).expect("Unable to read file");
 
     let config = get_configuration().expect("Unable to read settings file");
 
