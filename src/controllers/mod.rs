@@ -8,5 +8,5 @@ pub mod skills_controller;
 #[derive(Deserialize, Serialize, Debug)]
 pub struct DiaryForm {
     pub entry_date: DateTime<Utc>,
-    pub skill_names: Vec<String>,
+    pub skill_ids: Vec<i32>,
 }

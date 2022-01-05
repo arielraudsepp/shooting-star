@@ -1,11 +1,11 @@
 use crate::configuration::AppData;
-use crate::controllers::DiaryForm;
 use crate::models::{DiaryEntry, DiaryEntrySkills, Form, Record, Skill};
+use crate::controllers::DiaryForm;
 
 use actix_web::web;
 use actix_web::HttpResponse;
 
-//Adds a new diary entry from an http form data
+//Creates a new diary entry from an HTTP form data
 pub async fn create(
     form: web::Json<DiaryForm>,
     config: web::Data<AppData>,
@@ -15,8 +15,8 @@ pub async fn create(
         Ok(entry) => entry,
         Err(_) => return Ok(HttpResponse::InternalServerError().finish()),
     };
-    let skills_list = diary_form.skill_names;
-    let skill_records = Skill::find_by_name(&config, &skills_list);
+    let skills_id_list = diary_form.skill_ids;
+    let skill_records = Skill::find_by_ids(&config, &skills_id_list);
     let skills = match skill_records.await {
         Ok(skills) => skills,
         Err(_) => return Ok(HttpResponse::InternalServerError().finish()),

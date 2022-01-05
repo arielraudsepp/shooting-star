@@ -58,20 +58,20 @@ impl Record for Skill {
 }
 
 impl Skill {
-    #[tracing::instrument(name = "Retrieving skill id by name from the database", skip(config))]
-    pub async fn find_by_name(
+    #[tracing::instrument(name = "Retrieving skills by ids from the database", skip(config))]
+    pub async fn find_by_ids(
         config: &AppData,
-        skill_names: &[String],
+        skill_ids: &[i32],
     ) -> Result<Vec<Self>, sqlx::Error> {
         let mut transaction = config.pg_pool.begin().await?;
-        let list = skill_names.iter().fold(String::new(), |str: String, item| {
+        let list = skill_ids.iter().fold(String::new(), |str: String, item| -> String {
             if str.is_empty() {
                 format!("'{}'", item)
             } else {
                 format!("{}, '{}'", str, item)
             }
         });
-        let query_statement = format!("SELECT * from skills WHERE name IN ({});", list);
+        let query_statement = format!("SELECT * from skills WHERE id IN ({});", list);
         let skills: Vec<Skill> = sqlx::query_as(&query_statement)
             .fetch_all(&mut transaction)
             .await
