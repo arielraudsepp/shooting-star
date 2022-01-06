@@ -1,6 +1,6 @@
 use crate::configuration::AppData;
-use crate::models::{DiaryEntry, DiaryEntrySkills, Form, Record, Skill};
 use crate::controllers::DiaryForm;
+use crate::models::{DiaryEntry, DiaryEntrySkills, Form, Record, Skill};
 
 use actix_web::web;
 use actix_web::HttpResponse;
@@ -16,6 +16,10 @@ pub async fn create(
         Err(_) => return Ok(HttpResponse::InternalServerError().finish()),
     };
     let skills_id_list = diary_form.skill_ids;
+    if skills_id_list.is_empty() {
+        return Ok(HttpResponse::Created().json(&diary_entry))
+    };
+
     let skill_records = Skill::find_by_ids(&config, &skills_id_list);
     let skills = match skill_records.await {
         Ok(skills) => skills,

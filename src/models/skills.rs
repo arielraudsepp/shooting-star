@@ -8,6 +8,7 @@ use sqlx::FromRow;
 pub struct Skill {
     pub id: i32,
     pub name: String,
+    pub category: String,
 }
 
 #[async_trait]
