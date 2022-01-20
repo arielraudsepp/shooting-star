@@ -1,6 +1,9 @@
-use std::convert::{TryFrom, TryInto};
+use std::{
+    convert::{TryFrom, TryInto},
+    str::FromStr,
+};
 
-use sqlx::PgPool;
+use sqlx::{postgres, ConnectOptions, PgPool};
 
 #[derive(serde::Deserialize)]
 pub struct EnvSettings {
@@ -39,7 +42,11 @@ pub struct AppData {
 
 impl AppData {
     pub async fn init(setting: &Settings) -> Self {
-        let pg_pool = PgPool::connect(&setting.database.connection_string())
+        let mut options =
+            postgres::PgConnectOptions::from_str(&setting.database.connection_string()).unwrap();
+        options.log_statements(tracing::log::LevelFilter::Warn);
+
+        let pg_pool = PgPool::connect_with(options)
             .await
             .expect("Failed to connect to Postgres");
 

@@ -14,6 +14,12 @@ pub struct DiaryEntry {
     pub created_at: sqlx::types::chrono::DateTime<Utc>,
 }
 
+#[derive(Deserialize, Debug)]
+pub struct DateRangeRequest {
+    pub start: Option<sqlx::types::chrono::NaiveDate>,
+    pub end: Option<sqlx::types::chrono::NaiveDate>,
+}
+
 #[async_trait]
 impl Form<DiaryEntry> for DiaryForm {
     #[tracing::instrument(name = "Saving diary entry from form in the database", skip(config))]
@@ -86,5 +92,39 @@ impl Record for DiaryEntry {
         }
 
         Ok(diary_entry)
+    }
+}
+
+impl DiaryEntry {
+    #[tracing::instrument(name = "Retrieving diary entries from database", skip(config))]
+    pub async fn find_by_date_range(
+        config: &AppData,
+        date_range: DateRangeRequest,
+    ) -> Result<Vec<Self>, sqlx::Error> {
+        let mut transaction = config.pg_pool.begin().await?;
+
+        let query_statement: String;
+        if date_range.start.is_none() || date_range.end.is_none() {
+            query_statement = r#"SELECT * FROM diary_entries"#.to_string();
+        } else {
+            query_statement = format!(
+                "SELECT * FROM diary_entries WHERE entry_date BETWEEN '{}' AND '{}';",
+                date_range.start.unwrap(),
+                date_range.end.unwrap()
+            );
+        }
+        let diary_entries: Vec<DiaryEntry> = sqlx::query_as(&query_statement)
+            .fetch_all(&mut transaction)
+            .await
+            .map_err(|e| {
+                tracing::error!("Failed to execute query: {:?}", e);
+                e
+            })?;
+
+        if let Environment::Dev = config.env {
+            transaction.commit().await?;
+        }
+
+        Ok(diary_entries)
     }
 }

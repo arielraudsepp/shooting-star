@@ -34,6 +34,14 @@ pub fn run(listener: TcpListener, app_config: AppData) -> Result<Server, std::io
                 "/diary_entries/{id}",
                 web::get().to(diary_entries_controller::show),
             )
+            .route(
+                "/diary_entries",
+                web::get().to(diary_entries_controller::index),
+            )
+            .route(
+                "/diary_entries/{id}/skills",
+                web::get().to(diary_entries_controller::index_skills),
+            )
             .route("/skills", web::get().to(skills_controller::index))
             .route("/skills/{id}", web::get().to(skills_controller::show))
             .app_data(app_data.clone())

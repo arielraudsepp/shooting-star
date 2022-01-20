@@ -65,13 +65,15 @@ impl Skill {
         skill_ids: &[i32],
     ) -> Result<Vec<Self>, sqlx::Error> {
         let mut transaction = config.pg_pool.begin().await?;
-        let list = skill_ids.iter().fold(String::new(), |str: String, item| -> String {
-            if str.is_empty() {
-                format!("'{}'", item)
-            } else {
-                format!("{}, '{}'", str, item)
-            }
-        });
+        let list = skill_ids
+            .iter()
+            .fold(String::new(), |str: String, item| -> String {
+                if str.is_empty() {
+                    format!("'{}'", item)
+                } else {
+                    format!("{}, '{}'", str, item)
+                }
+            });
         let query_statement = format!("SELECT * from skills WHERE id IN ({});", list);
         let skills: Vec<Skill> = sqlx::query_as(&query_statement)
             .fetch_all(&mut transaction)
