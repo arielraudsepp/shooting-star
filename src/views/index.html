@@ -22,7 +22,12 @@
                 <h1 class="ui center aligned header">Skills Tracker</h1>
                 <div class="field">
                     <label>Skill Name</label>
-                    <input type="checkbox" id="name" class="small">
+                    <br>
+                    <input type="checkbox" name="name" value="mindfulness" id="mindfulness">
+                    <label for="mindfulness">mindfulness</label>
+                    <br>
+                    <input type="checkbox" name="name" value="TIP" id="TIP">
+                    <label for="TIP">TIP</label>
                 </div>
                 <button class="ui primary submit button" type="submit" style="margin-top: 10px">Submit</button>
             </form>
@@ -31,45 +36,52 @@
         <div id="submit">
         </div>
 
-        <script>
-         function prettyPrintResponse(responseBody){
+        <!-- <script>
+             function prettyPrintResponse(responseBody){
              let skill = JSON.parse(responseBody);
              let fields = Object.keys(skill); // This is the data we also need for headers.
              let row = fields.map(field => `<td>${skill[field]}</td>`);
              let headerRow = fields.map(field => `<th>${field}</th>`);
              let tableStart = ["<table>", "<tr>"]
-                 .concat(headerRow)
-                 .concat(["</tr>", "<tr>"])
-                 .concat(row)
-                 .concat(["</tr>", "</table>"])
-                 .join("\n");
+             .concat(headerRow)
+             .concat(["</tr>", "<tr>"])
+             .concat(row)
+             .concat(["</tr>", "</table>"])
+             .join("\n");
              document.getElementById("submit").innerHTML += tableStart //creates table in submit div of response
-         }
+             }
 
-         function postData (event){
+             function postData (event){
              const skill_name = document.getElementById("name").value;
              event.preventDefault();
              console.log(skill_name);
 
              //debugger;
-             fetch('http://localhost:8000/enter_data', {
-                 method: 'POST',
-                 headers: new Headers({
-                     "Accept": "application/json",
-                     "Content-Type": "application/json"
-                 }),
-                 body: JSON.stringify({
-                     "name": skill_name,
-                     "completed": true
-                 })
+             fetch('http://localhost:8000/create', {
+             method: 'POST',
+             headers: new Headers({
+             "Accept": "application/json",
+             "Content-Type": "application/json"
+             }),
+             body: JSON.stringify({
+             "name": skill_name,
+             "completed": true
              })
-                 .then(response => response.text())
-                 .then(prettyPrintResponse);
+             })
+             .then(response => response.text())
+             .then(prettyPrintResponse);
 
-         }
-         const form = document.getElementById("test-form");
-         form.onsubmit = postData;
-        </script>
+             }
+             const form = document.getElementById("test-form");
+             form.onsubmit = postData;
 
+
+             </script> -->
+        <script>
+        $( "form" ).submit(function( event ) {
+        console.log( $( this ).serializeArray() );
+        event.preventDefault();
+        });
+    </script>
     </body>
 </html>
