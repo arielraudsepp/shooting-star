@@ -74,12 +74,40 @@ impl Record for DiaryEntry {
         Ok(query)
     }
 
-    #[tracing::instrument(name = "Retrieving diary entry from the database", skip(config))]
+    #[tracing::instrument(name = "Retrieving diary entry by id from the database", skip(config))]
     async fn find_by_id(config: &AppData, id: i32) -> Result<Self, sqlx::Error> {
         let mut transaction = config.pg_pool.begin().await?;
         let query_statement = r#"SELECT * from diary_entries WHERE id = $1"#;
         let diary_entry = sqlx::query_as(query_statement)
             .bind(id)
+            .fetch_one(&mut transaction)
+            .await
+            .map_err(|e| {
+                tracing::error!("Failed to execute query: {:?}", e);
+                e
+            })?;
+
+        if let Environment::Dev = config.env {
+            transaction.commit().await?;
+        }
+
+        Ok(diary_entry)
+    }
+}
+
+impl DiaryEntry {
+    #[tracing::instrument(
+        name = "Retrieving diary entry by date from the database",
+        skip(config)
+    )]
+    pub async fn find_by_date(
+        config: &AppData,
+        date: sqlx::types::chrono::NaiveDate,
+    ) -> Result<Self, sqlx::Error> {
+        let mut transaction = config.pg_pool.begin().await?;
+        let query_statement = r#"SELECT * from diary_entries WHERE entry_date = $1"#;
+        let diary_entry = sqlx::query_as(query_statement)
+            .bind(date)
             .fetch_one(&mut transaction)
             .await
             .map_err(|e| {

@@ -31,7 +31,7 @@ pub fn run(listener: TcpListener, app_config: AppData) -> Result<Server, std::io
                 web::post().to(diary_entries_controller::create),
             )
             .route(
-                "/diary_entries/{id}",
+                "/diary_entries/{date}",
                 web::get().to(diary_entries_controller::show),
             )
             .route(
@@ -39,8 +39,8 @@ pub fn run(listener: TcpListener, app_config: AppData) -> Result<Server, std::io
                 web::get().to(diary_entries_controller::index),
             )
             .route(
-                "/diary_entries/{id}/skills",
-                web::get().to(diary_entries_controller::index_skills),
+                "/diary_entries/{date}/skills",
+                web::get().to(diary_entries_controller::show_skills),
             )
             .route("/skills", web::get().to(skills_controller::index))
             .route("/skills/{id}", web::get().to(skills_controller::show))

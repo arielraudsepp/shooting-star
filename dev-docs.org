@@ -17,7 +17,8 @@ It will be a web-based application. The home-screen will require the user to log
     I want to view stored scores,
     So that I can review progress
 ** Stack
-- React with Typescript
+- App server: Rust with Postgres, actix
+- Frontend: React with Typescript
 
 * Linting and Formatting
 ** Linting
@@ -29,21 +30,24 @@ cargo clippy
 cargo fmt
 #+end_src
 * Docker
+** Recompile shell file
+#+begin_src zsh
+chmod +x scripts/init_db.sh
+#+end_src
+
 ** Launch Postgres server
 #+begin_src shell
-chmod +x scripts/init_db.sh
 ./scripts/init_db.sh
 #+end_src
 
 #+RESULTS:
-| 304583ebb0d4808c93d620a9d679d9ff2617e643c4bcfb2b7942eb8d70791d80 |                        |        |        |        |              |              |
-| Applied                                                          | 20211228003329/migrate | create | diary  | skills | table        | (2.839166ms) |
-| Applied                                                          | 20211228005507/migrate | create | skills | table  | (4.995791ms) |              |
-| Applied                                                          | 20211228005520/migrate | create | diary  | table  | (2.793416ms) |              |
-| Applied                                                          | 20211228003329/migrate | create | diary  | skills | table        | (1.69425ms)  |
-| Applied                                                          | 20211228005507/migrate | create | skills | table  | (6.040375ms) |              |
-| Applied                                                          | 20211228005520/migrate | create | diary  | table  | (2.648875ms) |              |
-
+| 89142a5a3c90f02e07fadedc45916fa751695751f5b392389c5d24da61c29966 |                        |        |        |        |               |              |
+| Applied                                                          | 20211228003329/migrate | create | diary  | skills | table         | (2.700466ms) |
+| Applied                                                          | 20211228005507/migrate | create | skills | table  | (27.542389ms) |              |
+| Applied                                                          | 20211228005520/migrate | create | diary  | table  | (13.213376ms) |              |
+| Applied                                                          | 20211228003329/migrate | create | diary  | skills | table         | (2.822661ms) |
+| Applied                                                          | 20211228005507/migrate | create | skills | table  | (15.838172ms) |              |
+| Applied                                                          | 20211228005520/migrate | create | diary  | table  | (9.005266ms)  |              |
 
 ** Kill Postgres Server
 #+begin_src shell
@@ -51,7 +55,7 @@ docker kill $(docker ps -q)
 #+end_src
 
 #+RESULTS:
-: c142446b208e
+: 003ba494132e
 
 * Postgres
 ** Migrate Database
@@ -100,8 +104,8 @@ When running a health check we should return a 200.
 POST http://localhost:8000/diary_entries
 Content-Type: application/json
 {
-"entry_date": "2021-12-30T17:53:59Z",
-"skill_ids": [10, 12, 22]
+"entry_date": "2022-01-12T17:53:59Z",
+"skill_ids": [1, 5, 12]
 }
 #+end_src
 
@@ -109,45 +113,73 @@ Content-Type: application/json
 #+BEGIN_SRC js
 {
   "id": 2,
-  "entry_date": "2021-12-30",
-  "created_at": "2022-01-14T04:10:03.581480Z"
+  "entry_date": "2022-01-12",
+  "created_at": "2022-01-26T03:59:03.496251Z"
 }
 // POST http://localhost:8000/diary_entries
 // HTTP/1.1 201 Created
 // content-length: 77
 // content-type: application/json
-// date: Fri, 14 Jan 2022 04:10:03 GMT
-// Request duration: 0.059445s
+// date: Wed, 26 Jan 2022 03:59:03 GMT
+// Request duration: 0.237079s
 #+END_SRC
 
-*** Show Diary Entry by ID (Action: show)
+*** Show Diary Entry by Date (Action: show)
 #+begin_src restclient
-GET http://localhost:8000/diary_entries/21
+GET http://localhost:8000/diary_entries/2021-12-30
 #+end_src
 
 #+RESULTS:
 #+BEGIN_SRC js
-// GET http://localhost:8000/diary_entries/21
-// HTTP/1.1 404 Not Found
-// content-length: 0
-// date: Thu, 06 Jan 2022 17:43:59 GMT
-// Request duration: 0.025372s
+{
+  "id": 1,
+  "entry_date": "2021-12-30",
+  "created_at": "2022-01-25T23:37:22.884289Z"
+}
+// GET http://localhost:8000/diary_entries/2021-12-30
+// HTTP/1.1 200 OK
+// content-length: 77
+// content-type: application/json
+// date: Tue, 25 Jan 2022 23:39:09 GMT
+// Request duration: 0.009705s
+#+END_SRC
+
+*** Show Diary Entry Skills by Date (Action: show)
+#+begin_src restclient
+GET http://localhost:8000/diary_entries/2021-11-30/skills
+#+end_src
+
+#+RESULTS:
+#+BEGIN_SRC js
+[]
+// GET http://localhost:8000/diary_entries/2021-11-30/skills
+// HTTP/1.1 200 OK
+// content-length: 2
+// content-type: application/json
+// date: Wed, 26 Jan 2022 05:02:51 GMT
+// Request duration: 0.009779s
 #+END_SRC
 
 *** Index Diary Entries by Date Range (Action: index)
 #+begin_src restclient
-GET http://localhost:8000/diary_entries
+GET http://localhost:8000/diary_entries?start=2021-10-01&end=2022-10-20
 #+end_src
 
 #+RESULTS:
-#+BEGIN_SRC text
-Query deserialize error: premature end of input
-GET http://localhost:8000/diary_entries?start_date
-HTTP/1.1 400 Bad Request
-content-length: 47
-content-type: text/plain; charset=utf-8
-date: Sun, 16 Jan 2022 04:59:10 GMT
-Request duration: 0.009263s
+#+BEGIN_SRC js
+[
+  {
+    "id": 1,
+    "entry_date": "2021-12-30",
+    "created_at": "2022-01-25T23:37:22.884289Z"
+  }
+]
+// GET http://localhost:8000/diary_entries?start=2021-10-01&end=2022-10-20
+// HTTP/1.1 200 OK
+// content-length: 79
+// content-type: application/json
+// date: Tue, 25 Jan 2022 23:42:30 GMT
+// Request duration: 0.010906s
 #+END_SRC
 
 ** Skills
