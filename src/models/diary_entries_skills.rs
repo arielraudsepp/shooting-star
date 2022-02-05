@@ -104,3 +104,32 @@ impl DiaryEntrySkills {
         Ok(diary_entry_skills)
     }
 }
+
+impl DiaryEntrySkills {
+    #[tracing::instrument(name = "Deleting diary_entry_skills by diary entry id in the database", skip(config))]
+    pub async fn delete(
+        config: &AppData,
+        diary_entry: &DiaryEntry,
+    ) -> Result<Vec<Self>, sqlx::Error> {
+        let mut transaction = config.pg_pool.begin().await?;
+        let query_statement = r#"
+    DELETE FROM diary_entries_skills
+    WHERE diary_entry_id = $1
+    RETURNING *;
+    "#;
+        let diary_entry_skills: Vec<DiaryEntrySkills> = sqlx::query_as(query_statement)
+            .bind(diary_entry.id)
+            .fetch_all(&mut transaction)
+            .await
+            .map_err(|e| {
+                tracing::error!("Failed to execute query: {:?}", e);
+                e
+            })?;
+
+        if let Environment::Dev = config.env {
+            transaction.commit().await?;
+        }
+
+        Ok(diary_entry_skills)
+    }
+}

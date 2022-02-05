@@ -47,6 +47,34 @@ impl Form<DiaryEntry> for DiaryForm {
     }
 }
 
+impl DiaryEntry {
+    #[tracing::instrument(name = "Updating diary entry in the database", skip(config))]
+    pub async fn update(&self, config: &AppData) -> Result<DiaryEntry, sqlx::Error> {
+        let mut transaction = config.pg_pool.begin().await?;
+        let query_statement = r#"
+    UPDATE diary_entries
+    SET created_at = $1
+    WHERE id = $2
+    RETURNING id, entry_date, created_at
+    "#;
+        let query: DiaryEntry = sqlx::query_as(query_statement)
+            .bind(Utc::now())
+            .bind(self.id)
+            .fetch_one(&mut transaction)
+            .await
+            .map_err(|e| {
+                tracing::error!("failed to execute query: {:?}", e);
+                e
+            })?;
+
+        if let Environment::Dev = config.env {
+            transaction.commit().await?;
+        }
+
+        Ok(query)
+    }
+}
+
 #[async_trait]
 impl Record for DiaryEntry {
     #[tracing::instrument(name = "Saving diary entry in the database", skip(config))]

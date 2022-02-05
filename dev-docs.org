@@ -104,45 +104,39 @@ When running a health check we should return a 200.
 POST http://localhost:8000/diary_entries
 Content-Type: application/json
 {
-"entry_date": "2022-01-12T17:53:59Z",
-"skill_ids": [1, 5, 12]
+  "entry_date": "2022-01-12T17:53:59Z",
+  "skill_ids": [1, 5, 12]
 }
 #+end_src
 
 #+RESULTS:
 #+BEGIN_SRC js
 {
-  "id": 2,
+  "id": 15,
   "entry_date": "2022-01-12",
-  "created_at": "2022-01-26T03:59:03.496251Z"
+  "created_at": "2022-02-03T04:42:47.821324Z"
 }
 // POST http://localhost:8000/diary_entries
 // HTTP/1.1 201 Created
-// content-length: 77
+// content-length: 78
 // content-type: application/json
-// date: Wed, 26 Jan 2022 03:59:03 GMT
-// Request duration: 0.237079s
+// date: Thu, 03 Feb 2022 04:42:47 GMT
+// Request duration: 0.140884s
 #+END_SRC
 
 *** Show Diary Entry by Date (Action: show)
 #+begin_src restclient
-GET http://localhost:8000/diary_entries/2021-12-30
+GET http://localhost:8000/diary_entries/2021-12-05
 #+end_src
 
 #+RESULTS:
-#+BEGIN_SRC js
-{
-  "id": 1,
-  "entry_date": "2021-12-30",
-  "created_at": "2022-01-25T23:37:22.884289Z"
-}
-// GET http://localhost:8000/diary_entries/2021-12-30
-// HTTP/1.1 200 OK
-// content-length: 77
-// content-type: application/json
-// date: Tue, 25 Jan 2022 23:39:09 GMT
-// Request duration: 0.009705s
-#+END_SRC
+: #+BEGIN_SRC js
+: // GET http://localhost:8000/diary_entries/2021-12-05
+: // HTTP/1.1 404 Not Found
+: // content-length: 0
+: // date: Sun, 30 Jan 2022 02:40:38 GMT
+: // Request duration: 0.080956s
+: #+END_SRC
 
 *** Show Diary Entry Skills by Date (Action: show)
 #+begin_src restclient
