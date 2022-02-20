@@ -17,12 +17,13 @@ impl Record for Skill {
     async fn save(self, config: &AppData) -> Result<Self, sqlx::Error> {
         let mut transaction = config.pg_pool.begin().await?;
         let query_statement = r#"
-    INSERT INTO skills (id, name)
-    VALUES ($1, $2) RETURNING id, name
+    INSERT INTO skills (id, name, category)
+    VALUES ($1, $2) RETURNING id, name, category
     "#;
         let query: Skill = sqlx::query_as(query_statement)
             .bind(self.id)
             .bind(self.name)
+            .bind(self.category)
             .fetch_one(&mut transaction)
             .await
             .map_err(|e| {

@@ -105,7 +105,7 @@ POST http://localhost:8000/diary_entries
 Content-Type: application/json
 {
   "entry_date": "2022-01-12T17:53:59Z",
-  "skill_ids": [1, 5, 12]
+  "skill_ids": [1, 5, 1]
 }
 #+end_src
 
@@ -126,17 +126,17 @@ Content-Type: application/json
 
 *** Show Diary Entry by Date (Action: show)
 #+begin_src restclient
-GET http://localhost:8000/diary_entries/2021-12-05
+GET http://localhost:8000/diary_entries/2022-02-06
 #+end_src
 
 #+RESULTS:
-: #+BEGIN_SRC js
-: // GET http://localhost:8000/diary_entries/2021-12-05
-: // HTTP/1.1 404 Not Found
-: // content-length: 0
-: // date: Sun, 30 Jan 2022 02:40:38 GMT
-: // Request duration: 0.080956s
-: #+END_SRC
+#+BEGIN_SRC js
+// GET http://localhost:8000/diary_entries/2022-02-02
+// HTTP/1.1 404 Not Found
+// content-length: 0
+// date: Sun, 20 Feb 2022 19:30:48 GMT
+// Request duration: 0.019373s
+#+END_SRC
 
 *** Show Diary Entry Skills by Date (Action: show)
 #+begin_src restclient

@@ -13,13 +13,13 @@ pub async fn show(
 
     match Skill::find_by_id(&config, skill_id).await {
         Ok(entry) => Ok(HttpResponse::Ok().json(entry)),
-        Err(_) => Ok(HttpResponse::InternalServerError().finish()),
+        Err(_) => Ok(HttpResponse::NotFound().finish()),
     }
 }
 
 pub async fn index(config: web::Data<AppData>) -> actix_web::Result<HttpResponse> {
     match Skill::find_all(&config).await {
         Ok(entries) => Ok(HttpResponse::Ok().json(entries)),
-        Err(_) => Ok(HttpResponse::InternalServerError().finish()),
+        Err(_) => Ok(HttpResponse::NotFound().finish()),
     }
 }
