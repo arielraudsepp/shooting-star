@@ -66,7 +66,7 @@ pub async fn update(
     let skill_records = Skill::find_by_ids(&config, &skills_id_list);
     let skills = match skill_records.await {
         Ok(skills) => skills,
-        Err(_) => return Ok(HttpResponse::InternalServerError().finish()),
+        Err(_) => return Ok(HttpResponse::NotFound().finish()),
     };
     for skill in skills {
         let diary_entry_skills =
