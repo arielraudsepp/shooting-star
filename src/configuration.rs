@@ -3,7 +3,9 @@ use std::{
     str::FromStr,
 };
 
+use secrecy::Secret;
 use sqlx::{postgres, ConnectOptions, PgPool};
+
 
 #[derive(serde::Deserialize)]
 pub struct EnvSettings {
@@ -15,6 +17,8 @@ pub struct EnvSettings {
 pub struct Settings {
     pub database: DatabaseSettings,
     pub application_port: u16,
+    pub redis_uri: Secret<String>,
+    pub hmac_secret: Secret<String>,
 }
 
 #[derive(serde::Deserialize)]
