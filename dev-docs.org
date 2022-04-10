@@ -43,6 +43,7 @@ chmod +x scripts/init_redis.sh
 #+end_src
 
 #+RESULTS:
+<<<<<<< Updated upstream
 | 876e7465cc036820aa9c37c2b095c7b5f759a6c3b7078fd0dd0373b474fd670e |                        |        |        |        |              |              |
 | Applied                                                          | 20211228003329/migrate | create | diary  | skills | table        | (1.524083ms) |
 | Applied                                                          | 20211228005507/migrate | create | skills | table  | (4.1455ms)   |              |
@@ -50,6 +51,17 @@ chmod +x scripts/init_redis.sh
 | Applied                                                          | 20211228003329/migrate | create | diary  | skills | table        | (1.697125ms) |
 | Applied                                                          | 20211228005507/migrate | create | skills | table  | (5.485416ms) |              |
 | Applied                                                          | 20211228005520/migrate | create | diary  | table  | (2.833ms)    |              |
+=======
+| 89142a5a3c90f02e07fadedc45916fa751695751f5b392389c5d24da61c29966 |                        |        |        |        |               |              |
+| Applied                                                          | 20211228003329/migrate | create | diary  | skills | table         | (2.700466ms) |
+| Applied                                                          | 20211228005507/migrate | create | skills | table  | (27.542389ms) |              |
+| Applied                                                          | 20211228005520/migrate | create | diary  | table  | (13.213376ms) |              |
+| Applied                                                          | 20211228003329/migrate | create | diary  | skills | table         | (2.822661ms) |
+| Applied                                                          | 20211228005507/migrate | create | skills | table  | (15.838172ms) |              |
+| Applied                                                          | 20211228005520/migrate | create | diary  | table  | (9.005266ms)  |              |
+| a96e8606dd53e9de403955ff3c4841aa99c78af69057824689eb7f5ed7641fa8 |
+| 03ca3c2d20cb06edba401cdf379aa0e2b301882f539189a44b8750eb644bccac |
+>>>>>>> Stashed changes
 
 ** Kill Postgres Server
 #+begin_src shell
@@ -66,6 +78,14 @@ SKIP_DOCKER=true ./scripts/init_db.sh
 #+end_src
 
 #+RESULTS:
+| Applied | 20211228003329/migrate | create | diary  | skills | table         | (2.874695ms) |
+| Applied | 20211228005507/migrate | create | skills | table  | (15.01628ms)  |              |
+| Applied | 20211228005520/migrate | create | diary  | table  | (7.77463ms)   |              |
+| Applied | 20220410172326/migrate | create | users  | table  | (18.284425ms) |              |
+| Applied | 20211228003329/migrate | create | diary  | skills | table         | (2.932914ms) |
+| Applied | 20211228005507/migrate | create | skills | table  | (20.59158ms)  |              |
+| Applied | 20211228005520/migrate | create | diary  | table  | (9.072683ms)  |              |
+| Applied | 20220410172326/migrate | create | users  | table  | (36.659169ms) |              |
 
 ** Seed the database
 #+begin_src shell
@@ -81,13 +101,32 @@ GET http://localhost:8000/health_check
 #+end_src
 
 #+RESULTS:
+<<<<<<< Updated upstream
+=======
+#+BEGIN_SRC js
+// GET http://localhost:8000/health_check
+// HTTP/1.1 200 OK
+// content-length: 0
+// date: Mon, 27 Dec 2021 20:04:15 GMT
+// Request duration: 0.004877s
+#+END_SRC
+>>>>>>> Stashed changes
 : #+BEGIN_SRC js
 : // GET http://localhost:8000/health_check
 : // HTTP/1.1 200 OK
 : // content-length: 0
+<<<<<<< Updated upstream
 : // date: Wed, 09 Feb 2022 02:45:13 GMT
 : // Request duration: 0.062940s
 : #+END_SRC
+=======
+: // vary: Origin, Access-Control-Request-Method, Access-Control-Request-Headers
+: // set-cookie: _flash=; Path=/; Max-Age=0
+: // date: Sun, 03 Apr 2022 21:08:50 GMT
+: // Request duration: 0.064508s
+: #+END_SRC
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
 
 When running a health check we should return a 200.
 #+NAME: Expected Health Check Response
@@ -111,6 +150,7 @@ Content-Type: application/json
 }
 #+end_src
 
+<<<<<<< Updated upstream
 #+RESULTS:
 #+BEGIN_SRC js
 {
@@ -126,6 +166,8 @@ Content-Type: application/json
 // Request duration: 0.059982s
 #+END_SRC
 
+=======
+>>>>>>> Stashed changes
 *** Show Diary Entry by Date (Action: show)
 #+begin_src restclient
 GET http://localhost:8000/diary_entries/2022-02-06
