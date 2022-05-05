@@ -321,7 +321,6 @@ dependencies = [
 [[package]]
 name = "anyhow"
 version = "1.0.56"
-<<<<<<< Updated upstream
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "4361135be9122e0870de935d7c439aef945b9f9ddd4199a553b5270b49c82a27"
 
@@ -330,9 +329,6 @@ name = "arc-swap"
 version = "1.5.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "c5d78ce20460b82d3fa150275ed9d55e21064fc7951177baacf86a145c4a4b1f"
-=======
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "4361135be9122e0870de935d7c439aef945b9f9ddd4199a553b5270b49c82a27"
 
 [[package]]
 name = "argon2"
@@ -344,7 +340,6 @@ dependencies = [
  "blake2",
  "password-hash",
 ]
->>>>>>> Stashed changes
 
 [[package]]
 name = "arrayvec"
@@ -439,18 +434,6 @@ dependencies = [
 [[package]]
 name = "block-buffer"
 version = "0.10.2"
-<<<<<<< Updated upstream
-=======
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "0bf7fe51849ea569fd452f37822f606a5cabb684dc918707a0193fd4664ff324"
-dependencies = [
- "generic-array",
-]
-
-[[package]]
-name = "brotli-sys"
-version = "0.3.2"
->>>>>>> Stashed changes
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "0bf7fe51849ea569fd452f37822f606a5cabb684dc918707a0193fd4664ff324"
 dependencies = [
@@ -1158,7 +1141,6 @@ checksum = "2a2a2320eb7ec0ebe8da8f744d7812d9fc4cb4d09344ac01898dbcb6a20ae69b"
 dependencies = [
  "crypto-mac",
  "digest 0.9.0",
-<<<<<<< Updated upstream
 ]
 
 [[package]]
@@ -1168,8 +1150,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "6c49c37c09c17a53d937dfbb742eb3a961d65a994e6bcdcf37e7399d0cc8ab5e"
 dependencies = [
  "digest 0.10.3",
-=======
->>>>>>> Stashed changes
 ]
 
 [[package]]
@@ -2049,19 +2029,6 @@ dependencies = [
 [[package]]
 name = "secrecy"
 version = "0.8.0"
-<<<<<<< Updated upstream
-=======
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "9bd1c54ea06cfd2f6b63219704de0b9b4f72dcc2b8fdef820be6cd799780e91e"
-dependencies = [
- "serde 1.0.130",
- "zeroize",
-]
-
-[[package]]
-name = "semver"
-version = "0.9.0"
->>>>>>> Stashed changes
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "9bd1c54ea06cfd2f6b63219704de0b9b4f72dcc2b8fdef820be6cd799780e91e"
 dependencies = [
@@ -2248,13 +2215,9 @@ dependencies = [
  "actix-rt",
  "actix-session",
  "actix-web",
-<<<<<<< Updated upstream
  "actix-web-flash-messages",
  "anyhow",
-=======
- "anyhow",
  "argon2",
->>>>>>> Stashed changes
  "async-trait",
  "chrono",
  "config 0.11.0",
