@@ -15,9 +15,8 @@ use actix_web_flash_messages::storage::CookieMessageStore;
 use actix_web_flash_messages::FlashMessagesFramework;
 use secrecy::{ExposeSecret, Secret};
 use configuration::AppData;
-
-
 use std::net::TcpListener;
+
 
 pub async fn run(listener: TcpListener, app_config: AppData, hmac_secret: Secret<String>, redis_uri: Secret<String>) -> Result<Server, anyhow::Error> {
     let secret_key = Key::from(hmac_secret.expose_secret().as_bytes());

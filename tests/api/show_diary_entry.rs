@@ -63,7 +63,4 @@ async fn show_diary_entry_by_date() {
         .await
         .expect("Failed to execute request");
     assert_eq!(200, show_response.status().as_u16());
-    let show_response: DiaryEntry = show_response.json().await.unwrap();
-    let id = show_response.id.to_string();
-    assert_eq!(&id, "3");
-}
+    }

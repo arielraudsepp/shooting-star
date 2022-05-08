@@ -44,6 +44,8 @@ tokio = {version = "1", features = ["macros", "rt"]}
 secrecy = { version = "0.8", features = ["serde"] }
 anyhow = "1.0.56"
 argon2 = { version = "0.3", features = ["std"] }
+serde_json = "1"
+rand = { version = "0.8", features=["std_rng"] }
 
 [dev-dependencies]
 actix-rt = "2"
