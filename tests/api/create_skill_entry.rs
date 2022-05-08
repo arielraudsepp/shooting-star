@@ -1,4 +1,4 @@
-use crate::helpers::spawn_app;
+use crate::helpers::{spawn_app, create_test_user};
 use shooting_star::models::DiaryEntry;
 use shooting_star::controllers::DiaryForm;
 use shooting_star::configuration::get_configuration;
@@ -28,12 +28,16 @@ async fn create_test_data(connection: PgConnection) {
 #[actix_rt::test]
 async fn create_diary_entry_returns_a_201_for_valid_form_data() {
     let app = spawn_app().await;
-
     let configuration = get_configuration().expect("Failed to read configuration.");
-    let connection = PgConnection::connect(&configuration.database.connection_string())
+    let data_connection = PgConnection::connect(&configuration.database.connection_string())
         .await
         .expect("Failed to connect to Postgres");
-    create_test_data(connection).await;
+    create_test_data(data_connection).await;
+    let user_connection = PgConnection::connect(&configuration.database.connection_string())
+        .await
+        .expect("Failed to connect to Postgres");
+    create_test_user(user_connection).await;
+
     let client = reqwest::Client::new();
 
     let naive_date = NaiveDate::parse_from_str("2022-02-07", "%Y-%m-%d").unwrap();

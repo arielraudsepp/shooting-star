@@ -1,4 +1,4 @@
-use crate::helpers::spawn_app;
+use crate::helpers::{spawn_app, create_test_user, TestUser};
 use shooting_star::models::DiaryEntry;
 use shooting_star::configuration::get_configuration;
 use sqlx::Executor;
@@ -30,10 +30,15 @@ async fn show_diary_entry_by_date() {
     let app = spawn_app().await;
 
     let configuration = get_configuration().expect("Failed to read configuration.");
-    let connection = PgConnection::connect(&configuration.database.connection_string())
+    let data_connection = PgConnection::connect(&configuration.database.connection_string())
         .await
         .expect("Failed to connect to Postgres");
-    create_test_data(connection).await;
+    create_test_data(data_connection).await;
+    let user_connection = PgConnection::connect(&configuration.database.connection_string())
+        .await
+        .expect("Failed to connect to Postgres");
+    let test_user: TestUser = create_test_user(user_connection).await;
+
     let client = reqwest::Client::new();
 
     let naive_date = NaiveDate::parse_from_str("2022-02-07", "%Y-%m-%d").unwrap();
@@ -47,6 +52,7 @@ async fn show_diary_entry_by_date() {
 
     let create_response = client
         .post(&format!("{}/diary_entries", &app.address))
+        .basic_auth(test_user.username, Some(test_user.password))
         .json(&body)
         .send()
         .await
@@ -63,4 +69,5 @@ async fn show_diary_entry_by_date() {
         .await
         .expect("Failed to execute request");
     assert_eq!(200, show_response.status().as_u16());
-    }
+
+}

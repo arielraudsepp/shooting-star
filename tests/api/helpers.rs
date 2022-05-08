@@ -9,7 +9,6 @@ use sqlx::postgres::PgConnection;
 
 pub struct TestApp {
     pub address: String,
-    pub test_user: TestUser,
     pub db_url: String,
 }
 
@@ -32,11 +31,9 @@ pub async fn spawn_app() -> TestApp {
 
     let test_app = TestApp {
         address: address,
-        test_user: TestUser::generate(),
         db_url: configuration.database.connection_string(),
     };
 
-    test_app.test_user.store(connection).await;
     test_app
 }
 
@@ -45,6 +42,7 @@ pub struct TestUser {
     pub password: String,
 }
 
+
 impl TestUser {
     pub fn generate() -> Self {
         Self {
@@ -52,26 +50,29 @@ impl TestUser {
             password: Uuid::new_v4().to_string(),
         }
     }
+}
 
-    async fn store(&self, connection: PgConnection) {
-        let salt = SaltString::generate(&mut rand::thread_rng());
-        // Match production parameters
-        let password_hash = Argon2::new(
-            Algorithm::Argon2id,
-            Version::V0x13,
-            Params::new(15000, 2, 1, None).unwrap(),
-        )
-        .hash_password(self.password.as_bytes(), &salt)
+pub async fn create_test_user(mut connection: PgConnection) -> TestUser {
+    let user = TestUser::generate();
+    let salt = SaltString::generate(&mut rand::thread_rng());
+    // Match production parameters
+    let password_hash = Argon2::new(
+        Algorithm::Argon2id,
+        Version::V0x13,
+        Params::new(15000, 2, 1, None).unwrap(),
+    )
+        .hash_password(user.password.as_bytes(), &salt)
         .unwrap()
         .to_string();
-            let mut pg_connection = connection;
-        let query = "INSERT INTO users (username, password_hash)
+    let mut transaction  = connection.begin().await.unwrap();
+    let query = "INSERT INTO users (username, password_hash)
             VALUES ($1, $2)";
-        sqlx::query(query)
-            .bind(&self.username)
-            .bind(password_hash)
-            .execute(&mut pg_connection)
-            .await
-            .expect("Failed to store test user.");
-    }
+    sqlx::query(query)
+        .bind(&user.username)
+        .bind(password_hash)
+        .execute(&mut transaction)
+        .await
+        .expect("Failed to store test user.");
+    transaction.rollback();
+    user
 }
