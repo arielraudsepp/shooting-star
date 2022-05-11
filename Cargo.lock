@@ -2229,6 +2229,7 @@ dependencies = [
  "serde_json",
  "sqlx",
  "test-log",
+ "thiserror",
  "tokio",
  "tracing",
  "tracing-actix-web",

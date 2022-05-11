@@ -2,7 +2,7 @@ pub mod configuration;
 pub mod controllers;
 pub mod models;
 
-use controllers::{diary_entries_controller, health_check_controller, skills_controller};
+use controllers::{diary_entries_controller, health_check_controller, skills_controller, credentials_controller};
 
 use actix_cors::Cors;
 use actix_web::dev::Server;
@@ -63,6 +63,7 @@ pub async fn run(listener: TcpListener, app_config: AppData, hmac_secret: Secret
             )
             .route("/skills", web::get().to(skills_controller::index))
             .route("/skills/{id}", web::get().to(skills_controller::show))
+            .route("/login", web::post().to(credentials_controller::post))
             .app_data(app_data.clone())
             .app_data(Data::new(HmacSecret(hmac_secret.clone())))
     })

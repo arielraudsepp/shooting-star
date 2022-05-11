@@ -42,27 +42,6 @@ chmod +x scripts/init_redis.sh
 ./scripts/init_redis.sh
 #+end_src
 
-#+RESULTS:
-<<<<<<< Updated upstream
-| 876e7465cc036820aa9c37c2b095c7b5f759a6c3b7078fd0dd0373b474fd670e |                        |        |        |        |              |              |
-| Applied                                                          | 20211228003329/migrate | create | diary  | skills | table        | (1.524083ms) |
-| Applied                                                          | 20211228005507/migrate | create | skills | table  | (4.1455ms)   |              |
-| Applied                                                          | 20211228005520/migrate | create | diary  | table  | (2.839791ms) |              |
-| Applied                                                          | 20211228003329/migrate | create | diary  | skills | table        | (1.697125ms) |
-| Applied                                                          | 20211228005507/migrate | create | skills | table  | (5.485416ms) |              |
-| Applied                                                          | 20211228005520/migrate | create | diary  | table  | (2.833ms)    |              |
-=======
-| 89142a5a3c90f02e07fadedc45916fa751695751f5b392389c5d24da61c29966 |                        |        |        |        |               |              |
-| Applied                                                          | 20211228003329/migrate | create | diary  | skills | table         | (2.700466ms) |
-| Applied                                                          | 20211228005507/migrate | create | skills | table  | (27.542389ms) |              |
-| Applied                                                          | 20211228005520/migrate | create | diary  | table  | (13.213376ms) |              |
-| Applied                                                          | 20211228003329/migrate | create | diary  | skills | table         | (2.822661ms) |
-| Applied                                                          | 20211228005507/migrate | create | skills | table  | (15.838172ms) |              |
-| Applied                                                          | 20211228005520/migrate | create | diary  | table  | (9.005266ms)  |              |
-| a96e8606dd53e9de403955ff3c4841aa99c78af69057824689eb7f5ed7641fa8 |
-| 03ca3c2d20cb06edba401cdf379aa0e2b301882f539189a44b8750eb644bccac |
->>>>>>> Stashed changes
-
 ** Kill Postgres Server
 #+begin_src shell
 docker kill $(docker ps -q)
@@ -78,14 +57,6 @@ SKIP_DOCKER=true ./scripts/init_db.sh
 #+end_src
 
 #+RESULTS:
-| Applied | 20211228003329/migrate | create | diary  | skills | table         | (2.874695ms) |
-| Applied | 20211228005507/migrate | create | skills | table  | (15.01628ms)  |              |
-| Applied | 20211228005520/migrate | create | diary  | table  | (7.77463ms)   |              |
-| Applied | 20220410172326/migrate | create | users  | table  | (18.284425ms) |              |
-| Applied | 20211228003329/migrate | create | diary  | skills | table         | (2.932914ms) |
-| Applied | 20211228005507/migrate | create | skills | table  | (20.59158ms)  |              |
-| Applied | 20211228005520/migrate | create | diary  | table  | (9.072683ms)  |              |
-| Applied | 20220410172326/migrate | create | users  | table  | (36.659169ms) |              |
 
 ** Seed the database
 #+begin_src shell
@@ -101,32 +72,15 @@ GET http://localhost:8000/health_check
 #+end_src
 
 #+RESULTS:
-<<<<<<< Updated upstream
-=======
-#+BEGIN_SRC js
-// GET http://localhost:8000/health_check
-// HTTP/1.1 200 OK
-// content-length: 0
-// date: Mon, 27 Dec 2021 20:04:15 GMT
-// Request duration: 0.004877s
-#+END_SRC
->>>>>>> Stashed changes
 : #+BEGIN_SRC js
 : // GET http://localhost:8000/health_check
 : // HTTP/1.1 200 OK
 : // content-length: 0
-<<<<<<< Updated upstream
-: // date: Wed, 09 Feb 2022 02:45:13 GMT
-: // Request duration: 0.062940s
-: #+END_SRC
-=======
 : // vary: Origin, Access-Control-Request-Method, Access-Control-Request-Headers
 : // set-cookie: _flash=; Path=/; Max-Age=0
-: // date: Sun, 03 Apr 2022 21:08:50 GMT
-: // Request duration: 0.064508s
+: // date: Mon, 09 May 2022 17:47:49 GMT
+: // Request duration: 0.054090s
 : #+END_SRC
->>>>>>> Stashed changes
->>>>>>> Stashed changes
 
 When running a health check we should return a 200.
 #+NAME: Expected Health Check Response
@@ -150,52 +104,72 @@ Content-Type: application/json
 }
 #+end_src
 
-<<<<<<< Updated upstream
 #+RESULTS:
 #+BEGIN_SRC js
 {
   "id": 1,
   "entry_date": "2022-01-12",
-  "created_at": "2022-02-09T02:45:47.343650Z"
+  "created_at": "2022-05-09T17:48:05.218599Z"
 }
 // POST http://localhost:8000/diary_entries
 // HTTP/1.1 201 Created
 // content-length: 77
 // content-type: application/json
-// date: Wed, 09 Feb 2022 02:45:47 GMT
-// Request duration: 0.059982s
+// set-cookie: _flash=; Path=/; Max-Age=0
+// vary: Origin, Access-Control-Request-Method, Access-Control-Request-Headers
+// date: Mon, 09 May 2022 17:48:05 GMT
+// Request duration: 0.131031s
 #+END_SRC
 
-=======
->>>>>>> Stashed changes
 *** Show Diary Entry by Date (Action: show)
 #+begin_src restclient
-GET http://localhost:8000/diary_entries/2022-02-06
+GET http://localhost:8000/diary_entries/2022-01-12
 #+end_src
 
 #+RESULTS:
 #+BEGIN_SRC js
-// GET http://localhost:8000/diary_entries/2022-02-02
-// HTTP/1.1 404 Not Found
-// content-length: 0
-// date: Sun, 20 Feb 2022 19:30:48 GMT
-// Request duration: 0.019373s
+{
+  "id": 1,
+  "entry_date": "2022-01-12",
+  "created_at": "2022-05-09T17:48:05.218599Z"
+}
+// GET http://localhost:8000/diary_entries/2022-01-12
+// HTTP/1.1 200 OK
+// content-length: 77
+// content-type: application/json
+// set-cookie: _flash=; Path=/; Max-Age=0
+// vary: Origin, Access-Control-Request-Method, Access-Control-Request-Headers
+// date: Mon, 09 May 2022 17:48:17 GMT
+// Request duration: 0.013358s
 #+END_SRC
 
 *** Show Diary Entry Skills by Date (Action: show)
 #+begin_src restclient
-GET http://localhost:8000/diary_entries/2021-11-30/skills
+GET http://localhost:8000/diary_entries/2022-01-12/skills
 #+end_src
 
 #+RESULTS:
 #+BEGIN_SRC js
-[]
-// GET http://localhost:8000/diary_entries/2021-11-30/skills
+[
+  {
+    "diary_entry_id": 1,
+    "skills_id": 1,
+    "created_at": "2022-05-09T17:48:05.218599Z"
+  },
+  {
+    "diary_entry_id": 1,
+    "skills_id": 5,
+    "created_at": "2022-05-09T17:48:05.218599Z"
+  }
+]
+// GET http://localhost:8000/diary_entries/2022-01-12/skills
 // HTTP/1.1 200 OK
-// content-length: 2
+// content-length: 157
+// vary: Origin, Access-Control-Request-Method, Access-Control-Request-Headers
 // content-type: application/json
-// date: Wed, 26 Jan 2022 05:02:51 GMT
-// Request duration: 0.009779s
+// set-cookie: _flash=; Path=/; Max-Age=0
+// date: Mon, 09 May 2022 17:48:33 GMT
+// Request duration: 0.013837s
 #+END_SRC
 
 *** Index Diary Entries by Date Range (Action: index)
@@ -208,16 +182,18 @@ GET http://localhost:8000/diary_entries?start=2021-10-01&end=2022-10-20
 [
   {
     "id": 1,
-    "entry_date": "2021-12-30",
-    "created_at": "2022-01-25T23:37:22.884289Z"
+    "entry_date": "2022-01-12",
+    "created_at": "2022-05-09T17:48:05.218599Z"
   }
 ]
 // GET http://localhost:8000/diary_entries?start=2021-10-01&end=2022-10-20
 // HTTP/1.1 200 OK
 // content-length: 79
+// vary: Origin, Access-Control-Request-Method, Access-Control-Request-Headers
 // content-type: application/json
-// date: Tue, 25 Jan 2022 23:42:30 GMT
-// Request duration: 0.010906s
+// set-cookie: _flash=; Path=/; Max-Age=0
+// date: Mon, 09 May 2022 17:48:53 GMT
+// Request duration: 0.013732s
 #+END_SRC
 
 ** Skills
@@ -226,22 +202,23 @@ GET http://localhost:8000/diary_entries?start=2021-10-01&end=2022-10-20
 GET http://localhost:8000/skills/21
 #+end_src
 
-#+RESULTS:
-#+BEGIN_SRC js
-{
-  "id": 21,
-  "name": "encouragement",
-  "category": "distress_tolerance"
-}
-// GET http://localhost:8000/skills/21
-// HTTP/1.1 200 OK
-// content-length: 64
-// content-type: application/json
-// date: Thu, 06 Jan 2022 17:44:10 GMT
-// Request duration: 0.019755s
-#+END_SRC
-
 *** Retrieve all Skills (Action: index)
 #+begin_src restclient
 GET http://localhost:8000/skills
 #+end_src
+** Credentials
+*** Get Login
+#+begin_src restclient
+GET http://localhost:8000/login
+#+end_src
+
+#+RESULTS:
+#+BEGIN_SRC js
+// GET http://localhost:8000/login
+// HTTP/1.1 200 OK
+// content-length: 0
+// set-cookie: _flash=; Path=/; Max-Age=0
+// vary: Origin, Access-Control-Request-Method, Access-Control-Request-Headers
+// date: Mon, 09 May 2022 17:51:17 GMT
+// Request duration: 0.013284s
+#+END_SRC
