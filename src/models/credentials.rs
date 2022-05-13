@@ -1,5 +1,6 @@
-use crate::configuration::AppData;
+use crate::configuration::{AppData, Environment};
 use crate::controllers::LoginForm;
+use actix_web::HttpResponse;
 use secrecy::{ExposeSecret, Secret};
 use argon2::password_hash::SaltString;
 use argon2::{Algorithm, Argon2, Params, PasswordHash, PasswordHasher, PasswordVerifier, Version};
@@ -24,7 +25,40 @@ pub struct Credentials {
 }
 
 
-#[tracing::instrument(name = "Get stored credentials", skip(username, config))]
+#[tracing::instrument(name = "Create new user", skip(user, config))]
+pub async fn create_user(
+    user: LoginForm,
+    config: &AppData,
+) -> Result<(), anyhow::Error> {
+    let password = user.password;
+    let username = user.username;
+    let mut transaction = config.pg_pool.begin().await?;
+     let password_hash = spawn_blocking_with_tracing(move || compute_password_hash(password))
+        .await?
+        .context("Failed to hash password")?;
+    let query_statement = r#"
+        INSERT INTO users (username, password_hash)
+        VALUES ($1, $2)"#;
+       sqlx::query(query_statement)
+        .bind(username)
+        .bind(password_hash.expose_secret())
+        .execute(&mut transaction)
+        .await
+        .map_err(|e| {
+            tracing::error!("failed to execute query: {:?}", e);
+            e
+        })?;
+
+        if let Environment::Dev = config.env {
+            transaction.commit().await?;
+        }
+
+        Ok(())
+}
+
+
+
+                 #[tracing::instrument(name = "Get stored credentials", skip(username, config))]
 async fn get_stored_credentials(
     username: &str,
     config: &AppData,

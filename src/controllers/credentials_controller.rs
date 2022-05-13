@@ -1,4 +1,4 @@
-use crate::models::{AuthError, validate_credentials};
+use crate::models::{AuthError, validate_credentials, create_user};
 use crate::configuration::AppData;
 use crate::controllers::LoginForm;
 use actix_web::error::InternalError;
@@ -17,7 +17,7 @@ pub enum LoginError {
 }
 
 //
-pub async fn post(
+pub async fn login(
     data: web::Json<LoginForm>,
     config: web::Data<AppData>,
 ) -> Result<HttpResponse, InternalError<LoginError>> {
@@ -53,5 +53,19 @@ fn login_redirect(e: LoginError) -> InternalError<LoginError> {
             LoginError::UnexpectedError(_) => StatusCode::INTERNAL_SERVER_ERROR,
             LoginError::AuthError(_) => StatusCode::UNAUTHORIZED,
         }
+    }
+}
+
+
+//
+pub async fn signup(
+    data: web::Json<LoginForm>,
+    config: web::Data<AppData>,
+) -> actix_web::Result<HttpResponse> {
+    let signup_data = data.into_inner();
+
+    match create_user(signup_data, &config).await {
+        Ok(_) => Ok(HttpResponse::Ok().finish()),
+        Err(_) => Ok(HttpResponse::InternalServerError().finish()),
     }
 }

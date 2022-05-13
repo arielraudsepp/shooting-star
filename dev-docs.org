@@ -42,6 +42,18 @@ chmod +x scripts/init_redis.sh
 ./scripts/init_redis.sh
 #+end_src
 
+#+RESULTS:
+| 8c0045887c9d08ef717d0a52d97f321e235e4112f98a10ebcaf575de6d4031b5 |                        |        |        |        |               |              |
+| Applied                                                          | 20211228003329/migrate | create | diary  | skills | table         | (9.046322ms) |
+| Applied                                                          | 20211228005507/migrate | create | skills | table  | (14.362536ms) |              |
+| Applied                                                          | 20211228005520/migrate | create | diary  | table  | (8.125442ms)  |              |
+| Applied                                                          | 20220410172326/migrate | create | users  | table  | (16.307401ms) |              |
+| Applied                                                          | 20211228003329/migrate | create | diary  | skills | table         | (2.837576ms) |
+| Applied                                                          | 20211228005507/migrate | create | skills | table  | (20.679719ms) |              |
+| Applied                                                          | 20211228005520/migrate | create | diary  | table  | (8.627682ms)  |              |
+| Applied                                                          | 20220410172326/migrate | create | users  | table  | (23.186138ms) |              |
+| 3763ea029da149cf0b2ba7dc42f2f9344cd8ed72eb2ece206689ce2fbccc13bb |                        |        |        |        |               |              |
+
 ** Kill Postgres Server
 #+begin_src shell
 docker kill $(docker ps -q)
@@ -72,15 +84,15 @@ GET http://localhost:8000/health_check
 #+end_src
 
 #+RESULTS:
-: #+BEGIN_SRC js
-: // GET http://localhost:8000/health_check
-: // HTTP/1.1 200 OK
-: // content-length: 0
-: // vary: Origin, Access-Control-Request-Method, Access-Control-Request-Headers
-: // set-cookie: _flash=; Path=/; Max-Age=0
-: // date: Mon, 09 May 2022 17:47:49 GMT
-: // Request duration: 0.054090s
-: #+END_SRC
+#+BEGIN_SRC js
+// GET http://localhost:8000/health_check
+// HTTP/1.1 200 OK
+// content-length: 0
+// set-cookie: _flash=; Path=/; Max-Age=0
+// vary: Origin, Access-Control-Request-Method, Access-Control-Request-Headers
+// date: Wed, 11 May 2022 20:26:21 GMT
+// Request duration: 0.015194s
+#+END_SRC
 
 When running a health check we should return a 200.
 #+NAME: Expected Health Check Response
@@ -107,9 +119,9 @@ Content-Type: application/json
 #+RESULTS:
 #+BEGIN_SRC js
 {
-  "id": 1,
+  "id": 4,
   "entry_date": "2022-01-12",
-  "created_at": "2022-05-09T17:48:05.218599Z"
+  "created_at": "2022-05-11T20:26:34.036050Z"
 }
 // POST http://localhost:8000/diary_entries
 // HTTP/1.1 201 Created
@@ -117,8 +129,8 @@ Content-Type: application/json
 // content-type: application/json
 // set-cookie: _flash=; Path=/; Max-Age=0
 // vary: Origin, Access-Control-Request-Method, Access-Control-Request-Headers
-// date: Mon, 09 May 2022 17:48:05 GMT
-// Request duration: 0.131031s
+// date: Wed, 11 May 2022 20:26:34 GMT
+// Request duration: 0.141512s
 #+END_SRC
 
 *** Show Diary Entry by Date (Action: show)
@@ -209,16 +221,21 @@ GET http://localhost:8000/skills
 ** Credentials
 *** Get Login
 #+begin_src restclient
-GET http://localhost:8000/login
+POST http://localhost:8000/login
+Content-Type: application/json
+{
+  "username": "user",
+  "password": "password"
+}
 #+end_src
 
 #+RESULTS:
 #+BEGIN_SRC js
-// GET http://localhost:8000/login
+// POST http://localhost:8000/login
 // HTTP/1.1 200 OK
 // content-length: 0
-// set-cookie: _flash=; Path=/; Max-Age=0
 // vary: Origin, Access-Control-Request-Method, Access-Control-Request-Headers
-// date: Mon, 09 May 2022 17:51:17 GMT
-// Request duration: 0.013284s
+// set-cookie: _flash=; Path=/; Max-Age=0
+// date: Wed, 11 May 2022 22:06:59 GMT
+// Request duration: 0.661706s
 #+END_SRC
