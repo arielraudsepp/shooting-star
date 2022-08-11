@@ -231,11 +231,34 @@ Content-Type: application/json
 
 #+RESULTS:
 #+BEGIN_SRC js
+3
 // POST http://localhost:8000/login
 // HTTP/1.1 200 OK
+// content-length: 1
+// set-cookie: id=oP+c2WAay7kGH%2F0npEVrQJH+RFmexHhO9MinMAcBw9tYxbE6XjeMi7H9Etmb2BPSHqomqRpnPrtj74qL1GujDkZwuYVUv%2Fcsj9qSEL87u0cLcjI+6V5TgQkZiiY%3D; HttpOnly; SameSite=Lax; Secure; Path=/
+// vary: Origin, Access-Control-Request-Method, Access-Control-Request-Headers
+// content-type: application/json
+// date: Thu, 11 Aug 2022 16:55:58 GMT
+// Request duration: 0.661302s
+#+END_SRC
+
+
+*** Get Signup
+#+begin_src restclient
+POST http://localhost:8000/signup
+Content-Type: application/json
+{
+  "username": "user2",
+  "password": "password"
+}
+#+end_src
+
+#+RESULTS:
+#+BEGIN_SRC js
+// POST http://localhost:8000/signup
+// HTTP/1.1 500 Internal Server Error
 // content-length: 0
 // vary: Origin, Access-Control-Request-Method, Access-Control-Request-Headers
-// set-cookie: _flash=; Path=/; Max-Age=0
-// date: Wed, 11 May 2022 22:06:59 GMT
-// Request duration: 0.661706s
+// date: Thu, 11 Aug 2022 16:56:21 GMT
+// Request duration: 0.692846s
 #+END_SRC

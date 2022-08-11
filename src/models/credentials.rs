@@ -1,11 +1,9 @@
 use crate::configuration::{AppData, Environment};
 use crate::controllers::LoginForm;
-use actix_web::HttpResponse;
 use secrecy::{ExposeSecret, Secret};
 use argon2::password_hash::SaltString;
 use argon2::{Algorithm, Argon2, Params, PasswordHash, PasswordHasher, PasswordVerifier, Version};
 use anyhow::Context;
-use serde::{Deserialize, Serialize};
 use actix_web::rt::task::JoinHandle;
 
 #[derive(thiserror::Error, Debug)]
@@ -16,14 +14,11 @@ pub enum AuthError {
     UnexpectedError(#[from] anyhow::Error),
 }
 
-
-
 pub struct Credentials {
     pub user_id: i32,
     pub username: String,
     pub password: Secret<String>,
 }
-
 
 #[tracing::instrument(name = "Create new user", skip(user, config))]
 pub async fn create_user(
@@ -56,9 +51,7 @@ pub async fn create_user(
         Ok(())
 }
 
-
-
-                 #[tracing::instrument(name = "Get stored credentials", skip(username, config))]
+#[tracing::instrument(name = "Get stored credentials", skip(username, config))]
 async fn get_stored_credentials(
     username: &str,
     config: &AppData,
@@ -76,6 +69,26 @@ async fn get_stored_credentials(
     .context("Failed to performed a query to retrieve stored credentials.")?
     .map(|row| (row.id, Secret::new(row.password_hash)));
     Ok(row)
+}
+
+
+#[tracing::instrument(name = "Get username", skip(config))]
+pub async fn get_username(
+    user_id: i32,
+    config: &AppData,
+) -> Result<String, anyhow::Error> {
+    let row = sqlx::query!(
+        r#"
+        SELECT username
+        FROM users
+        WHERE id = $1
+        "#,
+        user_id,
+    )
+    .fetch_one(&config.pg_pool)
+    .await
+    .context("Failed to performed a query to retrieve username")?;
+    Ok(row.username)
 }
 
 #[tracing::instrument(name = "Validate credentials", skip(config, login_data))]
@@ -108,7 +121,7 @@ pub async fn validate_credentials(config: &AppData, login_data: LoginForm) -> Re
 }
 
 #[tracing::instrument(
-    name = "Validate credentials",
+    name = "Verify password hash",
     skip(expected_password_hash, password_candidate)
 )]
 fn verify_password_hash(

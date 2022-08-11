@@ -1,12 +1,20 @@
-use crate::models::{AuthError, validate_credentials, create_user};
+use crate::models::{AuthError, validate_credentials, create_user, get_username};
 use crate::configuration::AppData;
 use crate::controllers::LoginForm;
+use actix_session::Session;
 use actix_web::error::InternalError;
 use actix_web::http::header::LOCATION;
 use actix_web::http::StatusCode;
 use actix_web::HttpResponse;
 use actix_web::{web, ResponseError};
-use actix_web_flash_messages::FlashMessage;
+
+// Return an opaque 500 while preserving the error's root cause for logging.
+fn e500<T>(e: T) -> actix_web::Error
+where
+    T: std::fmt::Debug + std::fmt::Display + 'static
+{
+    actix_web::error::ErrorInternalServerError(e)
+}
 
 #[derive(Debug, thiserror::Error)]
 pub enum LoginError {
@@ -20,13 +28,17 @@ pub enum LoginError {
 pub async fn login(
     data: web::Json<LoginForm>,
     config: web::Data<AppData>,
+    session: Session,
 ) -> Result<HttpResponse, InternalError<LoginError>> {
     let login_data = data.into_inner();
 
     match validate_credentials(&config, login_data).await {
         Ok(user_id) => {
-              Ok(HttpResponse::Ok()
-                .finish())
+            session.renew();
+            session
+                .insert("user_id", user_id)
+                .map_err(|e| login_redirect(LoginError::UnexpectedError(e.into())))?;
+              Ok(HttpResponse::Ok().json(user_id))
         }
         Err(e) => {
             let e = match e {
@@ -40,7 +52,6 @@ pub async fn login(
 }
 
 fn login_redirect(e: LoginError) -> InternalError<LoginError> {
-    FlashMessage::error(e.to_string()).send();
     let response = HttpResponse::SeeOther()
         .insert_header((LOCATION, "/login"))
         .finish();
@@ -68,4 +79,19 @@ pub async fn signup(
         Ok(_) => Ok(HttpResponse::Ok().finish()),
         Err(_) => Ok(HttpResponse::InternalServerError().finish()),
     }
+}
+
+pub async fn user_dashboard(
+    session: Session,
+    pool: web::Data<AppData>,
+) -> Result<HttpResponse, actix_web::Error> {
+    let username = if let Some(user_id) = session
+        .get("user_id")
+        .map_err(e500)?
+        {
+            get_username(user_id, &pool).await.map_err(e500)?
+        } else {
+          todo!()
+        };
+    Ok(HttpResponse::Ok().json(username))
 }
