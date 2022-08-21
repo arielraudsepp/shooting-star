@@ -22,6 +22,7 @@ pub async fn run(listener: TcpListener, app_config: AppData, hmac_secret: Secret
     let app_data: Data<AppData> = Data::new(app_config);
     let server = HttpServer::new(move || {
         let cors = Cors::default()
+            .supports_credentials()
             .allow_any_header()
             .allow_any_method()
             .allow_any_origin()
@@ -60,6 +61,8 @@ pub async fn run(listener: TcpListener, app_config: AppData, hmac_secret: Secret
             .route("/skills/{id}", web::get().to(skills_controller::show))
             .route("/login", web::post().to(credentials_controller::login))
             .route("/signup", web::post().to(credentials_controller::signup))
+            .route("/session_username", web::get().to(credentials_controller::session_username))
+            .route("/logout", web::get().to(credentials_controller::logout))
             .app_data(app_data.clone())
             .app_data(Data::new(HmacSecret(hmac_secret.clone())))
     })

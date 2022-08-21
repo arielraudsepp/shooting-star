@@ -1,0 +1,20 @@
+[10:59:12.886] Global cache location '/home/ariel/.cache/typescript/4.5', safe file path '/home/ariel/dev/shooting-star/my-app/node_modules/typescript/lib/typingSafeList.json', types map path /home/ariel/dev/shooting-star/my-app/node_modules/typescript/lib/typesMap.json
+[10:59:12.886] Processing cache location '/home/ariel/.cache/typescript/4.5'
+[10:59:12.886] Trying to find '/home/ariel/.cache/typescript/4.5/package.json'...
+[10:59:12.887] Loaded content of '/home/ariel/.cache/typescript/4.5/package.json': {"private":true,"dependencies":{"types-registry":"^0.1.603"}}
+[10:59:12.887] Loaded content of '/home/ariel/.cache/typescript/4.5/package-lock.json'
+[10:59:12.887] Finished processing cache location '/home/ariel/.cache/typescript/4.5'
+[10:59:12.887] Process id: 2021
+[10:59:12.887] NPM location: /home/ariel/.volta/tools/image/node/17.4.0/bin/npm (explicit '--npmLocation' not  provided)
+[10:59:12.887] validateDefaultNpmLocation: false
+[10:59:12.887] Npm config file: /home/ariel/.cache/typescript/4.5/package.json
+[10:59:12.887] Updating types-registry npm package...
+[10:59:12.887] Exec: /home/ariel/.volta/tools/image/node/17.4.0/bin/npm install --ignore-scripts types-registry@latest
+[10:59:13.351]     Succeeded. stdout:
+    
+    up to date, audited 2 packages in 370ms
+
+found 0 vulnerabilities
+
+[10:59:13.352] Updated types-registry npm package
+[13:33:05.649] Parent process has exited, shutting down...

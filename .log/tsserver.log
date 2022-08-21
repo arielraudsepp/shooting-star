@@ -1,0 +1,1418 @@
+Info 0    [10:59:12.748] Starting TS Server
+Info 1    [10:59:12.748] Version: 4.5.5
+Info 2    [10:59:12.748] Arguments: /home/ariel/.volta/tools/image/node/17.4.0/bin/node /home/ariel/dev/shooting-star/my-app/node_modules/typescript/lib/tsserver.js --logFile /home/ariel/dev/shooting-star/.log/tsserver.log --logVerbosity info --cancellationPipeName /tmp/c2b022b86f52a9b57fa3e415c4867ab7/tscancellation*
+Info 3    [10:59:12.748] Platform: linux NodeVersion: 17 CaseSensitive: true
+Info 4    [10:59:12.748] ServerMode: undefined syntaxOnly: false hasUnknownServerMode: undefined
+Info 5    [10:59:12.756] Format host information updated
+Info 6    [10:59:12.768] Search path: /home/ariel/dev/shooting-star/my-app/src
+Info 7    [10:59:12.769] For info: /home/ariel/dev/shooting-star/my-app/src/Home.tsx :: Config file name: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 8    [10:59:12.769] Creating configuration project /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 9    [10:59:12.781] Config: /home/ariel/dev/shooting-star/my-app/tsconfig.json : {
+ "rootNames": [
+  "/home/ariel/dev/shooting-star/my-app/src/App.test.tsx",
+  "/home/ariel/dev/shooting-star/my-app/src/App.tsx",
+  "/home/ariel/dev/shooting-star/my-app/src/Chart.tsx",
+  "/home/ariel/dev/shooting-star/my-app/src/Date.ts",
+  "/home/ariel/dev/shooting-star/my-app/src/DiaryEntry.tsx",
+  "/home/ariel/dev/shooting-star/my-app/src/FetchAPI.ts",
+  "/home/ariel/dev/shooting-star/my-app/src/Home.tsx",
+  "/home/ariel/dev/shooting-star/my-app/src/Login.tsx",
+  "/home/ariel/dev/shooting-star/my-app/src/Signup.tsx",
+  "/home/ariel/dev/shooting-star/my-app/src/index.tsx",
+  "/home/ariel/dev/shooting-star/my-app/src/react-app-env.d.ts",
+  "/home/ariel/dev/shooting-star/my-app/src/reportWebVitals.ts",
+  "/home/ariel/dev/shooting-star/my-app/src/setupTests.ts",
+  "/home/ariel/dev/shooting-star/my-app/src/components/Button.tsx",
+  "/home/ariel/dev/shooting-star/my-app/src/components/DisplaySkill.tsx"
+ ],
+ "options": {
+  "target": 1,
+  "lib": [
+   "lib.dom.d.ts",
+   "lib.dom.iterable.d.ts",
+   "lib.esnext.d.ts"
+  ],
+  "allowJs": true,
+  "skipLibCheck": true,
+  "esModuleInterop": true,
+  "allowSyntheticDefaultImports": true,
+  "strict": true,
+  "forceConsistentCasingInFileNames": true,
+  "noFallthroughCasesInSwitch": true,
+  "module": 99,
+  "moduleResolution": 2,
+  "resolveJsonModule": true,
+  "isolatedModules": true,
+  "noEmit": true,
+  "jsx": 4,
+  "configFilePath": "/home/ariel/dev/shooting-star/my-app/tsconfig.json"
+ }
+}
+Info 10   [10:59:12.812] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 11   [10:59:14.242] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 1 structureChanged: true structureIsReused:: Not Elapsed: 1429.6126649975777ms
+Info 12   [10:59:14.242] Project '/home/ariel/dev/shooting-star/my-app/tsconfig.json' (Configured)
+Info 13   [10:59:14.242] 	Files (447)
+
+Info 14   [10:59:14.242] -----------------------------------------------
+Info 15   [10:59:14.252] Starting updateGraphWorker: Project: /dev/null/autoImportProviderProject1*
+Info 16   [10:59:14.434] Finishing updateGraphWorker: Project: /dev/null/autoImportProviderProject1* Version: 1 structureChanged: true structureIsReused:: Not Elapsed: 182.4065780006349ms
+Info 17   [10:59:14.434] Project '/dev/null/autoImportProviderProject1*' (AutoImportProvider)
+Info 18   [10:59:14.434] 	Files (258)
+
+Info 19   [10:59:14.434] -----------------------------------------------
+Info 20   [10:59:59.414] Search path: /home/ariel/dev/shooting-star/my-app/src
+Info 21   [10:59:59.415] For info: /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx :: Config file name: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 22   [10:59:59.415] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 23   [10:59:59.485] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 2 structureChanged: true structureIsReused:: Not Elapsed: 70.08083299919963ms
+Info 24   [10:59:59.485] Project '/home/ariel/dev/shooting-star/my-app/tsconfig.json' (Configured)
+Info 25   [10:59:59.485] 	Files (446)
+
+Info 26   [10:59:59.485] -----------------------------------------------
+Info 27   [10:59:59.485] Project '/dev/null/autoImportProviderProject1*' (AutoImportProvider)
+Info 28   [10:59:59.485] 	Files (258)
+
+Info 29   [10:59:59.485] -----------------------------------------------
+Info 30   [10:59:59.488] Starting updateGraphWorker: Project: /dev/null/inferredProject1*
+Info 31   [11:00:00.147] Finishing updateGraphWorker: Project: /dev/null/inferredProject1* Version: 1 structureChanged: true structureIsReused:: Not Elapsed: 658.5774530023336ms
+Info 32   [11:00:00.147] Project '/dev/null/inferredProject1*' (Inferred)
+Info 33   [11:00:00.147] 	Files (406)
+
+Info 34   [11:00:00.147] -----------------------------------------------
+Info 35   [11:00:00.155] Starting updateGraphWorker: Project: /dev/null/autoImportProviderProject2*
+Info 36   [11:00:00.374] Finishing updateGraphWorker: Project: /dev/null/autoImportProviderProject2* Version: 1 structureChanged: true structureIsReused:: Not Elapsed: 219.11152900010347ms
+Info 37   [11:00:00.374] Project '/dev/null/autoImportProviderProject2*' (AutoImportProvider)
+Info 38   [11:00:00.374] 	Files (337)
+
+Info 39   [11:00:00.374] -----------------------------------------------
+Info 40   [11:00:00.378] DirectoryWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Home.tsx 0:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src 1 undefined Config: /home/ariel/dev/shooting-star/my-app/tsconfig.json WatchType: Wild card directory
+Info 41   [11:00:00.378] Elapsed:: 0.3792090006172657ms DirectoryWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Home.tsx 0:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src 1 undefined Config: /home/ariel/dev/shooting-star/my-app/tsconfig.json WatchType: Wild card directory
+Info 42   [11:00:00.378] DirectoryWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src 1 undefined Config: /home/ariel/dev/shooting-star/my-app/tsconfig.json WatchType: Wild card directory
+Info 43   [11:00:00.379] Elapsed:: 0.06508000195026398ms DirectoryWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src 1 undefined Config: /home/ariel/dev/shooting-star/my-app/tsconfig.json WatchType: Wild card directory
+Info 44   [11:00:00.379] DirectoryWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Home.tsx 0:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src 1 undefined Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json WatchType: Failed Lookup Locations
+Info 45   [11:00:00.379] Elapsed:: 0.18458899855613708ms DirectoryWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Home.tsx 0:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src 1 undefined Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json WatchType: Failed Lookup Locations
+Info 46   [11:00:00.379] DirectoryWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src 1 undefined Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json WatchType: Failed Lookup Locations
+Info 47   [11:00:00.379] Elapsed:: 0.021959997713565826ms DirectoryWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src 1 undefined Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json WatchType: Failed Lookup Locations
+Info 48   [11:00:00.381] Search path: /home/ariel/dev/shooting-star/my-app/src
+Info 49   [11:00:00.381] For info: /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx :: Config file name: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 50   [11:00:00.384] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 51   [11:00:00.431] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 3 structureChanged: true structureIsReused:: Not Elapsed: 47.02667799964547ms
+Info 52   [11:00:00.431] Project '/home/ariel/dev/shooting-star/my-app/tsconfig.json' (Configured)
+Info 53   [11:00:00.431] 	Files (447)
+
+Info 54   [11:00:00.431] -----------------------------------------------
+Info 55   [11:00:00.431] Project '/dev/null/autoImportProviderProject1*' (AutoImportProvider)
+Info 56   [11:00:00.431] 	Files (258)
+
+Info 57   [11:00:00.431] -----------------------------------------------
+Info 58   [11:00:00.432] `remove Project::
+Info 59   [11:00:00.432] Project '/dev/null/inferredProject1*' (Inferred)
+Info 60   [11:00:00.432] 	Files (406)
+
+Info 61   [11:00:00.432] -----------------------------------------------
+Info 62   [11:00:00.432] Project '/dev/null/autoImportProviderProject2*' (AutoImportProvider)
+Info 63   [11:00:00.432] 	Files (337)
+
+Info 64   [11:00:00.432] -----------------------------------------------
+Info 65   [11:00:02.884] Before ensureProjectForOpenFiles:
+Info 66   [11:00:02.884] After ensureProjectForOpenFiles:
+Info 67   [11:00:02.884] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 68   [11:01:24.695] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 69   [11:01:24.712] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 4 structureChanged: false structureIsReused:: Completely Elapsed: 16.039767999202013ms
+Info 70   [11:01:24.712] Different program with same set of files
+Info 71   [11:01:24.795] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 72   [11:01:24.806] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 5 structureChanged: false structureIsReused:: Completely Elapsed: 10.832214999943972ms
+Info 73   [11:01:24.806] Different program with same set of files
+Info 74   [11:01:25.313] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 75   [11:01:25.319] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 6 structureChanged: false structureIsReused:: Completely Elapsed: 6.442359000444412ms
+Info 76   [11:01:25.319] Different program with same set of files
+Info 77   [11:01:26.529] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 78   [11:01:26.539] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 7 structureChanged: false structureIsReused:: Completely Elapsed: 9.299559999257326ms
+Info 79   [11:01:26.539] Different program with same set of files
+Info 80   [11:01:26.542] getCompletionData: Get current token: 0.03373900055885315
+Info 81   [11:01:26.542] getCompletionData: Is inside comment: 0.047520000487565994
+Info 82   [11:01:26.542] getCompletionData: Get previous token: 0.09623000025749207
+Info 83   [11:01:26.543] getCompletionsAtPosition: isCompletionListBlocker: 0.29304900020360947
+Info 84   [11:01:26.561] Starting updateGraphWorker: Project: /dev/null/autoImportProviderProject1*
+Info 85   [11:01:26.562] Finishing updateGraphWorker: Project: /dev/null/autoImportProviderProject1* Version: 2 structureChanged: false structureIsReused:: Not Elapsed: 0.6622580029070377ms
+Info 86   [11:01:26.562] getExportInfoMap: cache miss or empty; calculating new results
+Info 87   [11:01:26.706] forEachExternalModuleToImportFrom autoImportProvider: 89.83976899832487
+Info 88   [11:01:26.706] getExportInfoMap: done in 156.96074100211263 ms
+Info 89   [11:01:26.727] collectAutoImports: resolved 14 module specifiers, plus 14 ambient and -43 from cache
+Info 90   [11:01:26.727] collectAutoImports: response is complete
+Info 91   [11:01:26.727] collectAutoImports: 20.20498499646783
+Info 92   [11:01:26.727] getCompletionData: Semantic work: 184.10037400200963
+Info 93   [11:01:26.753] getCompletionsAtPosition: getCompletionEntriesFromSymbols: 14.604472998529673
+Info 94   [11:01:26.864] getCompletionData: Get current token: 0.018059998750686646
+Info 95   [11:01:26.864] getCompletionData: Is inside comment: 0.04064000025391579
+Info 96   [11:01:26.864] getCompletionData: Get previous token: 0.06052999943494797
+Info 97   [11:01:26.864] getCompletionsAtPosition: isCompletionListBlocker: 0.005569998174905777
+Info 98   [11:01:26.867] getExportInfoMap: cache hit
+Info 99   [11:01:26.880] collectAutoImports: resolved 0 module specifiers, plus 14 ambient and 38 from cache
+Info 100  [11:01:26.880] collectAutoImports: response is complete
+Info 101  [11:01:26.880] collectAutoImports: 12.887474000453949
+Info 102  [11:01:26.880] getCompletionData: Semantic work: 15.857923999428749
+Info 103  [11:01:26.888] getCompletionsAtPosition: getCompletionEntriesFromSymbols: 7.9507090002298355
+Info 104  [11:01:26.892] getCompletionData: Get current token: 0.009860001504421234
+Info 105  [11:01:26.892] getCompletionData: Is inside comment: 0.01954999938607216
+Info 106  [11:01:26.892] getCompletionData: Get previous token: 0.029789999127388
+Info 107  [11:01:26.892] getCompletionsAtPosition: isCompletionListBlocker: 0.0034600012004375458
+Info 108  [11:01:26.894] getExportInfoMap: cache hit
+Info 109  [11:01:26.907] collectAutoImports: resolved 0 module specifiers, plus 14 ambient and 38 from cache
+Info 110  [11:01:26.907] collectAutoImports: response is complete
+Info 111  [11:01:26.907] collectAutoImports: 13.394915997982025
+Info 112  [11:01:26.907] getCompletionData: Semantic work: 15.08178099989891
+Info 113  [11:01:26.914] getCompletionsAtPosition: getCompletionEntriesFromSymbols: 7.123286999762058
+Info 114  [11:01:26.919] getCompletionData: Get current token: 0.017069999128580093
+Info 115  [11:01:26.919] getCompletionData: Is inside comment: 0.031099997460842133
+Info 116  [11:01:26.919] getCompletionData: Get previous token: 0.050689999014139175
+Info 117  [11:01:26.919] getCompletionsAtPosition: isCompletionListBlocker: 0.003970000892877579
+Info 118  [11:01:26.920] getExportInfoMap: cache hit
+Info 119  [11:01:26.927] collectAutoImports: resolved 0 module specifiers, plus 14 ambient and 38 from cache
+Info 120  [11:01:26.927] collectAutoImports: response is complete
+Info 121  [11:01:26.927] collectAutoImports: 6.306600000709295
+Info 122  [11:01:26.927] getCompletionData: Semantic work: 8.090913999825716
+Info 123  [11:01:26.934] getCompletionsAtPosition: getCompletionEntriesFromSymbols: 6.658638000488281
+Info 124  [11:01:26.936] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 125  [11:01:26.944] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 8 structureChanged: false structureIsReused:: Completely Elapsed: 8.345853000879288ms
+Info 126  [11:01:26.944] Different program with same set of files
+Info 127  [11:01:26.995] getCompletionData: Get current token: 0.01982000097632408
+Info 128  [11:01:26.995] getCompletionData: Is inside comment: 0.03838000074028969
+Info 129  [11:01:26.995] getCompletionData: Get previous token: 0.044530000537633896
+Info 130  [11:01:26.995] getCompletionsAtPosition: isCompletionListBlocker: 0.0039799995720386505
+Info 131  [11:01:26.999] getExportInfoMap: cache hit
+Info 132  [11:01:27.009] collectAutoImports: resolved 0 module specifiers, plus 0 ambient and 24 from cache
+Info 133  [11:01:27.009] collectAutoImports: response is complete
+Info 134  [11:01:27.009] collectAutoImports: 10.041532002389431
+Info 135  [11:01:27.009] getCompletionData: Semantic work: 13.954870000481606
+Info 136  [11:01:27.019] getCompletionsAtPosition: getCompletionEntriesFromSymbols: 6.069019999355078
+Info 137  [11:01:29.259] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 138  [11:01:29.265] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 9 structureChanged: false structureIsReused:: Completely Elapsed: 5.967290997505188ms
+Info 139  [11:01:29.265] Different program with same set of files
+Info 140  [11:01:53.002] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 141  [11:01:53.002] Elapsed:: 0.5936879999935627ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 142  [11:01:53.254] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 143  [11:01:53.311] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 10 structureChanged: true structureIsReused:: SafeModules Elapsed: 57.16905000060797ms
+Info 144  [11:01:53.311] Different program with same set of files
+Info 145  [11:01:55.503] Before ensureProjectForOpenFiles:
+Info 146  [11:01:55.503] After ensureProjectForOpenFiles:
+Info 147  [11:01:55.503] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 148  [11:05:05.160] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 149  [11:05:05.161] Elapsed:: 0.11713000014424324ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 150  [11:05:05.411] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 151  [11:05:05.421] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 11 structureChanged: false structureIsReused:: Completely Elapsed: 9.857287999242544ms
+Info 152  [11:05:05.421] Different program with same set of files
+Info 153  [11:05:07.663] Before ensureProjectForOpenFiles:
+Info 154  [11:05:07.663] After ensureProjectForOpenFiles:
+Info 155  [11:05:07.663] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 156  [11:05:15.170] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 157  [11:05:15.170] Elapsed:: 0.14367900043725967ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 158  [11:05:15.420] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 159  [11:05:15.428] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 12 structureChanged: false structureIsReused:: Completely Elapsed: 7.746109999716282ms
+Info 160  [11:05:15.428] Different program with same set of files
+Info 161  [11:05:17.672] Before ensureProjectForOpenFiles:
+Info 162  [11:05:17.672] After ensureProjectForOpenFiles:
+Info 163  [11:05:17.672] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 164  [11:06:15.204] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 165  [11:06:15.205] Elapsed:: 0.11120900139212608ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 166  [11:06:15.456] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 167  [11:06:15.461] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 13 structureChanged: false structureIsReused:: Completely Elapsed: 4.846064001321793ms
+Info 168  [11:06:15.461] Different program with same set of files
+Info 169  [11:06:17.705] Before ensureProjectForOpenFiles:
+Info 170  [11:06:17.705] After ensureProjectForOpenFiles:
+Info 171  [11:06:17.705] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 172  [11:07:47.286] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 173  [11:07:47.286] Elapsed:: 0.08974000066518784ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 174  [11:07:47.537] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 175  [11:07:47.577] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 14 structureChanged: true structureIsReused:: SafeModules Elapsed: 40.28270899876952ms
+Info 176  [11:07:47.577] Different program with same set of files
+Info 177  [11:07:49.788] Before ensureProjectForOpenFiles:
+Info 178  [11:07:49.788] After ensureProjectForOpenFiles:
+Info 179  [11:07:49.788] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 180  [11:07:57.292] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 181  [11:07:57.292] Elapsed:: 0.06728000193834305ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 182  [11:07:57.543] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 183  [11:07:57.547] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 15 structureChanged: false structureIsReused:: Completely Elapsed: 4.503694999963045ms
+Info 184  [11:07:57.547] Different program with same set of files
+Info 185  [11:07:59.793] Before ensureProjectForOpenFiles:
+Info 186  [11:07:59.793] After ensureProjectForOpenFiles:
+Info 187  [11:07:59.793] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 188  [11:08:21.308] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 189  [11:08:21.308] Elapsed:: 0.08311999961733818ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 190  [11:08:21.559] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 191  [11:08:21.566] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 16 structureChanged: false structureIsReused:: Completely Elapsed: 6.636389002203941ms
+Info 192  [11:08:21.566] Different program with same set of files
+Info 193  [11:08:23.809] Before ensureProjectForOpenFiles:
+Info 194  [11:08:23.809] After ensureProjectForOpenFiles:
+Info 195  [11:08:23.809] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 196  [11:09:11.329] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 197  [11:09:11.329] Elapsed:: 0.16595899686217308ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 198  [11:09:11.581] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 199  [11:09:11.615] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 17 structureChanged: true structureIsReused:: SafeModules Elapsed: 34.413258001208305ms
+Info 200  [11:09:11.615] Different program with same set of files
+Info 201  [11:09:13.831] Before ensureProjectForOpenFiles:
+Info 202  [11:09:13.831] After ensureProjectForOpenFiles:
+Info 203  [11:09:13.831] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 204  [11:09:16.638] DirectoryWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Home.tsx 0:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src 1 undefined Config: /home/ariel/dev/shooting-star/my-app/tsconfig.json WatchType: Wild card directory
+Info 205  [11:09:16.638] Elapsed:: 0.5240489989519119ms DirectoryWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Home.tsx 0:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src 1 undefined Config: /home/ariel/dev/shooting-star/my-app/tsconfig.json WatchType: Wild card directory
+Info 206  [11:09:16.638] DirectoryWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Home.tsx 0:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src 1 undefined Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json WatchType: Failed Lookup Locations
+Info 207  [11:09:16.639] Elapsed:: 0.16463899984955788ms DirectoryWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Home.tsx 0:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src 1 undefined Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json WatchType: Failed Lookup Locations
+Info 208  [11:09:16.892] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 209  [11:09:16.924] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 18 structureChanged: true structureIsReused:: Not Elapsed: 32.34020499885082ms
+Info 210  [11:09:16.924] Project '/home/ariel/dev/shooting-star/my-app/tsconfig.json' (Configured)
+Info 211  [11:09:16.924] 	Files (448)
+
+Info 212  [11:09:16.924] -----------------------------------------------
+Info 213  [11:09:16.924] Project '/dev/null/autoImportProviderProject1*' (AutoImportProvider)
+Info 214  [11:09:16.924] 	Files (258)
+
+Info 215  [11:09:16.924] -----------------------------------------------
+Info 216  [11:09:19.390] Before ensureProjectForOpenFiles:
+Info 217  [11:09:19.391] After ensureProjectForOpenFiles:
+Info 218  [11:09:19.391] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 219  [11:10:23.405] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Home.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/Home.tsx 500 undefined WatchType: Closed Script info
+Info 220  [11:10:23.405] Elapsed:: 0.07306000217795372ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Home.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/Home.tsx 500 undefined WatchType: Closed Script info
+Info 221  [11:10:23.656] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 222  [11:10:23.664] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 19 structureChanged: false structureIsReused:: Completely Elapsed: 8.32872299849987ms
+Info 223  [11:10:23.664] Different program with same set of files
+Info 224  [11:10:25.907] Before ensureProjectForOpenFiles:
+Info 225  [11:10:25.907] After ensureProjectForOpenFiles:
+Info 226  [11:10:25.907] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 227  [11:14:59.614] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Home.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/Home.tsx 500 undefined WatchType: Closed Script info
+Info 228  [11:14:59.614] Elapsed:: 0.12409999966621399ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Home.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/Home.tsx 500 undefined WatchType: Closed Script info
+Info 229  [11:14:59.864] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 230  [11:14:59.908] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 20 structureChanged: true structureIsReused:: SafeModules Elapsed: 43.896876998245716ms
+Info 231  [11:14:59.908] Different program with same set of files
+Info 232  [11:15:02.116] Before ensureProjectForOpenFiles:
+Info 233  [11:15:02.116] After ensureProjectForOpenFiles:
+Info 234  [11:15:02.116] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 235  [11:17:57.749] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Home.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/Home.tsx 500 undefined WatchType: Closed Script info
+Info 236  [11:17:57.749] Elapsed:: 0.1419689990580082ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Home.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/Home.tsx 500 undefined WatchType: Closed Script info
+Info 237  [11:17:58.001] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 238  [11:17:58.006] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 21 structureChanged: false structureIsReused:: Completely Elapsed: 5.245712999254465ms
+Info 239  [11:17:58.006] Different program with same set of files
+Info 240  [11:18:00.250] Before ensureProjectForOpenFiles:
+Info 241  [11:18:00.250] After ensureProjectForOpenFiles:
+Info 242  [11:18:00.250] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 243  [11:18:29.763] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Home.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/Home.tsx 500 undefined WatchType: Closed Script info
+Info 244  [11:18:29.763] Elapsed:: 0.09741000086069107ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Home.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/Home.tsx 500 undefined WatchType: Closed Script info
+Info 245  [11:18:30.014] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 246  [11:18:30.021] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 22 structureChanged: false structureIsReused:: Completely Elapsed: 6.737133998423815ms
+Info 247  [11:18:30.021] Different program with same set of files
+Info 248  [11:18:32.264] Before ensureProjectForOpenFiles:
+Info 249  [11:18:32.264] After ensureProjectForOpenFiles:
+Info 250  [11:18:32.264] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 251  [11:19:21.809] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Home.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/Home.tsx 500 undefined WatchType: Closed Script info
+Info 252  [11:19:21.809] Elapsed:: 0.06825999915599823ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Home.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/Home.tsx 500 undefined WatchType: Closed Script info
+Info 253  [11:19:22.060] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 254  [11:19:22.068] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 23 structureChanged: false structureIsReused:: Completely Elapsed: 7.612934999167919ms
+Info 255  [11:19:22.068] Different program with same set of files
+Info 256  [11:19:24.311] Before ensureProjectForOpenFiles:
+Info 257  [11:19:24.311] After ensureProjectForOpenFiles:
+Info 258  [11:19:24.311] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 259  [11:20:47.862] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 260  [11:20:47.862] Elapsed:: 0.07017000019550323ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 261  [11:20:48.114] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 262  [11:20:48.152] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 24 structureChanged: true structureIsReused:: SafeModules Elapsed: 37.96592599898577ms
+Info 263  [11:20:48.152] Different program with same set of files
+Info 264  [11:20:50.362] Before ensureProjectForOpenFiles:
+Info 265  [11:20:50.362] After ensureProjectForOpenFiles:
+Info 266  [11:20:50.362] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 267  [11:20:53.862] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 268  [11:20:53.863] Elapsed:: 0.06785999983549118ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 269  [11:20:54.114] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 270  [11:20:54.119] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 25 structureChanged: false structureIsReused:: Completely Elapsed: 5.3314419984817505ms
+Info 271  [11:20:54.119] Different program with same set of files
+Info 272  [11:20:56.363] Before ensureProjectForOpenFiles:
+Info 273  [11:20:56.363] After ensureProjectForOpenFiles:
+Info 274  [11:20:56.363] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 275  [11:22:41.959] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 276  [11:22:41.959] Elapsed:: 0.06216999888420105ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 277  [11:22:42.210] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 278  [11:22:42.215] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 26 structureChanged: false structureIsReused:: Completely Elapsed: 4.903074000030756ms
+Info 279  [11:22:42.215] Different program with same set of files
+Info 280  [11:22:44.459] Before ensureProjectForOpenFiles:
+Info 281  [11:22:44.459] After ensureProjectForOpenFiles:
+Info 282  [11:22:44.459] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 283  [11:25:04.066] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 284  [11:25:04.066] Elapsed:: 0.06742899864912033ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 285  [11:25:04.318] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 286  [11:25:04.325] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 27 structureChanged: false structureIsReused:: Completely Elapsed: 6.904266998171806ms
+Info 287  [11:25:04.325] Different program with same set of files
+Info 288  [11:25:06.566] Before ensureProjectForOpenFiles:
+Info 289  [11:25:06.567] After ensureProjectForOpenFiles:
+Info 290  [11:25:06.567] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 291  [11:25:14.071] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Home.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/Home.tsx 500 undefined WatchType: Closed Script info
+Info 292  [11:25:14.071] Elapsed:: 0.05398000031709671ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Home.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/Home.tsx 500 undefined WatchType: Closed Script info
+Info 293  [11:25:14.322] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 294  [11:25:14.329] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 28 structureChanged: false structureIsReused:: Completely Elapsed: 6.224390000104904ms
+Info 295  [11:25:14.329] Different program with same set of files
+Info 296  [11:25:16.572] Before ensureProjectForOpenFiles:
+Info 297  [11:25:16.572] After ensureProjectForOpenFiles:
+Info 298  [11:25:16.572] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 299  [11:25:32.079] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Home.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/Home.tsx 500 undefined WatchType: Closed Script info
+Info 300  [11:25:32.079] Elapsed:: 0.0550600029528141ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Home.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/Home.tsx 500 undefined WatchType: Closed Script info
+Info 301  [11:25:32.330] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 302  [11:25:32.336] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 29 structureChanged: false structureIsReused:: Completely Elapsed: 5.405342001467943ms
+Info 303  [11:25:32.336] Different program with same set of files
+Info 304  [11:25:34.580] Before ensureProjectForOpenFiles:
+Info 305  [11:25:34.580] After ensureProjectForOpenFiles:
+Info 306  [11:25:34.580] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 307  [11:26:14.108] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 308  [11:26:14.108] Elapsed:: 0.052969999611377716ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 309  [11:26:14.359] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 310  [11:26:14.366] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 30 structureChanged: false structureIsReused:: Completely Elapsed: 6.489709001034498ms
+Info 311  [11:26:14.366] Different program with same set of files
+Info 312  [11:26:16.610] Before ensureProjectForOpenFiles:
+Info 313  [11:26:16.610] After ensureProjectForOpenFiles:
+Info 314  [11:26:16.610] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 315  [11:26:58.152] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 316  [11:26:58.153] Elapsed:: 0.05856899917125702ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 317  [11:26:58.403] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 318  [11:26:58.409] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 31 structureChanged: false structureIsReused:: Completely Elapsed: 5.792851001024246ms
+Info 319  [11:26:58.409] Different program with same set of files
+Info 320  [11:27:00.654] Before ensureProjectForOpenFiles:
+Info 321  [11:27:00.654] After ensureProjectForOpenFiles:
+Info 322  [11:27:00.654] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 323  [11:27:26.174] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 324  [11:27:26.175] Elapsed:: 0.05420999974012375ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 325  [11:27:26.426] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 326  [11:27:26.433] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 32 structureChanged: false structureIsReused:: Completely Elapsed: 6.81020399928093ms
+Info 327  [11:27:26.433] Different program with same set of files
+Info 328  [11:27:28.676] Before ensureProjectForOpenFiles:
+Info 329  [11:27:28.676] After ensureProjectForOpenFiles:
+Info 330  [11:27:28.676] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 331  [11:29:20.256] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 332  [11:29:20.256] Elapsed:: 0.10804899781942368ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 333  [11:29:20.507] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 334  [11:29:20.514] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 33 structureChanged: false structureIsReused:: Completely Elapsed: 6.806316997855902ms
+Info 335  [11:29:20.514] Different program with same set of files
+Info 336  [11:29:22.758] Before ensureProjectForOpenFiles:
+Info 337  [11:29:22.758] After ensureProjectForOpenFiles:
+Info 338  [11:29:22.758] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 339  [11:29:42.273] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 340  [11:29:42.273] Elapsed:: 0.05724000185728073ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 341  [11:29:42.523] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 342  [11:29:42.530] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 34 structureChanged: false structureIsReused:: Completely Elapsed: 6.81402799859643ms
+Info 343  [11:29:42.530] Different program with same set of files
+Info 344  [11:29:44.774] Before ensureProjectForOpenFiles:
+Info 345  [11:29:44.774] After ensureProjectForOpenFiles:
+Info 346  [11:29:44.774] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 347  [11:30:10.288] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Login.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/Login.tsx 500 undefined WatchType: Closed Script info
+Info 348  [11:30:10.288] Elapsed:: 0.07006999850273132ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Login.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/Login.tsx 500 undefined WatchType: Closed Script info
+Info 349  [11:30:10.540] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 350  [11:30:10.547] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 35 structureChanged: false structureIsReused:: Completely Elapsed: 6.875287998467684ms
+Info 351  [11:30:10.547] Different program with same set of files
+Info 352  [11:30:12.789] Before ensureProjectForOpenFiles:
+Info 353  [11:30:12.789] After ensureProjectForOpenFiles:
+Info 354  [11:30:12.789] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 355  [11:30:32.296] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Login.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/Login.tsx 500 undefined WatchType: Closed Script info
+Info 356  [11:30:32.296] Elapsed:: 0.05106000229716301ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Login.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/Login.tsx 500 undefined WatchType: Closed Script info
+Info 357  [11:30:32.548] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 358  [11:30:32.555] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 36 structureChanged: false structureIsReused:: Completely Elapsed: 6.911334000527859ms
+Info 359  [11:30:32.555] Different program with same set of files
+Info 360  [11:30:34.797] Before ensureProjectForOpenFiles:
+Info 361  [11:30:34.797] After ensureProjectForOpenFiles:
+Info 362  [11:30:34.797] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 363  [11:31:16.339] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Signup.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/Signup.tsx 500 undefined WatchType: Closed Script info
+Info 364  [11:31:16.339] Elapsed:: 0.055720001459121704ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Signup.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/Signup.tsx 500 undefined WatchType: Closed Script info
+Info 365  [11:31:16.590] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 366  [11:31:16.597] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 37 structureChanged: false structureIsReused:: Completely Elapsed: 7.325287003070116ms
+Info 367  [11:31:16.597] Different program with same set of files
+Info 368  [11:31:18.841] Before ensureProjectForOpenFiles:
+Info 369  [11:31:18.841] After ensureProjectForOpenFiles:
+Info 370  [11:31:18.841] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 371  [11:31:58.383] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Login.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/Login.tsx 500 undefined WatchType: Closed Script info
+Info 372  [11:31:58.383] Elapsed:: 0.060770001262426376ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Login.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/Login.tsx 500 undefined WatchType: Closed Script info
+Info 373  [11:31:58.633] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 374  [11:31:58.639] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 38 structureChanged: false structureIsReused:: Completely Elapsed: 6.215410001575947ms
+Info 375  [11:31:58.639] Different program with same set of files
+Info 376  [11:32:00.886] Before ensureProjectForOpenFiles:
+Info 377  [11:32:00.886] After ensureProjectForOpenFiles:
+Info 378  [11:32:00.886] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 379  [11:33:38.442] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 380  [11:33:38.442] Elapsed:: 0.057319000363349915ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 381  [11:33:38.693] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 382  [11:33:38.699] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 39 structureChanged: false structureIsReused:: Completely Elapsed: 6.251639999449253ms
+Info 383  [11:33:38.699] Different program with same set of files
+Info 384  [11:33:40.942] Before ensureProjectForOpenFiles:
+Info 385  [11:33:40.942] After ensureProjectForOpenFiles:
+Info 386  [11:33:40.942] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 387  [11:34:08.471] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 388  [11:34:08.471] Elapsed:: 0.058970000594854355ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 389  [11:34:08.721] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 390  [11:34:08.728] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 40 structureChanged: false structureIsReused:: Completely Elapsed: 6.665539000183344ms
+Info 391  [11:34:08.728] Different program with same set of files
+Info 392  [11:34:10.973] Before ensureProjectForOpenFiles:
+Info 393  [11:34:10.973] After ensureProjectForOpenFiles:
+Info 394  [11:34:10.973] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 395  [11:34:46.500] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 396  [11:34:46.500] Elapsed:: 0.060120001435279846ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 397  [11:34:46.751] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 398  [11:34:46.758] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 41 structureChanged: false structureIsReused:: Completely Elapsed: 6.698648001998663ms
+Info 399  [11:34:46.758] Different program with same set of files
+Info 400  [11:34:48.501] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 401  [11:34:48.501] Elapsed:: 0.1990799978375435ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 402  [11:34:48.752] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 403  [11:34:48.759] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 42 structureChanged: false structureIsReused:: Completely Elapsed: 6.315209999680519ms
+Info 404  [11:34:48.759] Different program with same set of files
+Info 405  [11:34:51.002] Before ensureProjectForOpenFiles:
+Info 406  [11:34:51.002] After ensureProjectForOpenFiles:
+Info 407  [11:34:51.002] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 408  [11:35:36.518] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Signup.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/Signup.tsx 500 undefined WatchType: Closed Script info
+Info 409  [11:35:36.518] Elapsed:: 0.05462000146508217ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Signup.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/Signup.tsx 500 undefined WatchType: Closed Script info
+Info 410  [11:35:36.769] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 411  [11:35:36.776] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 43 structureChanged: false structureIsReused:: Completely Elapsed: 6.408208999782801ms
+Info 412  [11:35:36.776] Different program with same set of files
+Info 413  [11:35:39.018] Before ensureProjectForOpenFiles:
+Info 414  [11:35:39.019] After ensureProjectForOpenFiles:
+Info 415  [11:35:39.019] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 416  [11:40:38.756] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Signup.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/Signup.tsx 500 undefined WatchType: Closed Script info
+Info 417  [11:40:38.756] Elapsed:: 0.06387000158429146ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Signup.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/Signup.tsx 500 undefined WatchType: Closed Script info
+Info 418  [11:40:39.007] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 419  [11:40:39.014] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 44 structureChanged: false structureIsReused:: Completely Elapsed: 6.805147998034954ms
+Info 420  [11:40:39.014] Different program with same set of files
+Info 421  [11:40:41.258] Before ensureProjectForOpenFiles:
+Info 422  [11:40:41.258] After ensureProjectForOpenFiles:
+Info 423  [11:40:41.258] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 424  [11:40:50.768] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Signup.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/Signup.tsx 500 undefined WatchType: Closed Script info
+Info 425  [11:40:50.768] Elapsed:: 0.13084900006651878ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Signup.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/Signup.tsx 500 undefined WatchType: Closed Script info
+Info 426  [11:40:51.020] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 427  [11:40:51.030] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 45 structureChanged: false structureIsReused:: Completely Elapsed: 9.557989999651909ms
+Info 428  [11:40:51.030] Different program with same set of files
+Info 429  [11:40:53.271] Before ensureProjectForOpenFiles:
+Info 430  [11:40:53.271] After ensureProjectForOpenFiles:
+Info 431  [11:40:53.271] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 432  [11:41:28.804] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Signup.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/Signup.tsx 500 undefined WatchType: Closed Script info
+Info 433  [11:41:28.804] Elapsed:: 0.0653189979493618ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Signup.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/Signup.tsx 500 undefined WatchType: Closed Script info
+Info 434  [11:41:29.054] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 435  [11:41:29.060] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 46 structureChanged: false structureIsReused:: Completely Elapsed: 6.30969899892807ms
+Info 436  [11:41:29.060] Different program with same set of files
+Info 437  [11:41:31.306] Before ensureProjectForOpenFiles:
+Info 438  [11:41:31.306] After ensureProjectForOpenFiles:
+Info 439  [11:41:31.306] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 440  [11:41:54.822] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Signup.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/Signup.tsx 500 undefined WatchType: Closed Script info
+Info 441  [11:41:54.822] Elapsed:: 0.07097900286316872ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Signup.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/Signup.tsx 500 undefined WatchType: Closed Script info
+Info 442  [11:41:55.073] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 443  [11:41:55.079] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 47 structureChanged: false structureIsReused:: Completely Elapsed: 6.259489998221397ms
+Info 444  [11:41:55.079] Different program with same set of files
+Info 445  [11:41:57.323] Before ensureProjectForOpenFiles:
+Info 446  [11:41:57.323] After ensureProjectForOpenFiles:
+Info 447  [11:41:57.323] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 448  [11:45:14.959] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Home.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/Home.tsx 500 undefined WatchType: Closed Script info
+Info 449  [11:45:14.959] Elapsed:: 0.07263999804854393ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Home.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/Home.tsx 500 undefined WatchType: Closed Script info
+Info 450  [11:45:15.210] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 451  [11:45:15.217] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 48 structureChanged: false structureIsReused:: Completely Elapsed: 7.497735999524593ms
+Info 452  [11:45:15.217] Different program with same set of files
+Info 453  [11:45:17.461] Before ensureProjectForOpenFiles:
+Info 454  [11:45:17.461] After ensureProjectForOpenFiles:
+Info 455  [11:45:17.461] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 456  [11:45:22.967] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Home.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/Home.tsx 500 undefined WatchType: Closed Script info
+Info 457  [11:45:22.967] Elapsed:: 0.11231900006532669ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Home.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/Home.tsx 500 undefined WatchType: Closed Script info
+Info 458  [11:45:23.218] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 459  [11:45:23.224] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 49 structureChanged: false structureIsReused:: Completely Elapsed: 5.617451999336481ms
+Info 460  [11:45:23.224] Different program with same set of files
+Info 461  [11:45:25.470] Before ensureProjectForOpenFiles:
+Info 462  [11:45:25.470] After ensureProjectForOpenFiles:
+Info 463  [11:45:25.470] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 464  [11:45:32.978] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Home.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/Home.tsx 500 undefined WatchType: Closed Script info
+Info 465  [11:45:32.979] Elapsed:: 0.07663000002503395ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Home.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/Home.tsx 500 undefined WatchType: Closed Script info
+Info 466  [11:45:33.230] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 467  [11:45:33.236] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 50 structureChanged: false structureIsReused:: Completely Elapsed: 6.208170000463724ms
+Info 468  [11:45:33.236] Different program with same set of files
+Info 469  [11:45:35.481] Before ensureProjectForOpenFiles:
+Info 470  [11:45:35.481] After ensureProjectForOpenFiles:
+Info 471  [11:45:35.481] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 472  [11:46:07.013] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Home.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/Home.tsx 500 undefined WatchType: Closed Script info
+Info 473  [11:46:07.013] Elapsed:: 0.08386999741196632ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Home.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/Home.tsx 500 undefined WatchType: Closed Script info
+Info 474  [11:46:07.263] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 475  [11:46:07.269] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 51 structureChanged: false structureIsReused:: Completely Elapsed: 5.086337998509407ms
+Info 476  [11:46:07.269] Different program with same set of files
+Info 477  [11:46:09.513] Before ensureProjectForOpenFiles:
+Info 478  [11:46:09.513] After ensureProjectForOpenFiles:
+Info 479  [11:46:09.513] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 480  [11:49:13.151] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Home.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/Home.tsx 500 undefined WatchType: Closed Script info
+Info 481  [11:49:13.151] Elapsed:: 0.1036899983882904ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Home.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/Home.tsx 500 undefined WatchType: Closed Script info
+Info 482  [11:49:13.402] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 483  [11:49:13.408] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 52 structureChanged: false structureIsReused:: Completely Elapsed: 6.056120000779629ms
+Info 484  [11:49:13.408] Different program with same set of files
+Info 485  [11:49:15.652] Before ensureProjectForOpenFiles:
+Info 486  [11:49:15.652] After ensureProjectForOpenFiles:
+Info 487  [11:49:15.652] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 488  [11:49:45.163] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Home.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/Home.tsx 500 undefined WatchType: Closed Script info
+Info 489  [11:49:45.164] Elapsed:: 0.07822999730706215ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Home.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/Home.tsx 500 undefined WatchType: Closed Script info
+Info 490  [11:49:45.415] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 491  [11:49:45.424] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 53 structureChanged: false structureIsReused:: Completely Elapsed: 9.063730999827385ms
+Info 492  [11:49:45.424] Different program with same set of files
+Info 493  [11:49:47.664] Before ensureProjectForOpenFiles:
+Info 494  [11:49:47.664] After ensureProjectForOpenFiles:
+Info 495  [11:49:47.664] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 496  [11:50:17.188] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Home.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/Home.tsx 500 undefined WatchType: Closed Script info
+Info 497  [11:50:17.188] Elapsed:: 0.06236900016665459ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Home.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/Home.tsx 500 undefined WatchType: Closed Script info
+Info 498  [11:50:17.439] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 499  [11:50:17.447] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 54 structureChanged: false structureIsReused:: Completely Elapsed: 7.533135998994112ms
+Info 500  [11:50:17.447] Different program with same set of files
+Info 501  [11:50:19.690] Before ensureProjectForOpenFiles:
+Info 502  [11:50:19.690] After ensureProjectForOpenFiles:
+Info 503  [11:50:19.690] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 504  [11:50:27.199] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Home.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/Home.tsx 500 undefined WatchType: Closed Script info
+Info 505  [11:50:27.199] Elapsed:: 0.048239998519420624ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Home.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/Home.tsx 500 undefined WatchType: Closed Script info
+Info 506  [11:50:27.450] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 507  [11:50:27.456] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 55 structureChanged: false structureIsReused:: Completely Elapsed: 6.041005000472069ms
+Info 508  [11:50:27.456] Different program with same set of files
+Info 509  [11:50:29.701] Before ensureProjectForOpenFiles:
+Info 510  [11:50:29.701] After ensureProjectForOpenFiles:
+Info 511  [11:50:29.701] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 512  [11:50:37.210] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Home.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/Home.tsx 500 undefined WatchType: Closed Script info
+Info 513  [11:50:37.210] Elapsed:: 0.06312000006437302ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Home.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/Home.tsx 500 undefined WatchType: Closed Script info
+Info 514  [11:50:37.462] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 515  [11:50:37.467] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 56 structureChanged: false structureIsReused:: Completely Elapsed: 5.465790998190641ms
+Info 516  [11:50:37.467] Different program with same set of files
+Info 517  [11:50:39.713] Before ensureProjectForOpenFiles:
+Info 518  [11:50:39.713] After ensureProjectForOpenFiles:
+Info 519  [11:50:39.713] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 520  [11:50:45.218] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Home.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/Home.tsx 500 undefined WatchType: Closed Script info
+Info 521  [11:50:45.218] Elapsed:: 0.05344000086188316ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Home.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/Home.tsx 500 undefined WatchType: Closed Script info
+Info 522  [11:50:45.470] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 523  [11:50:45.475] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 57 structureChanged: false structureIsReused:: Completely Elapsed: 4.6964649967849255ms
+Info 524  [11:50:45.475] Different program with same set of files
+Info 525  [11:50:47.720] Before ensureProjectForOpenFiles:
+Info 526  [11:50:47.721] After ensureProjectForOpenFiles:
+Info 527  [11:50:47.721] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 528  [11:51:43.258] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Home.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/Home.tsx 500 undefined WatchType: Closed Script info
+Info 529  [11:51:43.258] Elapsed:: 0.058469999581575394ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Home.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/Home.tsx 500 undefined WatchType: Closed Script info
+Info 530  [11:51:43.509] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 531  [11:51:43.515] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 58 structureChanged: false structureIsReused:: Completely Elapsed: 5.285562001168728ms
+Info 532  [11:51:43.515] Different program with same set of files
+Info 533  [11:51:45.758] Before ensureProjectForOpenFiles:
+Info 534  [11:51:45.758] After ensureProjectForOpenFiles:
+Info 535  [11:51:45.759] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 536  [11:52:01.265] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Home.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/Home.tsx 500 undefined WatchType: Closed Script info
+Info 537  [11:52:01.265] Elapsed:: 0.05793999880552292ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Home.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/Home.tsx 500 undefined WatchType: Closed Script info
+Info 538  [11:52:01.517] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 539  [11:52:01.522] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 59 structureChanged: false structureIsReused:: Completely Elapsed: 5.781121000647545ms
+Info 540  [11:52:01.522] Different program with same set of files
+Info 541  [11:52:03.765] Before ensureProjectForOpenFiles:
+Info 542  [11:52:03.765] After ensureProjectForOpenFiles:
+Info 543  [11:52:03.765] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 544  [11:53:29.342] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Home.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/Home.tsx 500 undefined WatchType: Closed Script info
+Info 545  [11:53:29.342] Elapsed:: 0.0738999992609024ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Home.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/Home.tsx 500 undefined WatchType: Closed Script info
+Info 546  [11:53:29.592] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 547  [11:53:29.598] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 60 structureChanged: false structureIsReused:: Completely Elapsed: 6.507223002612591ms
+Info 548  [11:53:29.598] Different program with same set of files
+Info 549  [11:53:31.843] Before ensureProjectForOpenFiles:
+Info 550  [11:53:31.843] After ensureProjectForOpenFiles:
+Info 551  [11:53:31.844] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 552  [11:53:35.346] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Home.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/Home.tsx 500 undefined WatchType: Closed Script info
+Info 553  [11:53:35.346] Elapsed:: 0.04814999923110008ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Home.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/Home.tsx 500 undefined WatchType: Closed Script info
+Info 554  [11:53:35.596] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 555  [11:53:35.601] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 61 structureChanged: false structureIsReused:: Completely Elapsed: 5.301197998225689ms
+Info 556  [11:53:35.601] Different program with same set of files
+Info 557  [11:53:37.847] Before ensureProjectForOpenFiles:
+Info 558  [11:53:37.847] After ensureProjectForOpenFiles:
+Info 559  [11:53:37.847] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 560  [11:54:11.367] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Home.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/Home.tsx 500 undefined WatchType: Closed Script info
+Info 561  [11:54:11.367] Elapsed:: 0.05987999960780144ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Home.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/Home.tsx 500 undefined WatchType: Closed Script info
+Info 562  [11:54:11.618] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 563  [11:54:11.622] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 62 structureChanged: false structureIsReused:: Completely Elapsed: 4.143157001584768ms
+Info 564  [11:54:11.622] Different program with same set of files
+Info 565  [11:54:13.868] Before ensureProjectForOpenFiles:
+Info 566  [11:54:13.868] After ensureProjectForOpenFiles:
+Info 567  [11:54:13.868] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 568  [11:54:33.372] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Home.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/Home.tsx 500 undefined WatchType: Closed Script info
+Info 569  [11:54:33.372] Elapsed:: 0.06186999753117561ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Home.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/Home.tsx 500 undefined WatchType: Closed Script info
+Info 570  [11:54:33.623] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 571  [11:54:33.629] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 63 structureChanged: false structureIsReused:: Completely Elapsed: 5.936411000788212ms
+Info 572  [11:54:33.629] Different program with same set of files
+Info 573  [11:54:35.872] Before ensureProjectForOpenFiles:
+Info 574  [11:54:35.872] After ensureProjectForOpenFiles:
+Info 575  [11:54:35.872] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 576  [11:56:27.477] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Home.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/Home.tsx 500 undefined WatchType: Closed Script info
+Info 577  [11:56:27.477] Elapsed:: 0.10827000066637993ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Home.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/Home.tsx 500 undefined WatchType: Closed Script info
+Info 578  [11:56:27.728] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 579  [11:56:27.771] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 64 structureChanged: true structureIsReused:: SafeModules Elapsed: 43.15168900042772ms
+Info 580  [11:56:27.771] Different program with same set of files
+Info 581  [11:56:29.479] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Home.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/Home.tsx 500 undefined WatchType: Closed Script info
+Info 582  [11:56:29.479] Elapsed:: 0.07708000019192696ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Home.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/Home.tsx 500 undefined WatchType: Closed Script info
+Info 583  [11:56:29.730] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 584  [11:56:29.735] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 65 structureChanged: false structureIsReused:: Completely Elapsed: 4.52955500036478ms
+Info 585  [11:56:29.735] Different program with same set of files
+Info 586  [11:56:31.979] Before ensureProjectForOpenFiles:
+Info 587  [11:56:31.980] After ensureProjectForOpenFiles:
+Info 588  [11:56:31.980] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 589  [11:56:43.484] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Home.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/Home.tsx 500 undefined WatchType: Closed Script info
+Info 590  [11:56:43.485] Elapsed:: 0.15234899893403053ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Home.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/Home.tsx 500 undefined WatchType: Closed Script info
+Info 591  [11:56:43.736] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 592  [11:56:43.741] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 66 structureChanged: false structureIsReused:: Completely Elapsed: 4.954534001648426ms
+Info 593  [11:56:43.741] Different program with same set of files
+Info 594  [11:56:45.985] Before ensureProjectForOpenFiles:
+Info 595  [11:56:45.985] After ensureProjectForOpenFiles:
+Info 596  [11:56:45.985] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 597  [11:57:19.506] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Home.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/Home.tsx 500 undefined WatchType: Closed Script info
+Info 598  [11:57:19.507] Elapsed:: 0.05247000232338905ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Home.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/Home.tsx 500 undefined WatchType: Closed Script info
+Info 599  [11:57:19.758] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 600  [11:57:19.763] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 67 structureChanged: false structureIsReused:: Completely Elapsed: 5.088782999664545ms
+Info 601  [11:57:19.763] Different program with same set of files
+Info 602  [11:57:22.008] Before ensureProjectForOpenFiles:
+Info 603  [11:57:22.008] After ensureProjectForOpenFiles:
+Info 604  [11:57:22.009] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 605  [11:58:05.555] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Home.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/Home.tsx 500 undefined WatchType: Closed Script info
+Info 606  [11:58:05.556] Elapsed:: 0.0791190005838871ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Home.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/Home.tsx 500 undefined WatchType: Closed Script info
+Info 607  [11:58:05.806] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 608  [11:58:05.812] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 68 structureChanged: false structureIsReused:: Completely Elapsed: 5.504961997270584ms
+Info 609  [11:58:05.812] Different program with same set of files
+Info 610  [11:58:08.057] Before ensureProjectForOpenFiles:
+Info 611  [11:58:08.057] After ensureProjectForOpenFiles:
+Info 612  [11:58:08.057] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 613  [11:58:35.581] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Home.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/Home.tsx 500 undefined WatchType: Closed Script info
+Info 614  [11:58:35.581] Elapsed:: 0.09442000091075897ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Home.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/Home.tsx 500 undefined WatchType: Closed Script info
+Info 615  [11:58:35.832] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 616  [11:58:35.838] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 69 structureChanged: false structureIsReused:: Completely Elapsed: 5.892587002366781ms
+Info 617  [11:58:35.838] Different program with same set of files
+Info 618  [11:58:38.082] Before ensureProjectForOpenFiles:
+Info 619  [11:58:38.082] After ensureProjectForOpenFiles:
+Info 620  [11:58:38.082] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 621  [11:59:15.600] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Home.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/Home.tsx 500 undefined WatchType: Closed Script info
+Info 622  [11:59:15.600] Elapsed:: 0.05720899999141693ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Home.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/Home.tsx 500 undefined WatchType: Closed Script info
+Info 623  [11:59:15.852] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 624  [11:59:15.858] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 70 structureChanged: false structureIsReused:: Completely Elapsed: 6.406029000878334ms
+Info 625  [11:59:15.858] Different program with same set of files
+Info 626  [11:59:18.101] Before ensureProjectForOpenFiles:
+Info 627  [11:59:18.101] After ensureProjectForOpenFiles:
+Info 628  [11:59:18.101] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 629  [11:59:29.601] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Home.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/Home.tsx 500 undefined WatchType: Closed Script info
+Info 630  [11:59:29.602] Elapsed:: 0.057739999145269394ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Home.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/Home.tsx 500 undefined WatchType: Closed Script info
+Info 631  [11:59:29.853] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 632  [11:59:29.859] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 71 structureChanged: false structureIsReused:: Completely Elapsed: 6.098480001091957ms
+Info 633  [11:59:29.859] Different program with same set of files
+Info 634  [11:59:32.102] Before ensureProjectForOpenFiles:
+Info 635  [11:59:32.102] After ensureProjectForOpenFiles:
+Info 636  [11:59:32.102] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 637  [12:00:47.675] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Home.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/Home.tsx 500 undefined WatchType: Closed Script info
+Info 638  [12:00:47.676] Elapsed:: 0.07240999862551689ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Home.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/Home.tsx 500 undefined WatchType: Closed Script info
+Info 639  [12:00:47.926] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 640  [12:00:47.933] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 72 structureChanged: false structureIsReused:: Completely Elapsed: 6.915359001606703ms
+Info 641  [12:00:47.933] Different program with same set of files
+Info 642  [12:00:50.177] Before ensureProjectForOpenFiles:
+Info 643  [12:00:50.177] After ensureProjectForOpenFiles:
+Info 644  [12:00:50.177] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 645  [12:05:27.890] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 646  [12:05:27.890] Elapsed:: 0.09583000093698502ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 647  [12:05:28.141] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 648  [12:05:28.149] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 73 structureChanged: false structureIsReused:: Completely Elapsed: 7.405985999852419ms
+Info 649  [12:05:28.149] Different program with same set of files
+Info 650  [12:05:30.392] Before ensureProjectForOpenFiles:
+Info 651  [12:05:30.393] After ensureProjectForOpenFiles:
+Info 652  [12:05:30.393] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 653  [12:05:39.900] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 654  [12:05:39.900] Elapsed:: 0.05160999670624733ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 655  [12:05:40.152] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 656  [12:05:40.158] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 74 structureChanged: false structureIsReused:: Completely Elapsed: 5.9235609993338585ms
+Info 657  [12:05:40.158] Different program with same set of files
+Info 658  [12:05:42.401] Before ensureProjectForOpenFiles:
+Info 659  [12:05:42.401] After ensureProjectForOpenFiles:
+Info 660  [12:05:42.401] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 661  [12:06:47.932] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 662  [12:06:47.932] Elapsed:: 0.0680599994957447ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 663  [12:06:48.184] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 664  [12:06:48.190] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 75 structureChanged: false structureIsReused:: Completely Elapsed: 6.174189999699593ms
+Info 665  [12:06:48.190] Different program with same set of files
+Info 666  [12:06:50.434] Before ensureProjectForOpenFiles:
+Info 667  [12:06:50.434] After ensureProjectForOpenFiles:
+Info 668  [12:06:50.434] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 669  [12:08:14.007] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 670  [12:08:14.007] Elapsed:: 0.06988999992609024ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 671  [12:08:14.258] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 672  [12:08:14.265] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 76 structureChanged: false structureIsReused:: Completely Elapsed: 6.61480800062418ms
+Info 673  [12:08:14.265] Different program with same set of files
+Info 674  [12:08:16.508] Before ensureProjectForOpenFiles:
+Info 675  [12:08:16.508] After ensureProjectForOpenFiles:
+Info 676  [12:08:16.508] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 677  [12:08:54.022] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 678  [12:08:54.022] Elapsed:: 0.059539999812841415ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 679  [12:08:54.273] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 680  [12:08:54.280] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 77 structureChanged: false structureIsReused:: Completely Elapsed: 6.346520002931356ms
+Info 681  [12:08:54.280] Different program with same set of files
+Info 682  [12:08:56.522] Before ensureProjectForOpenFiles:
+Info 683  [12:08:56.522] After ensureProjectForOpenFiles:
+Info 684  [12:08:56.523] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 685  [12:09:04.026] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 686  [12:09:04.026] Elapsed:: 0.053189001977443695ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 687  [12:09:04.278] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 688  [12:09:04.278] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 78 structureChanged: false structureIsReused:: Completely Elapsed: 0.6486969999969006ms
+Info 689  [12:09:06.528] Before ensureProjectForOpenFiles:
+Info 690  [12:09:06.528] After ensureProjectForOpenFiles:
+Info 691  [12:09:06.528] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 692  [12:09:18.043] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 693  [12:09:18.043] Elapsed:: 0.05300000309944153ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 694  [12:09:18.294] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 695  [12:09:18.300] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 79 structureChanged: false structureIsReused:: Completely Elapsed: 6.310029000043869ms
+Info 696  [12:09:18.300] Different program with same set of files
+Info 697  [12:09:20.545] Before ensureProjectForOpenFiles:
+Info 698  [12:09:20.545] After ensureProjectForOpenFiles:
+Info 699  [12:09:20.545] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 700  [12:12:38.213] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 701  [12:12:38.213] Elapsed:: 0.09265900030732155ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 702  [12:12:38.463] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 703  [12:12:38.472] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 80 structureChanged: false structureIsReused:: Completely Elapsed: 8.006673999130726ms
+Info 704  [12:12:38.472] Different program with same set of files
+Info 705  [12:12:40.715] Before ensureProjectForOpenFiles:
+Info 706  [12:12:40.715] After ensureProjectForOpenFiles:
+Info 707  [12:12:40.715] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 708  [12:13:00.229] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 709  [12:13:00.230] Elapsed:: 0.09393899887800217ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 710  [12:13:00.481] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 711  [12:13:00.488] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 81 structureChanged: false structureIsReused:: Completely Elapsed: 6.992603000253439ms
+Info 712  [12:13:00.488] Different program with same set of files
+Info 713  [12:13:02.731] Before ensureProjectForOpenFiles:
+Info 714  [12:13:02.731] After ensureProjectForOpenFiles:
+Info 715  [12:13:02.731] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 716  [12:13:28.241] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 717  [12:13:28.242] Elapsed:: 0.05692000314593315ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 718  [12:13:28.493] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 719  [12:13:28.501] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 82 structureChanged: false structureIsReused:: Completely Elapsed: 8.37942399829626ms
+Info 720  [12:13:28.502] Different program with same set of files
+Info 721  [12:13:30.742] Before ensureProjectForOpenFiles:
+Info 722  [12:13:30.742] After ensureProjectForOpenFiles:
+Info 723  [12:13:30.742] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 724  [08:16:09.147] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 725  [08:16:09.151] Elapsed:: 2.0232440009713173ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 726  [08:16:09.403] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 727  [08:16:09.481] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 83 structureChanged: false structureIsReused:: Completely Elapsed: 77.82504300028086ms
+Info 728  [08:16:09.481] Different program with same set of files
+Info 729  [08:16:11.653] Before ensureProjectForOpenFiles:
+Info 730  [08:16:11.653] After ensureProjectForOpenFiles:
+Info 731  [08:16:11.654] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 732  [08:16:43.172] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 733  [08:16:43.172] Elapsed:: 0.05682999640703201ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 734  [08:16:43.423] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 735  [08:16:43.433] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 84 structureChanged: false structureIsReused:: Completely Elapsed: 9.993508003652096ms
+Info 736  [08:16:43.433] Different program with same set of files
+Info 737  [08:16:45.673] Before ensureProjectForOpenFiles:
+Info 738  [08:16:45.673] After ensureProjectForOpenFiles:
+Info 739  [08:16:45.673] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 740  [08:19:41.295] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 741  [08:19:41.295] Elapsed:: 0.08991000056266785ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 742  [08:19:41.546] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 743  [08:19:41.559] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 85 structureChanged: false structureIsReused:: Completely Elapsed: 12.627029001712799ms
+Info 744  [08:19:41.559] Different program with same set of files
+Info 745  [08:19:43.795] Before ensureProjectForOpenFiles:
+Info 746  [08:19:43.795] After ensureProjectForOpenFiles:
+Info 747  [08:19:43.795] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 748  [08:20:01.317] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 749  [08:20:01.317] Elapsed:: 0.058910004794597626ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 750  [08:20:01.568] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 751  [08:20:01.575] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 86 structureChanged: false structureIsReused:: Completely Elapsed: 7.356633998453617ms
+Info 752  [08:20:01.575] Different program with same set of files
+Info 753  [08:20:03.820] Before ensureProjectForOpenFiles:
+Info 754  [08:20:03.820] After ensureProjectForOpenFiles:
+Info 755  [08:20:03.820] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 756  [08:21:09.381] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 757  [08:21:09.381] Elapsed:: 0.05782900005578995ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 758  [08:21:09.631] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 759  [08:21:09.640] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 87 structureChanged: false structureIsReused:: Completely Elapsed: 8.14546299725771ms
+Info 760  [08:21:09.640] Different program with same set of files
+Info 761  [08:21:11.882] Before ensureProjectForOpenFiles:
+Info 762  [08:21:11.883] After ensureProjectForOpenFiles:
+Info 763  [08:21:11.883] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 764  [08:24:29.509] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 765  [08:24:29.509] Elapsed:: 0.06529999524354935ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 766  [08:24:29.760] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 767  [08:24:29.768] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 88 structureChanged: false structureIsReused:: Completely Elapsed: 7.3791060000658035ms
+Info 768  [08:24:29.768] Different program with same set of files
+Info 769  [08:24:32.011] Before ensureProjectForOpenFiles:
+Info 770  [08:24:32.011] After ensureProjectForOpenFiles:
+Info 771  [08:24:32.011] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 772  [08:30:03.781] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 773  [08:30:03.782] Elapsed:: 0.15630999952554703ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 774  [08:30:04.032] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 775  [08:30:04.044] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 89 structureChanged: false structureIsReused:: Completely Elapsed: 11.63977199792862ms
+Info 776  [08:30:04.044] Different program with same set of files
+Info 777  [08:30:06.283] Before ensureProjectForOpenFiles:
+Info 778  [08:30:06.283] After ensureProjectForOpenFiles:
+Info 779  [08:30:06.283] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 780  [08:31:23.831] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 781  [08:31:23.831] Elapsed:: 0.1006999984383583ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 782  [08:31:24.083] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 783  [08:31:24.092] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 90 structureChanged: false structureIsReused:: Completely Elapsed: 8.92221699655056ms
+Info 784  [08:31:24.092] Different program with same set of files
+Info 785  [08:31:26.332] Before ensureProjectForOpenFiles:
+Info 786  [08:31:26.332] After ensureProjectForOpenFiles:
+Info 787  [08:31:26.332] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 788  [08:44:56.424] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 789  [08:44:56.424] Elapsed:: 0.07227999716997147ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 790  [08:44:56.676] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 791  [08:44:56.684] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 91 structureChanged: false structureIsReused:: Completely Elapsed: 8.416513003408909ms
+Info 792  [08:44:56.684] Different program with same set of files
+Info 793  [08:44:58.925] Before ensureProjectForOpenFiles:
+Info 794  [08:44:58.925] After ensureProjectForOpenFiles:
+Info 795  [08:44:58.925] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 796  [08:45:44.446] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 797  [08:45:44.446] Elapsed:: 0.061650000512599945ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 798  [08:45:44.697] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 799  [08:45:44.705] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 92 structureChanged: false structureIsReused:: Completely Elapsed: 7.307526998221874ms
+Info 800  [08:45:44.705] Different program with same set of files
+Info 801  [08:45:46.949] Before ensureProjectForOpenFiles:
+Info 802  [08:45:46.949] After ensureProjectForOpenFiles:
+Info 803  [08:45:46.949] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 804  [08:46:06.472] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 805  [08:46:06.472] Elapsed:: 0.0617000013589859ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 806  [08:46:06.723] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 807  [08:46:06.729] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 93 structureChanged: false structureIsReused:: Completely Elapsed: 6.17492999881506ms
+Info 808  [08:46:06.729] Different program with same set of files
+Info 809  [08:46:08.974] Before ensureProjectForOpenFiles:
+Info 810  [08:46:08.974] After ensureProjectForOpenFiles:
+Info 811  [08:46:08.974] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 812  [08:46:42.506] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 813  [08:46:42.506] Elapsed:: 0.057120002806186676ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 814  [08:46:42.756] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 815  [08:46:42.762] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 94 structureChanged: false structureIsReused:: Completely Elapsed: 5.589401997625828ms
+Info 816  [08:46:42.762] Different program with same set of files
+Info 817  [08:46:45.008] Before ensureProjectForOpenFiles:
+Info 818  [08:46:45.008] After ensureProjectForOpenFiles:
+Info 819  [08:46:45.008] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 820  [08:46:52.514] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 821  [08:46:52.514] Elapsed:: 0.049300000071525574ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 822  [08:46:52.764] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 823  [08:46:52.770] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 95 structureChanged: false structureIsReused:: Completely Elapsed: 5.903012000024319ms
+Info 824  [08:46:52.770] Different program with same set of files
+Info 825  [08:46:55.015] Before ensureProjectForOpenFiles:
+Info 826  [08:46:55.015] After ensureProjectForOpenFiles:
+Info 827  [08:46:55.015] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 828  [08:47:26.535] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 829  [08:47:26.535] Elapsed:: 0.053939998149871826ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 830  [08:47:26.786] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 831  [08:47:26.793] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 96 structureChanged: false structureIsReused:: Completely Elapsed: 6.408688999712467ms
+Info 832  [08:47:26.793] Different program with same set of files
+Info 833  [08:47:29.036] Before ensureProjectForOpenFiles:
+Info 834  [08:47:29.036] After ensureProjectForOpenFiles:
+Info 835  [08:47:29.036] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 836  [08:47:40.539] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 837  [08:47:40.539] Elapsed:: 0.053999997675418854ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 838  [08:47:40.791] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 839  [08:47:40.798] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 97 structureChanged: false structureIsReused:: Completely Elapsed: 6.826223000884056ms
+Info 840  [08:47:40.798] Different program with same set of files
+Info 841  [08:47:43.040] Before ensureProjectForOpenFiles:
+Info 842  [08:47:43.040] After ensureProjectForOpenFiles:
+Info 843  [08:47:43.040] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 844  [08:50:02.647] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 845  [08:50:02.647] Elapsed:: 0.057590000331401825ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 846  [08:50:02.898] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 847  [08:50:02.905] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 98 structureChanged: false structureIsReused:: Completely Elapsed: 6.456730000674725ms
+Info 848  [08:50:02.905] Different program with same set of files
+Info 849  [08:50:05.147] Before ensureProjectForOpenFiles:
+Info 850  [08:50:05.147] After ensureProjectForOpenFiles:
+Info 851  [08:50:05.147] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 852  [08:50:30.659] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 853  [08:50:30.659] Elapsed:: 0.05065000057220459ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 854  [08:50:30.911] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 855  [08:50:30.918] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 99 structureChanged: false structureIsReused:: Completely Elapsed: 6.973547004163265ms
+Info 856  [08:50:30.918] Different program with same set of files
+Info 857  [08:50:33.162] Before ensureProjectForOpenFiles:
+Info 858  [08:50:33.162] After ensureProjectForOpenFiles:
+Info 859  [08:50:33.162] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 860  [08:51:14.705] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 861  [08:51:14.705] Elapsed:: 0.056290000677108765ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 862  [08:51:14.955] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 863  [08:51:14.962] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 100 structureChanged: false structureIsReused:: Completely Elapsed: 6.8438069969415665ms
+Info 864  [08:51:14.962] Different program with same set of files
+Info 865  [08:51:17.205] Before ensureProjectForOpenFiles:
+Info 866  [08:51:17.205] After ensureProjectForOpenFiles:
+Info 867  [08:51:17.205] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 868  [08:51:50.733] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 869  [08:51:50.733] Elapsed:: 0.058159999549388885ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 870  [08:51:50.984] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 871  [08:51:50.993] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 101 structureChanged: false structureIsReused:: Completely Elapsed: 8.039533995091915ms
+Info 872  [08:51:50.993] Different program with same set of files
+Info 873  [08:51:53.234] Before ensureProjectForOpenFiles:
+Info 874  [08:51:53.234] After ensureProjectForOpenFiles:
+Info 875  [08:51:53.234] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 876  [08:59:41.090] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Home.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/Home.tsx 500 undefined WatchType: Closed Script info
+Info 877  [08:59:41.090] Elapsed:: 0.059790000319480896ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Home.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/Home.tsx 500 undefined WatchType: Closed Script info
+Info 878  [08:59:41.342] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 879  [08:59:41.349] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 102 structureChanged: false structureIsReused:: Completely Elapsed: 7.333549998700619ms
+Info 880  [08:59:41.349] Different program with same set of files
+Info 881  [08:59:43.591] Before ensureProjectForOpenFiles:
+Info 882  [08:59:43.591] After ensureProjectForOpenFiles:
+Info 883  [08:59:43.591] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 884  [09:00:33.132] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Home.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/Home.tsx 500 undefined WatchType: Closed Script info
+Info 885  [09:00:33.132] Elapsed:: 0.06658999621868134ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Home.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/Home.tsx 500 undefined WatchType: Closed Script info
+Info 886  [09:00:33.384] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 887  [09:00:33.390] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 103 structureChanged: false structureIsReused:: Completely Elapsed: 6.238430999219418ms
+Info 888  [09:00:33.390] Different program with same set of files
+Info 889  [09:00:35.635] Before ensureProjectForOpenFiles:
+Info 890  [09:00:35.635] After ensureProjectForOpenFiles:
+Info 891  [09:00:35.635] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 892  [09:01:23.169] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Home.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/Home.tsx 500 undefined WatchType: Closed Script info
+Info 893  [09:01:23.169] Elapsed:: 0.0655599981546402ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Home.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/Home.tsx 500 undefined WatchType: Closed Script info
+Info 894  [09:01:23.420] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 895  [09:01:23.430] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 104 structureChanged: false structureIsReused:: Completely Elapsed: 9.661784000694752ms
+Info 896  [09:01:23.430] Different program with same set of files
+Info 897  [09:01:25.669] Before ensureProjectForOpenFiles:
+Info 898  [09:01:25.669] After ensureProjectForOpenFiles:
+Info 899  [09:01:25.670] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 900  [09:06:41.381] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Home.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/Home.tsx 500 undefined WatchType: Closed Script info
+Info 901  [09:06:41.381] Elapsed:: 0.05703999847173691ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Home.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/Home.tsx 500 undefined WatchType: Closed Script info
+Info 902  [09:06:41.632] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 903  [09:06:41.639] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 105 structureChanged: false structureIsReused:: Completely Elapsed: 6.953638002276421ms
+Info 904  [09:06:41.639] Different program with same set of files
+Info 905  [09:06:43.883] Before ensureProjectForOpenFiles:
+Info 906  [09:06:43.883] After ensureProjectForOpenFiles:
+Info 907  [09:06:43.883] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 908  [09:07:25.432] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Home.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/Home.tsx 500 undefined WatchType: Closed Script info
+Info 909  [09:07:25.432] Elapsed:: 0.05072999745607376ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Home.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/Home.tsx 500 undefined WatchType: Closed Script info
+Info 910  [09:07:25.683] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 911  [09:07:25.690] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 106 structureChanged: false structureIsReused:: Completely Elapsed: 6.859995998442173ms
+Info 912  [09:07:25.690] Different program with same set of files
+Info 913  [09:07:27.933] Before ensureProjectForOpenFiles:
+Info 914  [09:07:27.934] After ensureProjectForOpenFiles:
+Info 915  [09:07:27.934] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 916  [09:40:22.897] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 917  [09:40:22.897] Elapsed:: 0.07963000237941742ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 918  [09:40:23.147] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 919  [09:40:23.155] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 107 structureChanged: false structureIsReused:: Completely Elapsed: 7.678688004612923ms
+Info 920  [09:40:23.155] Different program with same set of files
+Info 921  [09:40:25.398] Before ensureProjectForOpenFiles:
+Info 922  [09:40:25.398] After ensureProjectForOpenFiles:
+Info 923  [09:40:25.398] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 924  [09:40:32.905] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 925  [09:40:32.906] Elapsed:: 0.052160002291202545ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 926  [09:40:33.156] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 927  [09:40:33.162] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 108 structureChanged: false structureIsReused:: Completely Elapsed: 5.854520998895168ms
+Info 928  [09:40:33.162] Different program with same set of files
+Info 929  [09:40:35.407] Before ensureProjectForOpenFiles:
+Info 930  [09:40:35.407] After ensureProjectForOpenFiles:
+Info 931  [09:40:35.407] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 932  [09:40:38.912] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 933  [09:40:38.912] Elapsed:: 0.061180002987384796ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 934  [09:40:39.162] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 935  [09:40:39.167] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 109 structureChanged: false structureIsReused:: Completely Elapsed: 4.667925000190735ms
+Info 936  [09:40:39.167] Different program with same set of files
+Info 937  [09:40:41.413] Before ensureProjectForOpenFiles:
+Info 938  [09:40:41.413] After ensureProjectForOpenFiles:
+Info 939  [09:40:41.413] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 940  [09:42:08.965] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 941  [09:42:08.965] Elapsed:: 0.08534999936819077ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 942  [09:42:09.217] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 943  [09:42:09.224] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 110 structureChanged: false structureIsReused:: Completely Elapsed: 6.597548998892307ms
+Info 944  [09:42:09.224] Different program with same set of files
+Info 945  [09:42:11.468] Before ensureProjectForOpenFiles:
+Info 946  [09:42:11.468] After ensureProjectForOpenFiles:
+Info 947  [09:42:11.468] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 948  [09:42:22.980] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 949  [09:42:22.980] Elapsed:: 0.04601000249385834ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 950  [09:42:23.230] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 951  [09:42:23.236] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 111 structureChanged: false structureIsReused:: Completely Elapsed: 5.623231999576092ms
+Info 952  [09:42:23.236] Different program with same set of files
+Info 953  [09:42:25.482] Before ensureProjectForOpenFiles:
+Info 954  [09:42:25.482] After ensureProjectForOpenFiles:
+Info 955  [09:42:25.482] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 956  [09:43:13.024] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 957  [09:43:13.024] Elapsed:: 0.059258997440338135ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 958  [09:43:13.273] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 959  [09:43:13.280] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 112 structureChanged: false structureIsReused:: Completely Elapsed: 6.252259999513626ms
+Info 960  [09:43:13.280] Different program with same set of files
+Info 961  [09:43:15.525] Before ensureProjectForOpenFiles:
+Info 962  [09:43:15.525] After ensureProjectForOpenFiles:
+Info 963  [09:43:15.525] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 964  [09:46:19.150] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 965  [09:46:19.150] Elapsed:: 0.05922900140285492ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 966  [09:46:19.401] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 967  [09:46:19.409] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 113 structureChanged: false structureIsReused:: Completely Elapsed: 7.586644999682903ms
+Info 968  [09:46:19.409] Different program with same set of files
+Info 969  [09:46:21.650] Before ensureProjectForOpenFiles:
+Info 970  [09:46:21.650] After ensureProjectForOpenFiles:
+Info 971  [09:46:21.650] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 972  [09:47:19.198] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 973  [09:47:19.198] Elapsed:: 0.11114999651908875ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 974  [09:47:19.449] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 975  [09:47:19.458] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 114 structureChanged: false structureIsReused:: Completely Elapsed: 8.934980995953083ms
+Info 976  [09:47:19.458] Different program with same set of files
+Info 977  [09:47:21.700] Before ensureProjectForOpenFiles:
+Info 978  [09:47:21.700] After ensureProjectForOpenFiles:
+Info 979  [09:47:21.700] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 980  [09:48:47.251] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 981  [09:48:47.251] Elapsed:: 0.05349000543355942ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 982  [09:48:47.503] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 983  [09:48:47.509] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 115 structureChanged: false structureIsReused:: Completely Elapsed: 6.31632000207901ms
+Info 984  [09:48:47.509] Different program with same set of files
+Info 985  [09:48:49.751] Before ensureProjectForOpenFiles:
+Info 986  [09:48:49.751] After ensureProjectForOpenFiles:
+Info 987  [09:48:49.751] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 988  [09:52:43.436] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 989  [09:52:43.436] Elapsed:: 0.0830099955201149ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 990  [09:52:43.687] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 991  [09:52:43.693] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 116 structureChanged: false structureIsReused:: Completely Elapsed: 5.997060000896454ms
+Info 992  [09:52:43.694] Different program with same set of files
+Info 993  [09:52:45.937] Before ensureProjectForOpenFiles:
+Info 994  [09:52:45.937] After ensureProjectForOpenFiles:
+Info 995  [09:52:45.937] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 996  [09:52:51.440] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 997  [09:52:51.440] Elapsed:: 0.05044999718666077ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 998  [09:52:51.691] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 999  [09:52:51.700] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 117 structureChanged: false structureIsReused:: Completely Elapsed: 9.170540004968643ms
+Info 1000 [09:52:51.700] Different program with same set of files
+Info 1001 [09:52:53.941] Before ensureProjectForOpenFiles:
+Info 1002 [09:52:53.941] After ensureProjectForOpenFiles:
+Info 1003 [09:52:53.941] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 1004 [09:53:19.451] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 1005 [09:53:19.451] Elapsed:: 0.08317999541759491ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 1006 [09:53:19.703] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 1007 [09:53:19.707] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 118 structureChanged: false structureIsReused:: Completely Elapsed: 4.513005994260311ms
+Info 1008 [09:53:19.707] Different program with same set of files
+Info 1009 [09:53:21.952] Before ensureProjectForOpenFiles:
+Info 1010 [09:53:21.952] After ensureProjectForOpenFiles:
+Info 1011 [09:53:21.952] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 1012 [09:53:27.453] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 1013 [09:53:27.453] Elapsed:: 0.06621900200843811ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 1014 [09:53:27.704] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 1015 [09:53:27.712] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 119 structureChanged: false structureIsReused:: Completely Elapsed: 8.122315004467964ms
+Info 1016 [09:53:27.712] Different program with same set of files
+Info 1017 [09:53:29.953] Before ensureProjectForOpenFiles:
+Info 1018 [09:53:29.953] After ensureProjectForOpenFiles:
+Info 1019 [09:53:29.953] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 1020 [09:53:55.475] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 1021 [09:53:55.475] Elapsed:: 0.06553000211715698ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 1022 [09:53:55.727] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 1023 [09:53:55.732] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 120 structureChanged: false structureIsReused:: Completely Elapsed: 4.89002999663353ms
+Info 1024 [09:53:55.732] Different program with same set of files
+Info 1025 [09:53:57.978] Before ensureProjectForOpenFiles:
+Info 1026 [09:53:57.978] After ensureProjectForOpenFiles:
+Info 1027 [09:53:57.978] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 1028 [09:54:05.487] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 1029 [09:54:05.488] Elapsed:: 0.05707000195980072ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 1030 [09:54:05.739] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 1031 [09:54:05.746] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 121 structureChanged: false structureIsReused:: Completely Elapsed: 6.372948996722698ms
+Info 1032 [09:54:05.746] Different program with same set of files
+Info 1033 [09:54:07.990] Before ensureProjectForOpenFiles:
+Info 1034 [09:54:07.990] After ensureProjectForOpenFiles:
+Info 1035 [09:54:07.990] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 1036 [09:54:17.500] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 1037 [09:54:17.500] Elapsed:: 0.07622899860143661ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 1038 [09:54:17.752] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 1039 [09:54:17.760] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 122 structureChanged: false structureIsReused:: Completely Elapsed: 7.9984840005636215ms
+Info 1040 [09:54:17.760] Different program with same set of files
+Info 1041 [09:54:20.003] Before ensureProjectForOpenFiles:
+Info 1042 [09:54:20.003] After ensureProjectForOpenFiles:
+Info 1043 [09:54:20.003] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 1044 [10:05:54.018] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Home.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/Home.tsx 500 undefined WatchType: Closed Script info
+Info 1045 [10:05:54.018] Elapsed:: 0.08983000367879868ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Home.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/Home.tsx 500 undefined WatchType: Closed Script info
+Info 1046 [10:05:54.268] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 1047 [10:05:54.310] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 123 structureChanged: true structureIsReused:: SafeModules Elapsed: 41.28371600061655ms
+Info 1048 [10:05:54.310] Different program with same set of files
+Info 1049 [10:05:56.519] Before ensureProjectForOpenFiles:
+Info 1050 [10:05:56.520] After ensureProjectForOpenFiles:
+Info 1051 [10:05:56.520] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 1052 [10:07:06.067] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 1053 [10:07:06.067] Elapsed:: 0.04530999809503555ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 1054 [10:07:06.318] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 1055 [10:07:06.323] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 124 structureChanged: false structureIsReused:: Completely Elapsed: 4.366430997848511ms
+Info 1056 [10:07:06.323] Different program with same set of files
+Info 1057 [10:07:08.567] Before ensureProjectForOpenFiles:
+Info 1058 [10:07:08.567] After ensureProjectForOpenFiles:
+Info 1059 [10:07:08.567] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 1060 [10:10:56.244] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 1061 [10:10:56.244] Elapsed:: 0.06825000047683716ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 1062 [10:10:56.495] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 1063 [10:10:56.503] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 125 structureChanged: false structureIsReused:: Completely Elapsed: 7.9611039981245995ms
+Info 1064 [10:10:56.503] Different program with same set of files
+Info 1065 [10:10:58.746] Before ensureProjectForOpenFiles:
+Info 1066 [10:10:58.746] After ensureProjectForOpenFiles:
+Info 1067 [10:10:58.746] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 1068 [10:11:06.251] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 1069 [10:11:06.251] Elapsed:: 0.051739998161792755ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 1070 [10:11:06.500] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 1071 [10:11:06.506] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 126 structureChanged: false structureIsReused:: Completely Elapsed: 5.8148069977760315ms
+Info 1072 [10:11:06.506] Different program with same set of files
+Info 1073 [10:11:08.752] Before ensureProjectForOpenFiles:
+Info 1074 [10:11:08.752] After ensureProjectForOpenFiles:
+Info 1075 [10:11:08.752] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 1076 [10:11:44.272] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 1077 [10:11:44.272] Elapsed:: 0.051409997045993805ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 1078 [10:11:44.523] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 1079 [10:11:44.529] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 127 structureChanged: false structureIsReused:: Completely Elapsed: 6.5491190031170845ms
+Info 1080 [10:11:44.529] Different program with same set of files
+Info 1081 [10:11:46.773] Before ensureProjectForOpenFiles:
+Info 1082 [10:11:46.773] After ensureProjectForOpenFiles:
+Info 1083 [10:11:46.773] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 1084 [10:13:50.375] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 1085 [10:13:50.375] Elapsed:: 0.05826999992132187ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 1086 [10:13:50.625] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 1087 [10:13:50.632] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 128 structureChanged: false structureIsReused:: Completely Elapsed: 6.768592000007629ms
+Info 1088 [10:13:50.632] Different program with same set of files
+Info 1089 [10:13:52.876] Before ensureProjectForOpenFiles:
+Info 1090 [10:13:52.876] After ensureProjectForOpenFiles:
+Info 1091 [10:13:52.877] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 1092 [10:14:16.389] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 1093 [10:14:16.389] Elapsed:: 0.052038997411727905ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 1094 [10:14:16.641] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 1095 [10:14:16.647] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 129 structureChanged: false structureIsReused:: Completely Elapsed: 6.875078000128269ms
+Info 1096 [10:14:16.647] Different program with same set of files
+Info 1097 [10:14:18.889] Before ensureProjectForOpenFiles:
+Info 1098 [10:14:18.890] After ensureProjectForOpenFiles:
+Info 1099 [10:14:18.890] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 1100 [10:15:26.447] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 1101 [10:15:26.447] Elapsed:: 0.05154000222682953ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 1102 [10:15:26.698] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 1103 [10:15:26.705] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 130 structureChanged: false structureIsReused:: Completely Elapsed: 6.579679004848003ms
+Info 1104 [10:15:26.705] Different program with same set of files
+Info 1105 [10:15:28.950] Before ensureProjectForOpenFiles:
+Info 1106 [10:15:28.950] After ensureProjectForOpenFiles:
+Info 1107 [10:15:28.950] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 1108 [10:16:52.498] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 1109 [10:16:52.498] Elapsed:: 0.06561899930238724ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 1110 [10:16:52.749] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 1111 [10:16:52.756] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 131 structureChanged: false structureIsReused:: Completely Elapsed: 6.67891800403595ms
+Info 1112 [10:16:52.756] Different program with same set of files
+Info 1113 [10:16:54.998] Before ensureProjectForOpenFiles:
+Info 1114 [10:16:54.998] After ensureProjectForOpenFiles:
+Info 1115 [10:16:54.998] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 1116 [10:23:58.819] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 1117 [10:23:58.820] Elapsed:: 0.06129899621009827ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 1118 [10:23:59.071] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 1119 [10:23:59.078] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 132 structureChanged: false structureIsReused:: Completely Elapsed: 7.20286700129509ms
+Info 1120 [10:23:59.078] Different program with same set of files
+Info 1121 [10:24:01.320] Before ensureProjectForOpenFiles:
+Info 1122 [10:24:01.320] After ensureProjectForOpenFiles:
+Info 1123 [10:24:01.320] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 1124 [10:24:50.855] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 1125 [10:24:50.855] Elapsed:: 0.09379900246858597ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 1126 [10:24:51.107] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 1127 [10:24:51.114] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 133 structureChanged: false structureIsReused:: Completely Elapsed: 7.2338660061359406ms
+Info 1128 [10:24:51.114] Different program with same set of files
+Info 1129 [10:24:53.357] Before ensureProjectForOpenFiles:
+Info 1130 [10:24:53.357] After ensureProjectForOpenFiles:
+Info 1131 [10:24:53.357] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 1132 [10:25:14.875] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 1133 [10:25:14.875] Elapsed:: 0.058229997754096985ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 1134 [10:25:15.125] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 1135 [10:25:15.131] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 134 structureChanged: false structureIsReused:: Completely Elapsed: 6.352010995149612ms
+Info 1136 [10:25:15.131] Different program with same set of files
+Info 1137 [10:25:17.376] Before ensureProjectForOpenFiles:
+Info 1138 [10:25:17.376] After ensureProjectForOpenFiles:
+Info 1139 [10:25:17.376] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 1140 [10:25:22.880] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 1141 [10:25:22.880] Elapsed:: 0.053828999400138855ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 1142 [10:25:23.130] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 1143 [10:25:23.137] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 135 structureChanged: false structureIsReused:: Completely Elapsed: 6.264078006148338ms
+Info 1144 [10:25:23.137] Different program with same set of files
+Info 1145 [10:25:25.381] Before ensureProjectForOpenFiles:
+Info 1146 [10:25:25.381] After ensureProjectForOpenFiles:
+Info 1147 [10:25:25.381] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 1148 [10:25:54.896] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 1149 [10:25:54.896] Elapsed:: 0.08799999952316284ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 1150 [10:25:55.147] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 1151 [10:25:55.152] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 136 structureChanged: false structureIsReused:: Completely Elapsed: 4.357666000723839ms
+Info 1152 [10:25:55.152] Different program with same set of files
+Info 1153 [10:25:57.397] Before ensureProjectForOpenFiles:
+Info 1154 [10:25:57.397] After ensureProjectForOpenFiles:
+Info 1155 [10:25:57.397] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 1156 [10:26:00.898] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 1157 [10:26:00.898] Elapsed:: 0.0528700053691864ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 1158 [10:26:01.149] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 1159 [10:26:01.154] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 137 structureChanged: false structureIsReused:: Completely Elapsed: 5.468201994895935ms
+Info 1160 [10:26:01.154] Different program with same set of files
+Info 1161 [10:26:03.398] Before ensureProjectForOpenFiles:
+Info 1162 [10:26:03.398] After ensureProjectForOpenFiles:
+Info 1163 [10:26:03.398] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 1164 [10:26:14.902] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 1165 [10:26:14.902] Elapsed:: 0.04882000386714935ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 1166 [10:26:15.154] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 1167 [10:26:15.158] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 138 structureChanged: false structureIsReused:: Completely Elapsed: 4.420956000685692ms
+Info 1168 [10:26:15.158] Different program with same set of files
+Info 1169 [10:26:17.403] Before ensureProjectForOpenFiles:
+Info 1170 [10:26:17.403] After ensureProjectForOpenFiles:
+Info 1171 [10:26:17.403] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 1172 [10:26:22.903] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 1173 [10:26:22.903] Elapsed:: 0.05491999536752701ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 1174 [10:26:23.155] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 1175 [10:26:23.160] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 139 structureChanged: false structureIsReused:: Completely Elapsed: 5.020424000918865ms
+Info 1176 [10:26:23.160] Different program with same set of files
+Info 1177 [10:26:25.404] Before ensureProjectForOpenFiles:
+Info 1178 [10:26:25.404] After ensureProjectForOpenFiles:
+Info 1179 [10:26:25.404] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 1180 [10:26:50.931] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 1181 [10:26:50.931] Elapsed:: 0.04616999626159668ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 1182 [10:26:51.182] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 1183 [10:26:51.189] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 140 structureChanged: false structureIsReused:: Completely Elapsed: 7.082811996340752ms
+Info 1184 [10:26:51.189] Different program with same set of files
+Info 1185 [10:26:53.434] Before ensureProjectForOpenFiles:
+Info 1186 [10:26:53.434] After ensureProjectForOpenFiles:
+Info 1187 [10:26:53.434] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 1188 [10:27:08.952] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 1189 [10:27:08.952] Elapsed:: 0.053860001266002655ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 1190 [10:27:09.202] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 1191 [10:27:09.209] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 141 structureChanged: false structureIsReused:: Completely Elapsed: 6.363679006695747ms
+Info 1192 [10:27:09.209] Different program with same set of files
+Info 1193 [10:27:11.453] Before ensureProjectForOpenFiles:
+Info 1194 [10:27:11.453] After ensureProjectForOpenFiles:
+Info 1195 [10:27:11.453] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 1196 [10:28:14.994] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Login.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/Login.tsx 500 undefined WatchType: Closed Script info
+Info 1197 [10:28:14.995] Elapsed:: 0.06945899873971939ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Login.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/Login.tsx 500 undefined WatchType: Closed Script info
+Info 1198 [10:28:15.246] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 1199 [10:28:15.252] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 142 structureChanged: false structureIsReused:: Completely Elapsed: 6.060231000185013ms
+Info 1200 [10:28:15.252] Different program with same set of files
+Info 1201 [10:28:17.495] Before ensureProjectForOpenFiles:
+Info 1202 [10:28:17.495] After ensureProjectForOpenFiles:
+Info 1203 [10:28:17.495] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 1204 [10:28:53.200] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 1205 [10:28:53.207] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 143 structureChanged: false structureIsReused:: Completely Elapsed: 7.592746004462242ms
+Info 1206 [10:28:53.207] Different program with same set of files
+Info 1207 [10:29:07.400] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 1208 [10:29:07.407] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 144 structureChanged: false structureIsReused:: Completely Elapsed: 6.785938002169132ms
+Info 1209 [10:29:07.407] Different program with same set of files
+Info 1210 [10:29:07.963] Format host information updated
+Info 1211 [10:29:08.181] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 1212 [10:29:08.186] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 145 structureChanged: false structureIsReused:: Completely Elapsed: 5.060452997684479ms
+Info 1213 [10:29:08.186] Different program with same set of files
+Info 1214 [10:34:07.250] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 1215 [10:34:07.250] Elapsed:: 0.0611099973320961ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 1216 [10:34:07.502] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 1217 [10:34:07.510] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 146 structureChanged: false structureIsReused:: Completely Elapsed: 7.569914996623993ms
+Info 1218 [10:34:07.510] Different program with same set of files
+Info 1219 [10:34:09.753] Before ensureProjectForOpenFiles:
+Info 1220 [10:34:09.753] After ensureProjectForOpenFiles:
+Info 1221 [10:34:09.753] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 1222 [10:34:29.275] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 1223 [10:34:29.275] Elapsed:: 0.08643999695777893ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/App.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/App.tsx 500 undefined WatchType: Closed Script info
+Info 1224 [10:34:29.527] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 1225 [10:34:29.533] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 147 structureChanged: false structureIsReused:: Completely Elapsed: 6.489328995347023ms
+Info 1226 [10:34:29.533] Different program with same set of files
+Info 1227 [10:34:31.777] Before ensureProjectForOpenFiles:
+Info 1228 [10:34:31.777] After ensureProjectForOpenFiles:
+Info 1229 [10:34:31.777] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 1230 [10:34:56.730] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 1231 [10:34:56.736] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 148 structureChanged: false structureIsReused:: Completely Elapsed: 6.125401005148888ms
+Info 1232 [10:34:56.736] Different program with same set of files
+Info 1233 [10:34:57.813] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 1234 [10:34:57.818] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 149 structureChanged: false structureIsReused:: Completely Elapsed: 4.681444004178047ms
+Info 1235 [10:34:57.818] Different program with same set of files
+Info 1236 [10:34:58.187] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 1237 [10:34:58.192] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 150 structureChanged: false structureIsReused:: Completely Elapsed: 4.473655998706818ms
+Info 1238 [10:34:58.192] Different program with same set of files
+Info 1239 [10:34:58.632] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 1240 [10:34:58.637] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 151 structureChanged: false structureIsReused:: Completely Elapsed: 4.6905850023031235ms
+Info 1241 [10:34:58.637] Different program with same set of files
+Info 1242 [08:50:11.968] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 1243 [08:50:12.008] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 152 structureChanged: false structureIsReused:: Completely Elapsed: 40.06078000366688ms
+Info 1244 [08:50:12.008] Different program with same set of files
+Info 1245 [08:50:17.277] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 1246 [08:50:17.284] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 153 structureChanged: false structureIsReused:: Completely Elapsed: 6.947506994009018ms
+Info 1247 [08:50:17.284] Different program with same set of files
+Info 1248 [08:50:18.577] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 1249 [08:50:18.584] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 154 structureChanged: false structureIsReused:: Completely Elapsed: 7.059726998209953ms
+Info 1250 [08:50:18.584] Different program with same set of files
+Info 1251 [08:50:18.928] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 1252 [08:50:18.942] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 155 structureChanged: false structureIsReused:: Completely Elapsed: 14.243611998856068ms
+Info 1253 [08:50:18.942] Different program with same set of files
+Info 1254 [08:50:21.409] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 1255 [08:50:21.484] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 156 structureChanged: true structureIsReused:: SafeModules Elapsed: 74.83902300149202ms
+Info 1256 [08:50:21.484] Different program with same set of files
+Info 1257 [09:33:49.518] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 1258 [09:33:49.669] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 157 structureChanged: false structureIsReused:: Completely Elapsed: 147.0569540038705ms
+Info 1259 [09:33:49.669] Different program with same set of files
+Info 1260 [09:33:49.671] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 1261 [09:33:49.696] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 158 structureChanged: false structureIsReused:: Completely Elapsed: 25.04771900177002ms
+Info 1262 [09:33:49.696] Different program with same set of files
+Info 1263 [09:33:49.904] getCompletionData: Get current token: 0.007949993014335632
+Info 1264 [09:33:49.904] getCompletionData: Is inside comment: 0.01978999376296997
+Info 1265 [09:33:49.904] getCompletionData: Get previous token: 0.026590004563331604
+Info 1266 [09:33:49.906] getCompletionsAtPosition: isCompletionListBlocker: 1.1546159982681274
+Info 1267 [09:33:49.954] Starting updateGraphWorker: Project: /dev/null/autoImportProviderProject1*
+Info 1268 [09:33:49.957] Finishing updateGraphWorker: Project: /dev/null/autoImportProviderProject1* Version: 3 structureChanged: false structureIsReused:: Not Elapsed: 2.8554409965872765ms
+Info 1269 [09:33:49.957] getExportInfoMap: cache miss or empty; calculating new results
+Info 1270 [09:33:50.127] forEachExternalModuleToImportFrom autoImportProvider: 90.98298600316048
+Info 1271 [09:33:50.127] getExportInfoMap: done in 206.05526300519705 ms
+Info 1272 [09:33:50.153] collectAutoImports: resolved 8 module specifiers, plus 13 ambient and -107 from cache
+Info 1273 [09:33:50.153] collectAutoImports: response is complete
+Info 1274 [09:33:50.153] collectAutoImports: 25.16321799904108
+Info 1275 [09:33:50.153] getCompletionData: Semantic work: 246.64390099793673
+Info 1276 [09:33:50.164] getCompletionsAtPosition: getCompletionEntriesFromSymbols: 10.869234003126621
+Info 1277 [09:33:50.768] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 1278 [09:33:50.775] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 159 structureChanged: false structureIsReused:: Completely Elapsed: 6.440448999404907ms
+Info 1279 [09:33:50.775] Different program with same set of files
+Info 1280 [09:33:50.830] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 1281 [09:33:50.840] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 160 structureChanged: false structureIsReused:: Completely Elapsed: 9.805263005197048ms
+Info 1282 [09:33:50.840] Different program with same set of files
+Info 1283 [09:33:52.225] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 1284 [09:33:52.229] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 161 structureChanged: false structureIsReused:: Completely Elapsed: 4.268586002290249ms
+Info 1285 [09:33:52.229] Different program with same set of files
+Info 1286 [11:11:21.399] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Login.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/Login.tsx 500 undefined WatchType: Closed Script info
+Info 1287 [11:11:21.406] Elapsed:: 3.5769779980182648ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Login.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/Login.tsx 500 undefined WatchType: Closed Script info
+Info 1288 [11:11:21.659] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 1289 [11:11:21.790] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 162 structureChanged: false structureIsReused:: Completely Elapsed: 131.35101500153542ms
+Info 1290 [11:11:21.790] Different program with same set of files
+Info 1291 [11:11:23.909] Before ensureProjectForOpenFiles:
+Info 1292 [11:11:23.909] After ensureProjectForOpenFiles:
+Info 1293 [11:11:23.909] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 1294 [11:17:11.686] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Login.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/Login.tsx 500 undefined WatchType: Closed Script info
+Info 1295 [11:17:11.687] Elapsed:: 0.5332189947366714ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Login.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/Login.tsx 500 undefined WatchType: Closed Script info
+Info 1296 [11:17:11.939] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 1297 [11:17:11.955] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 163 structureChanged: false structureIsReused:: Completely Elapsed: 15.888808995485306ms
+Info 1298 [11:17:11.955] Different program with same set of files
+Info 1299 [11:17:14.188] Before ensureProjectForOpenFiles:
+Info 1300 [11:17:14.188] After ensureProjectForOpenFiles:
+Info 1301 [11:17:14.188] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 1302 [11:24:42.022] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Login.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/Login.tsx 500 undefined WatchType: Closed Script info
+Info 1303 [11:24:42.023] Elapsed:: 0.0627100020647049ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Login.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/Login.tsx 500 undefined WatchType: Closed Script info
+Info 1304 [11:24:42.274] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 1305 [11:24:42.284] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 164 structureChanged: false structureIsReused:: Completely Elapsed: 9.537798002362251ms
+Info 1306 [11:24:42.284] Different program with same set of files
+Info 1307 [11:24:44.523] Before ensureProjectForOpenFiles:
+Info 1308 [11:24:44.524] After ensureProjectForOpenFiles:
+Info 1309 [11:24:44.524] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 1310 [11:28:06.172] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Login.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/Login.tsx 500 undefined WatchType: Closed Script info
+Info 1311 [11:28:06.172] Elapsed:: 0.2162499874830246ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Login.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/Login.tsx 500 undefined WatchType: Closed Script info
+Info 1312 [11:28:06.423] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 1313 [11:28:06.431] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 165 structureChanged: false structureIsReused:: Completely Elapsed: 8.638062000274658ms
+Info 1314 [11:28:06.431] Different program with same set of files
+Info 1315 [11:28:08.674] Before ensureProjectForOpenFiles:
+Info 1316 [11:28:08.674] After ensureProjectForOpenFiles:
+Info 1317 [11:28:08.674] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 1318 [12:20:06.509] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Login.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/Login.tsx 500 undefined WatchType: Closed Script info
+Info 1319 [12:20:06.514] Elapsed:: 2.7220410108566284ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/Login.tsx 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/Login.tsx 500 undefined WatchType: Closed Script info
+Info 1320 [12:20:06.765] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 1321 [12:20:06.827] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 166 structureChanged: false structureIsReused:: Completely Elapsed: 61.27444200217724ms
+Info 1322 [12:20:06.827] Different program with same set of files
+Info 1323 [12:20:09.016] Before ensureProjectForOpenFiles:
+Info 1324 [12:20:09.016] After ensureProjectForOpenFiles:
+Info 1325 [12:20:09.016] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 1326 [12:23:56.671] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/FetchAPI.ts 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/FetchAPI.ts 500 undefined WatchType: Closed Script info
+Info 1327 [12:23:56.671] Elapsed:: 0.10638000071048737ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/FetchAPI.ts 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/FetchAPI.ts 500 undefined WatchType: Closed Script info
+Info 1328 [12:23:56.922] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 1329 [12:23:56.934] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 167 structureChanged: false structureIsReused:: Completely Elapsed: 12.235176011919975ms
+Info 1330 [12:23:56.934] Different program with same set of files
+Info 1331 [12:23:59.173] Before ensureProjectForOpenFiles:
+Info 1332 [12:23:59.173] After ensureProjectForOpenFiles:
+Info 1333 [12:23:59.173] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 1334 [12:26:02.771] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/FetchAPI.ts 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/FetchAPI.ts 500 undefined WatchType: Closed Script info
+Info 1335 [12:26:02.772] Elapsed:: 0.08661900460720062ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/FetchAPI.ts 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/FetchAPI.ts 500 undefined WatchType: Closed Script info
+Info 1336 [12:26:03.023] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 1337 [12:26:03.034] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 168 structureChanged: false structureIsReused:: Completely Elapsed: 10.659755006432533ms
+Info 1338 [12:26:03.034] Different program with same set of files
+Info 1339 [12:26:05.272] Before ensureProjectForOpenFiles:
+Info 1340 [12:26:05.272] After ensureProjectForOpenFiles:
+Info 1341 [12:26:05.272] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 1342 [12:27:52.866] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/FetchAPI.ts 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/FetchAPI.ts 500 undefined WatchType: Closed Script info
+Info 1343 [12:27:52.866] Elapsed:: 0.08034999668598175ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/FetchAPI.ts 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/FetchAPI.ts 500 undefined WatchType: Closed Script info
+Info 1344 [12:27:53.118] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 1345 [12:27:53.126] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 169 structureChanged: false structureIsReused:: Completely Elapsed: 7.597875997424126ms
+Info 1346 [12:27:53.126] Different program with same set of files
+Info 1347 [12:27:55.367] Before ensureProjectForOpenFiles:
+Info 1348 [12:27:55.367] After ensureProjectForOpenFiles:
+Info 1349 [12:27:55.367] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 1350 [12:32:49.082] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/FetchAPI.ts 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/FetchAPI.ts 500 undefined WatchType: Closed Script info
+Info 1351 [12:32:49.082] Elapsed:: 0.09807899594306946ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/FetchAPI.ts 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/FetchAPI.ts 500 undefined WatchType: Closed Script info
+Info 1352 [12:32:49.333] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 1353 [12:32:49.341] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 170 structureChanged: false structureIsReused:: Completely Elapsed: 8.020522996783257ms
+Info 1354 [12:32:49.341] Different program with same set of files
+Info 1355 [12:32:51.583] Before ensureProjectForOpenFiles:
+Info 1356 [12:32:51.583] After ensureProjectForOpenFiles:
+Info 1357 [12:32:51.583] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx
+Info 1358 [12:42:05.502] FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/FetchAPI.ts 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/FetchAPI.ts 500 undefined WatchType: Closed Script info
+Info 1359 [12:42:05.502] Elapsed:: 0.10617999732494354ms FileWatcher:: Triggered with /home/ariel/dev/shooting-star/my-app/src/FetchAPI.ts 1:: WatchInfo: /home/ariel/dev/shooting-star/my-app/src/FetchAPI.ts 500 undefined WatchType: Closed Script info
+Info 1360 [12:42:05.753] Starting updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json
+Info 1361 [12:42:05.767] Finishing updateGraphWorker: Project: /home/ariel/dev/shooting-star/my-app/tsconfig.json Version: 171 structureChanged: false structureIsReused:: Completely Elapsed: 14.156024008989334ms
+Info 1362 [12:42:05.767] Different program with same set of files
+Info 1363 [12:42:08.002] Before ensureProjectForOpenFiles:
+Info 1364 [12:42:08.003] After ensureProjectForOpenFiles:
+Info 1365 [12:42:08.003] got projects updated in background, updating diagnostics for /home/ariel/dev/shooting-star/my-app/src/Calendar.tsx

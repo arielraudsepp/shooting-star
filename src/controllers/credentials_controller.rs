@@ -38,7 +38,7 @@ pub async fn login(
             session
                 .insert("user_id", user_id)
                 .map_err(|e| login_redirect(LoginError::UnexpectedError(e.into())))?;
-              Ok(HttpResponse::Ok().json(user_id))
+            Ok(HttpResponse::Ok().json(user_id))
         }
         Err(e) => {
             let e = match e {
@@ -49,6 +49,39 @@ pub async fn login(
             Err(login_redirect(e))
         }
     }
+}
+
+pub async fn session_username(
+    config: web::Data<AppData>,
+    session: Session,
+) -> Result<HttpResponse, actix_web::Error> {
+    let username = if let Some(user_id) = session
+        .get::<i32>("user_id")
+        .map_err(e500)?
+    {
+        get_username(user_id, &config)
+            .await
+            .map_err(e500)?
+    } else {
+        return Ok(HttpResponse::SeeOther()
+        .insert_header((LOCATION, "/login"))
+        .finish());
+    };
+    Ok(HttpResponse::Ok().json(username))
+}
+
+pub async fn logout(
+    session: Session,
+) -> Result<HttpResponse, actix_web::Error> {
+    if session
+        .get::<i32>("user_id")
+        .map_err(e500)?
+        .is_none() {
+            Ok(HttpResponse::BadRequest().finish())
+        } else {
+            session.purge();
+            Ok(HttpResponse::Ok().finish())
+        }
 }
 
 fn login_redirect(e: LoginError) -> InternalError<LoginError> {
@@ -67,8 +100,6 @@ fn login_redirect(e: LoginError) -> InternalError<LoginError> {
     }
 }
 
-
-//
 pub async fn signup(
     data: web::Json<LoginForm>,
     config: web::Data<AppData>,
@@ -79,19 +110,4 @@ pub async fn signup(
         Ok(_) => Ok(HttpResponse::Ok().finish()),
         Err(_) => Ok(HttpResponse::InternalServerError().finish()),
     }
-}
-
-pub async fn user_dashboard(
-    session: Session,
-    pool: web::Data<AppData>,
-) -> Result<HttpResponse, actix_web::Error> {
-    let username = if let Some(user_id) = session
-        .get("user_id")
-        .map_err(e500)?
-        {
-            get_username(user_id, &pool).await.map_err(e500)?
-        } else {
-          todo!()
-        };
-    Ok(HttpResponse::Ok().json(username))
 }

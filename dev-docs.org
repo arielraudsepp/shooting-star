@@ -43,16 +43,18 @@ chmod +x scripts/init_redis.sh
 #+end_src
 
 #+RESULTS:
-| 8c0045887c9d08ef717d0a52d97f321e235e4112f98a10ebcaf575de6d4031b5 |                        |        |        |        |               |              |
-| Applied                                                          | 20211228003329/migrate | create | diary  | skills | table         | (9.046322ms) |
-| Applied                                                          | 20211228005507/migrate | create | skills | table  | (14.362536ms) |              |
-| Applied                                                          | 20211228005520/migrate | create | diary  | table  | (8.125442ms)  |              |
-| Applied                                                          | 20220410172326/migrate | create | users  | table  | (16.307401ms) |              |
-| Applied                                                          | 20211228003329/migrate | create | diary  | skills | table         | (2.837576ms) |
-| Applied                                                          | 20211228005507/migrate | create | skills | table  | (20.679719ms) |              |
-| Applied                                                          | 20211228005520/migrate | create | diary  | table  | (8.627682ms)  |              |
-| Applied                                                          | 20220410172326/migrate | create | users  | table  | (23.186138ms) |              |
-| 3763ea029da149cf0b2ba7dc42f2f9344cd8ed72eb2ece206689ce2fbccc13bb |                        |        |        |        |               |              |
+| d1080a017cb6635f2349af051f90a92de61ba0f57442eda9b1e4de821c9a9fa4 |                        |        |        |         |               |              |               |
+| Applied                                                          | 20211228003329/migrate | create | diary  | skills  | table         | (2.603313ms) |               |
+| Applied                                                          | 20211228005507/migrate | create | skills | table   | (15.041738ms) |              |               |
+| Applied                                                          | 20211228005520/migrate | create | diary  | table   | (15.274203ms) |              |               |
+| Applied                                                          | 20220410172326/migrate | create | users  | table   | (25.887516ms) |              |               |
+| Applied                                                          | 20220817224318/migrate | create | diary  | entries | users         | table        | (10.302777ms) |
+| Applied                                                          | 20211228003329/migrate | create | diary  | skills  | table         | (2.832223ms) |               |
+| Applied                                                          | 20211228005507/migrate | create | skills | table   | (13.395833ms) |              |               |
+| Applied                                                          | 20211228005520/migrate | create | diary  | table   | (8.612836ms)  |              |               |
+| Applied                                                          | 20220410172326/migrate | create | users  | table   | (26.483926ms) |              |               |
+| Applied                                                          | 20220817224318/migrate | create | diary  | entries | users         | table        | (15.083307ms) |
+| d81e118d16f81062a6c8aabba2dde323dfc4df6b6713bee3c53b77fc7effcffa |                        |        |        |         |               |              |               |
 
 ** Kill Postgres Server
 #+begin_src shell
@@ -88,10 +90,10 @@ GET http://localhost:8000/health_check
 // GET http://localhost:8000/health_check
 // HTTP/1.1 200 OK
 // content-length: 0
-// set-cookie: _flash=; Path=/; Max-Age=0
 // vary: Origin, Access-Control-Request-Method, Access-Control-Request-Headers
-// date: Wed, 11 May 2022 20:26:21 GMT
-// Request duration: 0.015194s
+// access-control-allow-credentials: true
+// date: Wed, 17 Aug 2022 22:48:47 GMT
+// Request duration: 0.004891s
 #+END_SRC
 
 When running a health check we should return a 200.
@@ -111,31 +113,31 @@ When running a health check we should return a 200.
 POST http://localhost:8000/diary_entries
 Content-Type: application/json
 {
-  "entry_date": "2022-01-12T17:53:59Z",
-  "skill_ids": [1, 5, 1]
+  "entry_date": "2022-08-16T17:53:59Z",
+  "skill_ids": [1, 5, 6]
 }
 #+end_src
 
 #+RESULTS:
 #+BEGIN_SRC js
 {
-  "id": 4,
-  "entry_date": "2022-01-12",
-  "created_at": "2022-05-11T20:26:34.036050Z"
+  "id": 1,
+  "entry_date": "2022-08-16",
+  "created_at": "2022-08-17T22:49:18.937780Z"
 }
 // POST http://localhost:8000/diary_entries
 // HTTP/1.1 201 Created
 // content-length: 77
+// access-control-allow-credentials: true
 // content-type: application/json
-// set-cookie: _flash=; Path=/; Max-Age=0
 // vary: Origin, Access-Control-Request-Method, Access-Control-Request-Headers
-// date: Wed, 11 May 2022 20:26:34 GMT
-// Request duration: 0.141512s
+// date: Wed, 17 Aug 2022 22:49:19 GMT
+// Request duration: 0.177968s
 #+END_SRC
 
 *** Show Diary Entry by Date (Action: show)
 #+begin_src restclient
-GET http://localhost:8000/diary_entries/2022-01-12
+GET http://localhost:8000/diary_entries/2022-08-16
 #+end_src
 
 #+RESULTS:
@@ -157,7 +159,7 @@ GET http://localhost:8000/diary_entries/2022-01-12
 
 *** Show Diary Entry Skills by Date (Action: show)
 #+begin_src restclient
-GET http://localhost:8000/diary_entries/2022-01-12/skills
+GET http://localhost:8000/diary_entries/2022-08-16/skills
 #+end_src
 
 #+RESULTS:
@@ -166,27 +168,32 @@ GET http://localhost:8000/diary_entries/2022-01-12/skills
   {
     "diary_entry_id": 1,
     "skills_id": 1,
-    "created_at": "2022-05-09T17:48:05.218599Z"
+    "created_at": "2022-08-17T22:49:18.937780Z"
   },
   {
     "diary_entry_id": 1,
     "skills_id": 5,
-    "created_at": "2022-05-09T17:48:05.218599Z"
+    "created_at": "2022-08-17T22:49:18.937780Z"
+  },
+  {
+    "diary_entry_id": 1,
+    "skills_id": 6,
+    "created_at": "2022-08-17T22:49:18.937780Z"
   }
 ]
-// GET http://localhost:8000/diary_entries/2022-01-12/skills
+// GET http://localhost:8000/diary_entries/2022-08-16/skills
 // HTTP/1.1 200 OK
-// content-length: 157
-// vary: Origin, Access-Control-Request-Method, Access-Control-Request-Headers
+// content-length: 235
 // content-type: application/json
-// set-cookie: _flash=; Path=/; Max-Age=0
-// date: Mon, 09 May 2022 17:48:33 GMT
-// Request duration: 0.013837s
+// vary: Origin, Access-Control-Request-Method, Access-Control-Request-Headers
+// access-control-allow-credentials: true
+// date: Wed, 17 Aug 2022 22:49:59 GMT
+// Request duration: 0.004885s
 #+END_SRC
 
 *** Index Diary Entries by Date Range (Action: index)
 #+begin_src restclient
-GET http://localhost:8000/diary_entries?start=2021-10-01&end=2022-10-20
+GET http://localhost:8000/diary_entries?start=2022-08-01&end=2022-10-20
 #+end_src
 
 #+RESULTS:
@@ -194,18 +201,18 @@ GET http://localhost:8000/diary_entries?start=2021-10-01&end=2022-10-20
 [
   {
     "id": 1,
-    "entry_date": "2022-01-12",
-    "created_at": "2022-05-09T17:48:05.218599Z"
+    "entry_date": "2022-08-16",
+    "created_at": "2022-08-17T22:49:18.937780Z"
   }
 ]
-// GET http://localhost:8000/diary_entries?start=2021-10-01&end=2022-10-20
+// GET http://localhost:8000/diary_entries?start=2022-08-01&end=2022-10-20
 // HTTP/1.1 200 OK
 // content-length: 79
-// vary: Origin, Access-Control-Request-Method, Access-Control-Request-Headers
+// access-control-allow-credentials: true
 // content-type: application/json
-// set-cookie: _flash=; Path=/; Max-Age=0
-// date: Mon, 09 May 2022 17:48:53 GMT
-// Request duration: 0.013732s
+// vary: Origin, Access-Control-Request-Method, Access-Control-Request-Headers
+// date: Wed, 17 Aug 2022 22:50:14 GMT
+// Request duration: 0.004858s
 #+END_SRC
 
 ** Skills
@@ -213,6 +220,23 @@ GET http://localhost:8000/diary_entries?start=2021-10-01&end=2022-10-20
 #+begin_src restclient
 GET http://localhost:8000/skills/21
 #+end_src
+
+#+RESULTS:
+#+BEGIN_SRC js
+{
+  "id": 21,
+  "name": "encouragement",
+  "category": "distress_tolerance"
+}
+// GET http://localhost:8000/skills/21
+// HTTP/1.1 200 OK
+// content-length: 64
+// content-type: application/json
+// vary: Origin, Access-Control-Request-Method, Access-Control-Request-Headers
+// access-control-allow-credentials: true
+// date: Wed, 17 Aug 2022 22:50:21 GMT
+// Request duration: 0.004011s
+#+END_SRC
 
 *** Retrieve all Skills (Action: index)
 #+begin_src restclient
@@ -231,15 +255,16 @@ Content-Type: application/json
 
 #+RESULTS:
 #+BEGIN_SRC js
-3
+1
 // POST http://localhost:8000/login
 // HTTP/1.1 200 OK
 // content-length: 1
-// set-cookie: id=oP+c2WAay7kGH%2F0npEVrQJH+RFmexHhO9MinMAcBw9tYxbE6XjeMi7H9Etmb2BPSHqomqRpnPrtj74qL1GujDkZwuYVUv%2Fcsj9qSEL87u0cLcjI+6V5TgQkZiiY%3D; HttpOnly; SameSite=Lax; Secure; Path=/
-// vary: Origin, Access-Control-Request-Method, Access-Control-Request-Headers
 // content-type: application/json
-// date: Thu, 11 Aug 2022 16:55:58 GMT
-// Request duration: 0.661302s
+// vary: Origin, Access-Control-Request-Method, Access-Control-Request-Headers
+// set-cookie: id=puuUxb3wk6sShRh0IFH1PYqRNDWGsi02GVJGtTrQmdrzpoAKJ45+l07KC1NYsNmrEoLE3KbOeBums0tMF2LLv3%2F89N6UfeH1Tiu1s61m%2FYllEYZnrFX4pbMX+Ow%3D; HttpOnly; SameSite=Lax; Secure; Path=/
+// access-control-allow-credentials: true
+// date: Wed, 17 Aug 2022 22:50:54 GMT
+// Request duration: 0.673317s
 #+END_SRC
 
 
@@ -248,7 +273,7 @@ Content-Type: application/json
 POST http://localhost:8000/signup
 Content-Type: application/json
 {
-  "username": "user2",
+  "username": "user",
   "password": "password"
 }
 #+end_src
@@ -256,9 +281,10 @@ Content-Type: application/json
 #+RESULTS:
 #+BEGIN_SRC js
 // POST http://localhost:8000/signup
-// HTTP/1.1 500 Internal Server Error
+// HTTP/1.1 200 OK
 // content-length: 0
+// access-control-allow-credentials: true
 // vary: Origin, Access-Control-Request-Method, Access-Control-Request-Headers
-// date: Thu, 11 Aug 2022 16:56:21 GMT
-// Request duration: 0.692846s
+// date: Wed, 17 Aug 2022 22:50:43 GMT
+// Request duration: 0.654659s
 #+END_SRC
