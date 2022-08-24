@@ -4,14 +4,24 @@ use crate::models::{DateRangeRequest, DiaryEntry, DiaryEntrySkills, Form, Skill,
 
 use actix_web::web;
 use actix_web::HttpResponse;
+use actix_session::Session;
 
 //Creates a new diary entry from an Json
 pub async fn create(
     form: web::Json<DiaryForm>,
     config: web::Data<AppData>,
+    session: Session,
 ) -> actix_web::Result<HttpResponse> {
+    let user_id = match session.get::<i32>("user_id") {
+        Ok(user_id) => match user_id {
+            Some(user_id) => user_id,
+            None => return Ok(HttpResponse::InternalServerError().finish()),
+        }
+        Err(_) => return Ok(HttpResponse::InternalServerError().finish()),
+    };
+
     let diary_form = form.into_inner();
-    let diary_entry = match diary_form.save_from_form(&config).await {
+    let diary_entry = match diary_form.save_from_form(&config, &user_id).await {
         Ok(entry) => entry,
         Err(_) => return Ok(HttpResponse::InternalServerError().finish()),
     };
@@ -83,13 +93,22 @@ pub async fn update(
 pub async fn show(
     params: web::Path<(String,)>,
     config: web::Data<AppData>,
+    session: Session,
 ) -> actix_web::Result<HttpResponse> {
     let date = &params.0;
     let diary_entry_date: sqlx::types::chrono::NaiveDate = match date.parse() {
         Ok(entry_date) => entry_date,
         Err(_) => return Ok(HttpResponse::BadRequest().finish()),
     };
-    match DiaryEntry::find_by_date(&config, diary_entry_date).await {
+    let user_id = match session.get::<i32>("user_id") {
+        Ok(user_id) => match user_id {
+            Some(user_id) => user_id,
+            None => return Ok(HttpResponse::InternalServerError().finish()),
+        }
+        Err(_) => return Ok(HttpResponse::InternalServerError().finish()),
+    };
+
+    match DiaryEntry::find_by_date(&config, diary_entry_date, &user_id).await {
         Ok(entry) => Ok(HttpResponse::Ok().json(entry)),
         Err(_) => Ok(HttpResponse::NotFound().finish()),
     }

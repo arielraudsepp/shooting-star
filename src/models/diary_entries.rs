@@ -10,6 +10,7 @@ use sqlx::FromRow;
 #[derive(Serialize, Deserialize, Debug, PartialEq, FromRow)]
 pub struct DiaryEntry {
     pub id: i32,
+    pub user_id: i32,
     pub entry_date: sqlx::types::chrono::NaiveDate,
     pub created_at: sqlx::types::chrono::DateTime<Utc>,
 }
@@ -23,13 +24,14 @@ pub struct DateRangeRequest {
 #[async_trait]
 impl Form<DiaryEntry> for DiaryForm {
     #[tracing::instrument(name = "Saving diary entry from form in the database", skip(config))]
-    async fn save_from_form(&self, config: &AppData) -> Result<DiaryEntry, sqlx::Error> {
+    async fn save_from_form(&self, config: &AppData, user_id: &i32) -> Result<DiaryEntry, sqlx::Error> {
         let mut transaction = config.pg_pool.begin().await?;
         let query_statement = r#"
-    INSERT INTO diary_entries (entry_date, created_at)
-    VALUES ($1, $2) RETURNING id, entry_date, created_at
+    INSERT INTO diary_entries (user_id, entry_date, created_at)
+    VALUES ($1, $2, $3) RETURNING id, user_id, entry_date, created_at
     "#;
         let query: DiaryEntry = sqlx::query_as(query_statement)
+            .bind(user_id)
             .bind(self.entry_date)
             .bind(Utc::now())
             .fetch_one(&mut transaction)
@@ -55,7 +57,7 @@ impl DiaryEntry {
     UPDATE diary_entries
     SET created_at = $1
     WHERE id = $2
-    RETURNING id, entry_date, created_at
+    RETURNING id, user_id, entry_date, created_at
     "#;
         let query: DiaryEntry = sqlx::query_as(query_statement)
             .bind(Utc::now())
@@ -81,11 +83,12 @@ impl Record for DiaryEntry {
     async fn save(self, config: &AppData) -> Result<Self, sqlx::Error> {
         let mut transaction = config.pg_pool.begin().await?;
         let query_statement = r#"
-    INSERT INTO diary_entries (id, entry_date, created_at)
-    VALUES ($1, $2, $3) RETURNING id, entry_date, created_at
+    INSERT INTO diary_entries (id, user_id, entry_date, created_at)
+    VALUES ($1, $2, $3, $4) RETURNING id, user_id, entry_date, created_at
     "#;
         let query: DiaryEntry = sqlx::query_as(query_statement)
             .bind(self.id)
+            .bind(self.user_id)
             .bind(self.entry_date)
             .bind(self.created_at)
             .fetch_one(&mut transaction)
@@ -131,6 +134,7 @@ impl DiaryEntry {
     pub async fn find_by_date(
         config: &AppData,
         date: sqlx::types::chrono::NaiveDate,
+        user_id: &i32,
     ) -> Result<Self, sqlx::Error> {
         let mut transaction = config.pg_pool.begin().await?;
         let query_statement = r#"SELECT * from diary_entries WHERE entry_date = $1"#;

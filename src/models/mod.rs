@@ -24,7 +24,7 @@ pub trait Record {
 
 #[async_trait]
 pub trait Form<T> {
-    async fn save_from_form(&self, pool: &AppData) -> Result<T, sqlx::Error>
+    async fn save_from_form(&self, pool: &AppData, user_id: &i32) -> Result<T, sqlx::Error>
     where
         T: Sized;
 }
