@@ -50,8 +50,17 @@ pub async fn update(
     form: web::Json<DiaryForm>,
     params: web::Path<(String,)>,
     config: web::Data<AppData>,
+    session: Session,
 ) -> actix_web::Result<HttpResponse> {
     let diary_form = form.into_inner();
+      let user_id = match session.get::<i32>("user_id") {
+        Ok(user_id) => match user_id {
+            Some(user_id) => user_id,
+            None => return Ok(HttpResponse::InternalServerError().finish()),
+        }
+        Err(_) => return Ok(HttpResponse::InternalServerError().finish()),
+    };
+
     let id = &params.0;
     let entry_id: i32 = id.parse().unwrap();
     let entry =  DiaryEntry::find_by_id(&config, entry_id);
@@ -59,7 +68,7 @@ pub async fn update(
         Ok(diary_entry) => diary_entry,
         Err(_) => return Ok(HttpResponse::NotFound().finish()),
     };
-    let updated_entry = match DiaryEntry::update(&diary_entry, &config).await {
+    let updated_entry = match DiaryEntry::update(&diary_entry, &config, &user_id).await {
         Ok(entry) => entry,
         Err(_) => return Ok(HttpResponse::InternalServerError().finish()),
     };
@@ -114,17 +123,26 @@ pub async fn show(
     }
 }
 
-//Retrieves all diary_entry_skills for a particular diary_entry date
+//Retrieves all diary_entry_skills for a particular diary_entry date and user
 pub async fn show_skills(
     params: web::Path<(String,)>,
     config: web::Data<AppData>,
+    session: Session,
 ) -> actix_web::Result<HttpResponse> {
     let date = &params.0;
     let diary_entry_date: sqlx::types::chrono::NaiveDate = match date.parse() {
         Ok(entry_date) => entry_date,
         Err(_) => return Ok(HttpResponse::BadRequest().finish()),
     };
-    match DiaryEntrySkills::find_diary_entry_skills_by_date(&config, diary_entry_date).await {
+    let user_id = match session.get::<i32>("user_id") {
+        Ok(user_id) => match user_id {
+            Some(user_id) => user_id,
+            None => return Ok(HttpResponse::InternalServerError().finish()),
+        }
+        Err(_) => return Ok(HttpResponse::InternalServerError().finish()),
+    };
+
+    match DiaryEntrySkills::find_diary_entry_skills_by_date(&config, diary_entry_date, &user_id).await {
         Ok(records) => Ok(HttpResponse::Ok().json(records)),
         Err(_) => Ok(HttpResponse::NotFound().finish()),
     }

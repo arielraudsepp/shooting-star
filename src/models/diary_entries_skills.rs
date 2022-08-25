@@ -78,18 +78,19 @@ impl DiaryEntrySkills {
     pub async fn find_diary_entry_skills_by_date(
         config: &AppData,
         diary_entry_date: sqlx::types::chrono::NaiveDate,
+        user_id: &i32,
     ) -> Result<Vec<Self>, sqlx::Error> {
         let mut transaction = config.pg_pool.begin().await?;
-        let query_statement = format!(
-            "SELECT diary_entries_skills.diary_entry_id,
+        let query_statement =
+            r#"SELECT diary_entries_skills.diary_entry_id,
             diary_entries_skills.skills_id,
             diary_entries_skills.created_at FROM diary_entries_skills
             JOIN diary_entries
             ON diary_entries_skills.diary_entry_id = diary_entries.id
-            WHERE diary_entries.entry_date = date '{}';",
-            diary_entry_date
-        );
+            WHERE diary_entries.entry_date = $1 AND diary_entries.user_id = $2"#;
         let diary_entry_skills: Vec<DiaryEntrySkills> = sqlx::query_as(&query_statement)
+            .bind(diary_entry_date)
+            .bind(user_id)
             .fetch_all(&mut transaction)
             .await
             .map_err(|e| {

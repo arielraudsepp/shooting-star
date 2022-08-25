@@ -23,7 +23,7 @@ pub struct DateRangeRequest {
 
 #[async_trait]
 impl Form<DiaryEntry> for DiaryForm {
-    #[tracing::instrument(name = "Saving diary entry from form in the database", skip(config))]
+    #[tracing::instrument(name = "Saving diary entry from form and user_id in the database", skip(config))]
     async fn save_from_form(&self, config: &AppData, user_id: &i32) -> Result<DiaryEntry, sqlx::Error> {
         let mut transaction = config.pg_pool.begin().await?;
         let query_statement = r#"
@@ -50,18 +50,19 @@ impl Form<DiaryEntry> for DiaryForm {
 }
 
 impl DiaryEntry {
-    #[tracing::instrument(name = "Updating diary entry in the database", skip(config))]
-    pub async fn update(&self, config: &AppData) -> Result<DiaryEntry, sqlx::Error> {
+    #[tracing::instrument(name = "Updating diary entry by id and user_id in the database", skip(config))]
+    pub async fn update(&self, config: &AppData, user_id: &i32) -> Result<DiaryEntry, sqlx::Error> {
         let mut transaction = config.pg_pool.begin().await?;
         let query_statement = r#"
     UPDATE diary_entries
     SET created_at = $1
-    WHERE id = $2
+    WHERE id = $2 AND user_id = $3
     RETURNING id, user_id, entry_date, created_at
     "#;
         let query: DiaryEntry = sqlx::query_as(query_statement)
             .bind(Utc::now())
             .bind(self.id)
+            .bind(user_id)
             .fetch_one(&mut transaction)
             .await
             .map_err(|e| {
@@ -97,7 +98,7 @@ impl Record for DiaryEntry {
                 tracing::error!("failed to execute query: {:?}", e);
                 e
             })?;
-
+        println!("hello there!");
         if let Environment::Dev = config.env {
             transaction.commit().await?;
         }
@@ -128,7 +129,7 @@ impl Record for DiaryEntry {
 
 impl DiaryEntry {
     #[tracing::instrument(
-        name = "Retrieving diary entry by date from the database",
+        name = "Retrieving diary entry by date and user_id from the database",
         skip(config)
     )]
     pub async fn find_by_date(
@@ -137,9 +138,10 @@ impl DiaryEntry {
         user_id: &i32,
     ) -> Result<Self, sqlx::Error> {
         let mut transaction = config.pg_pool.begin().await?;
-        let query_statement = r#"SELECT * from diary_entries WHERE entry_date = $1"#;
+        let query_statement = r#"SELECT * from diary_entries WHERE entry_date = $1 AND user_id = $2"#;
         let diary_entry = sqlx::query_as(query_statement)
             .bind(date)
+            .bind(user_id)
             .fetch_one(&mut transaction)
             .await
             .map_err(|e| {
