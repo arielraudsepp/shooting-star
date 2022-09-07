@@ -67,6 +67,7 @@ pub async fn session_username(
         .insert_header((LOCATION, "/login"))
         .finish());
     };
+
     Ok(HttpResponse::Ok().json(username))
 }
 

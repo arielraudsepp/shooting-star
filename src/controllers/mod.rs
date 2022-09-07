@@ -11,6 +11,7 @@ pub mod credentials_controller;
 pub struct DiaryForm {
     pub entry_date: DateTime<Utc>,
     pub skill_ids: Vec<i32>,
+    pub notes: String,
 }
 
 #[derive(Deserialize, Debug)]

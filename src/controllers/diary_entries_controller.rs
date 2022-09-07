@@ -1,6 +1,6 @@
 use crate::configuration::AppData;
 use crate::controllers::DiaryForm;
-use crate::models::{DateRangeRequest, DiaryEntry, DiaryEntrySkills, Form, Skill, Record};
+use crate::models::{DateRangeRequest, DiaryEntry, DiaryEntrySkills, Skill, Record, save_from_form};
 
 use actix_web::web;
 use actix_web::HttpResponse;
@@ -21,16 +21,16 @@ pub async fn create(
     };
 
     let diary_form = form.into_inner();
-    let diary_entry = match diary_form.save_from_form(&config, &user_id).await {
+    let diary_entry = match save_from_form(&diary_form.entry_date, &diary_form.notes, &config, &user_id).await {
         Ok(entry) => entry,
         Err(_) => return Ok(HttpResponse::InternalServerError().finish()),
     };
-    let skills_id_list = diary_form.skill_ids;
-    if skills_id_list.is_empty() {
+    let skills_list = diary_form.skill_ids;
+    if skills_list.is_empty() {
         return Ok(HttpResponse::Created().json(&diary_entry));
     };
 
-    let skill_records = Skill::find_by_ids(&config, &skills_id_list);
+    let skill_records = Skill::find_by_ids(&config, &skills_list);
     let skills = match skill_records.await {
         Ok(skills) => skills,
         Err(_) => return Ok(HttpResponse::InternalServerError().finish()),
