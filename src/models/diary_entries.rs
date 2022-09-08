@@ -47,36 +47,34 @@ pub struct DateRangeRequest {
         Ok(query)
     }
 
-impl DiaryEntry {
-    #[tracing::instrument(name = "Updating diary entry by id and user_id in the database", skip(config))]
-    pub async fn update(&self, config: &AppData, user_id: &i32) -> Result<DiaryEntry, sqlx::Error> {
-        let mut transaction = config.pg_pool.begin().await?;
-        let query_statement = r#"
+#[tracing::instrument(name = "Updating diary entry by id and user_id in the database", skip(config))]
+pub async fn update_diary_entry(id: &i32, notes: &str, config: &AppData, user_id: &i32) -> Result<DiaryEntry, sqlx::Error> {
+    let mut transaction = config.pg_pool.begin().await?;
+    let query_statement = r#"
     UPDATE diary_entries
     SET created_at = $1, notes = $2
     WHERE id = $3 AND user_id = $4
     RETURNING id, user_id, entry_date, created_at, notes
     "#;
-        println!("{}",self.notes);
-        let query: DiaryEntry = sqlx::query_as(query_statement)
-            .bind(Utc::now())
-            .bind(&self.notes)
-            .bind(self.id)
-            .bind(user_id)
-            .fetch_one(&mut transaction)
-            .await
-            .map_err(|e| {
-                tracing::error!("failed to execute query: {:?}", e);
-                e
-            })?;
+    let query: DiaryEntry = sqlx::query_as(query_statement)
+        .bind(Utc::now())
+        .bind(notes)
+        .bind(id)
+        .bind(user_id)
+        .fetch_one(&mut transaction)
+        .await
+        .map_err(|e| {
+            tracing::error!("failed to execute query: {:?}", e);
+            e
+        })?;
 
-        if let Environment::Dev = config.env {
-            transaction.commit().await?;
-        }
-
-        Ok(query)
+    if let Environment::Dev = config.env {
+        transaction.commit().await?;
     }
+
+    Ok(query)
 }
+
 
 #[async_trait]
 impl Record for DiaryEntry {

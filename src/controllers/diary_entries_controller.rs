@@ -1,6 +1,6 @@
 use crate::configuration::AppData;
 use crate::controllers::DiaryForm;
-use crate::models::{DateRangeRequest, DiaryEntry, DiaryEntrySkills, Skill, Record, save_from_form};
+use crate::models::{DateRangeRequest, DiaryEntry, DiaryEntrySkills, Skill, Record, save_from_form, update_diary_entry};
 
 use actix_web::web;
 use actix_web::HttpResponse;
@@ -53,7 +53,7 @@ pub async fn update(
     session: Session,
 ) -> actix_web::Result<HttpResponse> {
     let diary_form = form.into_inner();
-      let user_id = match session.get::<i32>("user_id") {
+    let user_id = match session.get::<i32>("user_id") {
         Ok(user_id) => match user_id {
             Some(user_id) => user_id,
             None => return Ok(HttpResponse::InternalServerError().finish()),
@@ -68,7 +68,8 @@ pub async fn update(
         Ok(diary_entry) => diary_entry,
         Err(_) => return Ok(HttpResponse::NotFound().finish()),
     };
-    let updated_entry = match DiaryEntry::update(&diary_entry, &config, &user_id).await {
+    let updated_notes = diary_form.notes;
+    let updated_entry = match update_diary_entry(&diary_entry.id, &updated_notes, &config, &user_id).await {
         Ok(entry) => entry,
         Err(_) => return Ok(HttpResponse::InternalServerError().finish()),
     };
