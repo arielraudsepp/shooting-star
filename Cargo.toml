@@ -47,6 +47,7 @@ argon2 = { version = "0.3", features = ["std"] }
 serde_json = "1"
 rand = { version = "0.8", features=["std_rng"] }
 thiserror = "1.0.24"
+validator = { version = "0.15", features = ["derive"] }
 
 [dev-dependencies]
 actix-rt = "2"

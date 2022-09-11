@@ -1,10 +1,10 @@
 use crate::configuration::{AppData, Environment};
-use crate::controllers::LoginForm;
-use secrecy::{ExposeSecret, Secret};
+use crate::controllers::{LoginForm, SignupForm};
+use actix_web::rt::task::JoinHandle;
+use anyhow::Context;
 use argon2::password_hash::SaltString;
 use argon2::{Algorithm, Argon2, Params, PasswordHash, PasswordHasher, PasswordVerifier, Version};
-use anyhow::Context;
-use actix_web::rt::task::JoinHandle;
+use secrecy::{ExposeSecret, Secret};
 
 #[derive(thiserror::Error, Debug)]
 pub enum AuthError {
@@ -16,26 +16,26 @@ pub enum AuthError {
 
 pub struct Credentials {
     pub user_id: i32,
-    pub username: String,
+    pub email: String,
+    pub name: String,
     pub password: Secret<String>,
 }
 
 #[tracing::instrument(name = "Create new user", skip(user, config))]
-pub async fn create_user(
-    user: LoginForm,
-    config: &AppData,
-) -> Result<(), anyhow::Error> {
-    let password = user.password;
-    let username = user.username;
+pub async fn create_user(user: SignupForm, config: &AppData) -> Result<(), anyhow::Error> {
     let mut transaction = config.pg_pool.begin().await?;
-     let password_hash = spawn_blocking_with_tracing(move || compute_password_hash(password))
+    let email = user.email;
+    let name = user.name;
+    let password = user.password;
+    let password_hash = spawn_blocking_with_tracing(move || compute_password_hash(password))
         .await?
         .context("Failed to hash password")?;
     let query_statement = r#"
-        INSERT INTO users (username, password_hash)
-        VALUES ($1, $2)"#;
-       sqlx::query(query_statement)
-        .bind(username)
+        INSERT INTO users (email, name, password_hash)
+        VALUES ($1, $2, $3)"#;
+    sqlx::query(query_statement)
+        .bind(email)
+        .bind(name)
         .bind(password_hash.expose_secret())
         .execute(&mut transaction)
         .await
@@ -44,25 +44,25 @@ pub async fn create_user(
             e
         })?;
 
-        if let Environment::Dev = config.env {
-            transaction.commit().await?;
-        }
+    if let Environment::Dev = config.env {
+        transaction.commit().await?;
+    }
 
-        Ok(())
+    Ok(())
 }
 
-#[tracing::instrument(name = "Get stored credentials", skip(username, config))]
+#[tracing::instrument(name = "Get stored credentials", skip(email, config))]
 async fn get_stored_credentials(
-    username: &str,
+    email: &str,
     config: &AppData,
 ) -> Result<Option<(i32, Secret<String>)>, anyhow::Error> {
     let row = sqlx::query!(
         r#"
         SELECT id, password_hash
         FROM users
-        WHERE username = $1
+        WHERE email = $1
         "#,
-        username,
+        email,
     )
     .fetch_optional(&config.pg_pool)
     .await
@@ -71,15 +71,11 @@ async fn get_stored_credentials(
     Ok(row)
 }
 
-
 #[tracing::instrument(name = "Get username", skip(config))]
-pub async fn get_username(
-    user_id: i32,
-    config: &AppData,
-) -> Result<String, anyhow::Error> {
+pub async fn get_name(user_id: i32, config: &AppData) -> Result<String, anyhow::Error> {
     let row = sqlx::query!(
         r#"
-        SELECT username
+        SELECT name
         FROM users
         WHERE id = $1
         "#,
@@ -88,11 +84,14 @@ pub async fn get_username(
     .fetch_one(&config.pg_pool)
     .await
     .context("Failed to performed a query to retrieve username")?;
-    Ok(row.username)
+    Ok(row.name)
 }
 
 #[tracing::instrument(name = "Validate credentials", skip(config, login_data))]
-pub async fn validate_credentials(config: &AppData, login_data: LoginForm) -> Result<i32, AuthError> {
+pub async fn validate_credentials(
+    config: &AppData,
+    login_data: LoginForm,
+) -> Result<i32, AuthError> {
     let mut user_id = None;
     // fallback expected password to protect against timing attacks
     let mut expected_password_hash = Secret::new(
@@ -103,7 +102,7 @@ pub async fn validate_credentials(config: &AppData, login_data: LoginForm) -> Re
     );
 
     if let Some((stored_user_id, stored_password_hash)) =
-        get_stored_credentials(&login_data.username, config).await?
+        get_stored_credentials(&login_data.email, config).await?
     {
         user_id = Some(stored_user_id);
         expected_password_hash = stored_password_hash;
@@ -112,8 +111,8 @@ pub async fn validate_credentials(config: &AppData, login_data: LoginForm) -> Re
     spawn_blocking_with_tracing(move || {
         verify_password_hash(expected_password_hash, login_data.password)
     })
-        .await
-        .context("Failed to spawn blocking task.")??;
+    .await
+    .context("Failed to spawn blocking task.")??;
 
     user_id
         .ok_or_else(|| anyhow::anyhow!("Unknown username."))
@@ -154,9 +153,9 @@ pub async fn change_password(
     sqlx::query(query_statement)
         .bind(password_hash.expose_secret())
         .bind(user_id)
-    .execute(&mut transaction)
-    .await
-    .context("Failed to change user's password in the database.")?;
+        .execute(&mut transaction)
+        .await
+        .context("Failed to change user's password in the database.")?;
     Ok(())
 }
 
