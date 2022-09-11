@@ -1,14 +1,14 @@
+use argon2::password_hash::SaltString;
+use argon2::{Algorithm, Argon2, Params, PasswordHasher, Version};
+use serde::{Deserialize, Serialize};
 use shooting_star::configuration::{get_configuration, AppData};
 use shooting_star::controllers::LoginForm;
 use shooting_star::models::Credentials;
 use shooting_star::run;
-use std::net::TcpListener;
-use argon2::password_hash::SaltString;
-use argon2::{Algorithm, Argon2, Params, PasswordHasher, Version};
-use uuid::Uuid;
-use sqlx::Connection;
 use sqlx::postgres::PgConnection;
-use serde::{Deserialize, Serialize};
+use sqlx::Connection;
+use std::net::TcpListener;
+use uuid::Uuid;
 
 pub struct TestApp {
     pub address: String,
@@ -29,7 +29,9 @@ pub async fn spawn_app() -> TestApp {
     let app_data = AppData::init(&configuration).await;
     let hmac_secret = configuration.hmac_secret;
     let redis_uri = configuration.redis_uri;
-    let server = run(listener, app_data, hmac_secret, redis_uri).await.unwrap();
+    let server = run(listener, app_data, hmac_secret, redis_uri)
+        .await
+        .unwrap();
     let _ = tokio::spawn(server);
 
     let test_app = TestApp {
@@ -45,7 +47,6 @@ pub struct TestUser {
     pub username: String,
     pub password: String,
 }
-
 
 impl TestUser {
     pub fn generate() -> Self {
@@ -65,9 +66,9 @@ pub async fn create_test_user(mut connection: PgConnection) -> TestUser {
         Version::V0x13,
         Params::new(15000, 2, 1, None).unwrap(),
     )
-        .hash_password(user.password.as_bytes(), &salt)
-        .unwrap()
-        .to_string();
+    .hash_password(user.password.as_bytes(), &salt)
+    .unwrap()
+    .to_string();
 
     let query = "INSERT INTO users (username, password_hash)
             VALUES ($1, $2)";
@@ -80,12 +81,11 @@ pub async fn create_test_user(mut connection: PgConnection) -> TestUser {
     user
 }
 
-
 #[actix_rt::test]
 async fn login_user() {
     let app = spawn_app().await;
     let client = reqwest::Client::new();
-        let configuration = get_configuration().expect("Failed to read configuration.");
+    let configuration = get_configuration().expect("Failed to read configuration.");
     let user_connection = PgConnection::connect(&configuration.database.connection_string())
         .await
         .expect("Failed to connect to Postgres");

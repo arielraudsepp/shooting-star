@@ -6,7 +6,6 @@ use std::{
 use secrecy::Secret;
 use sqlx::{postgres, ConnectOptions, PgPool};
 
-
 #[derive(serde::Deserialize)]
 pub struct EnvSettings {
     pub dev: Settings,

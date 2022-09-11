@@ -1,10 +1,13 @@
 use crate::configuration::AppData;
 use crate::controllers::DiaryForm;
-use crate::models::{DateRangeRequest, DiaryEntry, DiaryEntrySkills, Skill, Record, save_from_form, update_diary_entry};
+use crate::models::{
+    save_from_form, update_diary_entry, DateRangeRequest, DiaryEntry, DiaryEntrySkills, Record,
+    Skill,
+};
 
+use actix_session::Session;
 use actix_web::web;
 use actix_web::HttpResponse;
-use actix_session::Session;
 
 //Creates a new diary entry from an Json
 pub async fn create(
@@ -16,15 +19,16 @@ pub async fn create(
         Ok(user_id) => match user_id {
             Some(user_id) => user_id,
             None => return Ok(HttpResponse::InternalServerError().finish()),
-        }
+        },
         Err(_) => return Ok(HttpResponse::InternalServerError().finish()),
     };
 
     let diary_form = form.into_inner();
-    let diary_entry = match save_from_form(&diary_form.entry_date, &diary_form.notes, &config, &user_id).await {
-        Ok(entry) => entry,
-        Err(_) => return Ok(HttpResponse::InternalServerError().finish()),
-    };
+    let diary_entry =
+        match save_from_form(&diary_form.entry_date, &diary_form.notes, &config, &user_id).await {
+            Ok(entry) => entry,
+            Err(_) => return Ok(HttpResponse::InternalServerError().finish()),
+        };
     let skills_list = diary_form.skill_ids;
     if skills_list.is_empty() {
         return Ok(HttpResponse::Created().json(&diary_entry));
@@ -57,22 +61,23 @@ pub async fn update(
         Ok(user_id) => match user_id {
             Some(user_id) => user_id,
             None => return Ok(HttpResponse::InternalServerError().finish()),
-        }
+        },
         Err(_) => return Ok(HttpResponse::InternalServerError().finish()),
     };
 
     let id = &params.0;
     let entry_id: i32 = id.parse().unwrap();
-    let entry =  DiaryEntry::find_by_id(&config, entry_id);
+    let entry = DiaryEntry::find_by_id(&config, entry_id);
     let diary_entry = match entry.await {
         Ok(diary_entry) => diary_entry,
         Err(_) => return Ok(HttpResponse::NotFound().finish()),
     };
     let updated_notes = diary_form.notes;
-    let updated_entry = match update_diary_entry(&diary_entry.id, &updated_notes, &config, &user_id).await {
-        Ok(entry) => entry,
-        Err(_) => return Ok(HttpResponse::InternalServerError().finish()),
-    };
+    let updated_entry =
+        match update_diary_entry(&diary_entry.id, &updated_notes, &config, &user_id).await {
+            Ok(entry) => entry,
+            Err(_) => return Ok(HttpResponse::InternalServerError().finish()),
+        };
     let delete_diary_entry_skills = DiaryEntrySkills::delete(&config, &updated_entry);
     match delete_diary_entry_skills.await {
         Ok(deleted_diary_entry_skills) => deleted_diary_entry_skills,
@@ -96,7 +101,6 @@ pub async fn update(
         }
     }
     Ok(HttpResponse::Created().json(&diary_entry))
-
 }
 
 // Retrieves diary entry by date
@@ -114,7 +118,7 @@ pub async fn show(
         Ok(user_id) => match user_id {
             Some(user_id) => user_id,
             None => return Ok(HttpResponse::InternalServerError().finish()),
-        }
+        },
         Err(_) => return Ok(HttpResponse::InternalServerError().finish()),
     };
 
@@ -139,11 +143,13 @@ pub async fn show_skills(
         Ok(user_id) => match user_id {
             Some(user_id) => user_id,
             None => return Ok(HttpResponse::InternalServerError().finish()),
-        }
+        },
         Err(_) => return Ok(HttpResponse::InternalServerError().finish()),
     };
 
-    match DiaryEntrySkills::find_diary_entry_skills_by_date(&config, diary_entry_date, &user_id).await {
+    match DiaryEntrySkills::find_diary_entry_skills_by_date(&config, diary_entry_date, &user_id)
+        .await
+    {
         Ok(records) => Ok(HttpResponse::Ok().json(records)),
         Err(_) => Ok(HttpResponse::NotFound().finish()),
     }

@@ -2,21 +2,27 @@ pub mod configuration;
 pub mod controllers;
 pub mod models;
 
-use controllers::{diary_entries_controller, health_check_controller, skills_controller, credentials_controller};
+use controllers::{
+    credentials_controller, diary_entries_controller, health_check_controller, skills_controller,
+};
 
 use actix_cors::Cors;
+use actix_session::storage::RedisSessionStore;
+use actix_session::SessionMiddleware;
+use actix_web::cookie::Key;
 use actix_web::dev::Server;
 use actix_web::web::Data;
-use actix_web::cookie::Key;
 use actix_web::{web, App, HttpServer};
-use actix_session::SessionMiddleware;
-use actix_session::storage::RedisSessionStore;
-use secrecy::{ExposeSecret, Secret};
 use configuration::AppData;
+use secrecy::{ExposeSecret, Secret};
 use std::net::TcpListener;
 
-
-pub async fn run(listener: TcpListener, app_config: AppData, hmac_secret: Secret<String>, redis_uri: Secret<String>) -> Result<Server, anyhow::Error> {
+pub async fn run(
+    listener: TcpListener,
+    app_config: AppData,
+    hmac_secret: Secret<String>,
+    redis_uri: Secret<String>,
+) -> Result<Server, anyhow::Error> {
     let secret_key = Key::from(hmac_secret.expose_secret().as_bytes());
     let redis_store = RedisSessionStore::new(redis_uri.expose_secret()).await?;
     let app_data: Data<AppData> = Data::new(app_config);
@@ -61,7 +67,10 @@ pub async fn run(listener: TcpListener, app_config: AppData, hmac_secret: Secret
             .route("/skills/{id}", web::get().to(skills_controller::show))
             .route("/login", web::post().to(credentials_controller::login))
             .route("/signup", web::post().to(credentials_controller::signup))
-            .route("/session_username", web::get().to(credentials_controller::session_username))
+            .route(
+                "/session_name",
+                web::get().to(credentials_controller::session_name),
+            )
             .route("/logout", web::get().to(credentials_controller::logout))
             .app_data(app_data.clone())
             .app_data(Data::new(HmacSecret(hmac_secret.clone())))

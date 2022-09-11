@@ -1,7 +1,7 @@
 use crate::configuration::{AppData, Environment};
 use crate::models::Record;
 use async_trait::async_trait;
-use chrono::{Utc, DateTime};
+use chrono::{DateTime, Utc};
 use serde::{Deserialize, Serialize};
 use sqlx::FromRow;
 
@@ -20,35 +20,50 @@ pub struct DateRangeRequest {
     pub end: Option<sqlx::types::chrono::NaiveDate>,
 }
 
-
-    #[tracing::instrument(name = "Saving diary entry from form and user_id in the database", skip(config))]
-    pub async fn save_from_form(entry_date: &DateTime<Utc>, notes: &String, config: &AppData, user_id: &i32) -> Result<DiaryEntry, sqlx::Error> {
-        let mut transaction = config.pg_pool.begin().await?;
-        let query_statement = r#"
+#[tracing::instrument(
+    name = "Saving diary entry from form and user_id in the database",
+    skip(config)
+)]
+pub async fn save_from_form(
+    entry_date: &DateTime<Utc>,
+    notes: &str,
+    config: &AppData,
+    user_id: &i32,
+) -> Result<DiaryEntry, sqlx::Error> {
+    let mut transaction = config.pg_pool.begin().await?;
+    let query_statement = r#"
     INSERT INTO diary_entries (user_id, entry_date, created_at, notes)
     VALUES ($1, $2, $3, $4) RETURNING id, user_id, entry_date, created_at, notes
     "#;
-        let query: DiaryEntry = sqlx::query_as(query_statement)
-            .bind(user_id)
-            .bind(entry_date)
-            .bind(Utc::now())
-            .bind(notes)
-            .fetch_one(&mut transaction)
-            .await
-            .map_err(|e| {
-                tracing::error!("failed to execute query: {:?}", e);
-                e
-            })?;
+    let query: DiaryEntry = sqlx::query_as(query_statement)
+        .bind(user_id)
+        .bind(entry_date)
+        .bind(Utc::now())
+        .bind(notes)
+        .fetch_one(&mut transaction)
+        .await
+        .map_err(|e| {
+            tracing::error!("failed to execute query: {:?}", e);
+            e
+        })?;
 
-        if let Environment::Dev = config.env {
-            transaction.commit().await?;
-        }
-
-        Ok(query)
+    if let Environment::Dev = config.env {
+        transaction.commit().await?;
     }
 
-#[tracing::instrument(name = "Updating diary entry by id and user_id in the database", skip(config))]
-pub async fn update_diary_entry(id: &i32, notes: &str, config: &AppData, user_id: &i32) -> Result<DiaryEntry, sqlx::Error> {
+    Ok(query)
+}
+
+#[tracing::instrument(
+    name = "Updating diary entry by id and user_id in the database",
+    skip(config)
+)]
+pub async fn update_diary_entry(
+    id: &i32,
+    notes: &str,
+    config: &AppData,
+    user_id: &i32,
+) -> Result<DiaryEntry, sqlx::Error> {
     let mut transaction = config.pg_pool.begin().await?;
     let query_statement = r#"
     UPDATE diary_entries
@@ -74,7 +89,6 @@ pub async fn update_diary_entry(id: &i32, notes: &str, config: &AppData, user_id
 
     Ok(query)
 }
-
 
 #[async_trait]
 impl Record for DiaryEntry {
@@ -107,7 +121,8 @@ impl Record for DiaryEntry {
     #[tracing::instrument(name = "Retrieving diary entry by id from the database", skip(config))]
     async fn find_by_id(config: &AppData, id: i32) -> Result<Self, sqlx::Error> {
         let mut transaction = config.pg_pool.begin().await?;
-        let query_statement = r#"SELECT id, user_id, entry_date, created_at, notes FROM diary_entries WHERE id = $1"#;
+        let query_statement =
+            r#"SELECT id, user_id, entry_date, created_at, notes FROM diary_entries WHERE id = $1"#;
         let diary_entry = sqlx::query_as(query_statement)
             .bind(id)
             .fetch_one(&mut transaction)
@@ -164,7 +179,9 @@ impl DiaryEntry {
 
         let query_statement: String;
         if date_range.start.is_none() || date_range.end.is_none() {
-            query_statement = r#"SELECT id, user_id, entry_date, created_at, notes FROM diary_entries"#.to_string();
+            query_statement =
+                r#"SELECT id, user_id, entry_date, created_at, notes FROM diary_entries"#
+                    .to_string();
         } else {
             query_statement = format!(
                 "SELECT id, user_id, entry_date, created_at, notes FROM diary_entries WHERE entry_date BETWEEN '{}' AND '{}';",

@@ -13,6 +13,8 @@ async fn main() -> anyhow::Result<()> {
     let redis_uri = configuration.redis_uri;
     let address = format!("127.0.0.1:{}", configuration.application_port);
     let listener = TcpListener::bind(address)?;
-    run(listener, app_data, hmac_secret, redis_uri).await?.await?;
+    run(listener, app_data, hmac_secret, redis_uri)
+        .await?
+        .await?;
     Ok(())
 }

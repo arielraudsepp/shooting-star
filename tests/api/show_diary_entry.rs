@@ -1,13 +1,12 @@
-use crate::helpers::{spawn_app, create_test_user, TestUser};
-use shooting_star::models::DiaryEntry;
+use crate::helpers::{create_test_user, spawn_app, TestUser};
+use chrono::{DateTime, NaiveDate, Utc};
 use shooting_star::configuration::get_configuration;
+use shooting_star::controllers::DiaryForm;
+use shooting_star::models::DiaryEntry;
 use sqlx::Executor;
 use sqlx::{postgres::PgConnection, Connection};
-use shooting_star::controllers::DiaryForm;
-use chrono::{DateTime, Utc, NaiveDate};
 
 async fn create_test_data(connection: PgConnection) {
-
     let query = r#"INSERT INTO skills (name, category)
        VALUES
        ('observe', 'mindfulness'),
@@ -21,9 +20,7 @@ async fn create_test_data(connection: PgConnection) {
         .execute(query)
         .await
         .expect("Unable to add skills to database");
-
 }
-
 
 #[actix_rt::test]
 async fn show_diary_entry_by_date() {
@@ -42,12 +39,11 @@ async fn show_diary_entry_by_date() {
     let client = reqwest::Client::new();
 
     let naive_date = NaiveDate::parse_from_str("2022-02-07", "%Y-%m-%d").unwrap();
-    let datetime_utc = DateTime::<Utc>::from_utc(naive_date.and_hms(0,0,0), Utc);
+    let datetime_utc = DateTime::<Utc>::from_utc(naive_date.and_hms(0, 0, 0), Utc);
     let ids: Vec<i32> = vec![1, 3, 5];
-    let body = DiaryForm
-    {
-    entry_date: datetime_utc.into(),
-    skill_ids: ids.into(),
+    let body = DiaryForm {
+        entry_date: datetime_utc.into(),
+        skill_ids: ids.into(),
     };
 
     let create_response = client
@@ -69,5 +65,4 @@ async fn show_diary_entry_by_date() {
         .await
         .expect("Failed to execute request");
     assert_eq!(200, show_response.status().as_u16());
-
 }

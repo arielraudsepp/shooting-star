@@ -43,18 +43,16 @@ chmod +x scripts/init_redis.sh
 #+end_src
 
 #+RESULTS:
-| d1080a017cb6635f2349af051f90a92de61ba0f57442eda9b1e4de821c9a9fa4 |                        |        |        |         |               |              |               |
-| Applied                                                          | 20211228003329/migrate | create | diary  | skills  | table         | (2.603313ms) |               |
-| Applied                                                          | 20211228005507/migrate | create | skills | table   | (15.041738ms) |              |               |
-| Applied                                                          | 20211228005520/migrate | create | diary  | table   | (15.274203ms) |              |               |
-| Applied                                                          | 20220410172326/migrate | create | users  | table   | (25.887516ms) |              |               |
-| Applied                                                          | 20220817224318/migrate | create | diary  | entries | users         | table        | (10.302777ms) |
-| Applied                                                          | 20211228003329/migrate | create | diary  | skills  | table         | (2.832223ms) |               |
-| Applied                                                          | 20211228005507/migrate | create | skills | table   | (13.395833ms) |              |               |
-| Applied                                                          | 20211228005520/migrate | create | diary  | table   | (8.612836ms)  |              |               |
-| Applied                                                          | 20220410172326/migrate | create | users  | table   | (26.483926ms) |              |               |
-| Applied                                                          | 20220817224318/migrate | create | diary  | entries | users         | table        | (15.083307ms) |
-| d81e118d16f81062a6c8aabba2dde323dfc4df6b6713bee3c53b77fc7effcffa |                        |        |        |         |               |              |               |
+| 38ff86a5bd5f37b72c41af44e4b09c9996187eae08db48449ca6bba70088d0a8 |                        |           |             |        |              |              |              |        |       |    |    |      |      |
+| Applied                                                          | 20211228003329/migrate | create    | diary       | skills | table        | (1.664416ms) |              |        |       |    |    |      |      |
+| Applied                                                          | 20211228005507/migrate | create    | skills      | table  | (4.203333ms) |              |              |        |       |    |    |      |      |
+| Applied                                                          | 20211228005520/migrate | create    | diary       | table  | (4.367958ms) |              |              |        |       |    |    |      |      |
+| Applied                                                          | 20220410172326/migrate | create    | users       | table  | (5.883791ms) |              |              |        |       |    |    |      |      |
+| Applied                                                          | 20220905234853/migrate | add       | notes       | to     | diary        | entries      | (2.657625ms) |        |       |    |    |      |      |
+| Applied                                                          | 20220906230725/migrate | readd     | notes       | to     | diary        | entries      | (1.491375ms) |        |       |    |    |      |      |
+| Applied                                                          | 20220909160251/migrate | add       | email       | to     | credentials  | (2.244083ms) |              |        |       |    |    |      |      |
+| error:                                                           | while                  | executing | migrations: | error  | returned     | from         | database:    | syntax | error | at | or | near | DROP |
+| d2e09e6de25e87feed8c3fde36f8f4b14d880073e375a4af2a130952270f546b |                        |           |             |        |              |              |              |        |       |    |    |      |      |
 
 ** Kill Postgres Server
 #+begin_src shell
