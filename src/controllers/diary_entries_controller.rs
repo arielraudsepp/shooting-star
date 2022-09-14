@@ -159,11 +159,29 @@ pub async fn show_skills(
 pub async fn index(
     query: web::Query<DateRangeRequest>,
     config: web::Data<AppData>,
+    session: Session,
 ) -> actix_web::Result<HttpResponse> {
     let date_range: DateRangeRequest = query.into_inner();
+    let user_id = match session.get::<i32>("user_id") {
+        Ok(user_id) => match user_id {
+            Some(user_id) => user_id,
+            None => return Ok(HttpResponse::InternalServerError().finish()),
+        },
+        Err(_) => return Ok(HttpResponse::InternalServerError().finish()),
+    };
 
-    match DiaryEntry::find_by_date_range(&config, date_range).await {
-        Ok(entries) => Ok(HttpResponse::Ok().json(entries)),
-        Err(_) => Ok(HttpResponse::BadRequest().finish()),
+    let diary_entries =
+        match DiaryEntry::find_by_date_range_user(&config, date_range, &user_id).await {
+            Ok(entries) => entries,
+            Err(_) => return Ok(HttpResponse::BadRequest().finish()),
+        };
+    let mut updated_diary_entries: Vec<DiaryEntry> = Vec::new();
+    for diary_entry in diary_entries {
+        let created: i64 = sqlx::types::chrono::DateTime::timestamp(&diary_entry.created_at);
+        let updated: i64 = sqlx::types::chrono::DateTime::timestamp(&diary_entry.updated_at);
+        if created != updated {
+            updated_diary_entries.push(diary_entry);
+        }
     }
+    return Ok(HttpResponse::Ok().json(updated_diary_entries));
 }
