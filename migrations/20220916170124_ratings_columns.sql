@@ -1,0 +1,9 @@
+ALTER TABLE diary_entries ADD COLUMN pain INTEGER;
+ALTER TABLE diary_entries ADD COLUMN sadness INTEGER;
+ALTER TABLE diary_entries ADD COLUMN joy INTEGER;
+ALTER TABLE diary_entries ADD COLUMN shame INTEGER;
+ALTER TABLE diary_entries ADD COLUMN anger INTEGER;
+ALTER TABLE diary_entries ADD COLUMN fear INTEGER;
+ALTER TABLE diary_entries ADD COLUMN drug_use INTEGER;
+ALTER TABLE diary_entries ADD COLUMN suicide INTEGER;
+ALTER TABLE diary_entries ADD COLUMN self_harm INTEGER;

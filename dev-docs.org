@@ -31,10 +31,12 @@ cargo fmt
 #+end_src
 * Docker
 ** Recompile shell files (database and redis)
-#+begin_src zsh
+#+begin_src shell
 chmod +x scripts/init_db.sh
 chmod +x scripts/init_redis.sh
 #+end_src
+
+#+RESULTS:
 
 ** Launch Postgres and Redis containers
 #+begin_src shell
@@ -43,16 +45,26 @@ chmod +x scripts/init_redis.sh
 #+end_src
 
 #+RESULTS:
-| 38ff86a5bd5f37b72c41af44e4b09c9996187eae08db48449ca6bba70088d0a8 |                        |           |             |        |              |              |              |        |       |    |    |      |      |
-| Applied                                                          | 20211228003329/migrate | create    | diary       | skills | table        | (1.664416ms) |              |        |       |    |    |      |      |
-| Applied                                                          | 20211228005507/migrate | create    | skills      | table  | (4.203333ms) |              |              |        |       |    |    |      |      |
-| Applied                                                          | 20211228005520/migrate | create    | diary       | table  | (4.367958ms) |              |              |        |       |    |    |      |      |
-| Applied                                                          | 20220410172326/migrate | create    | users       | table  | (5.883791ms) |              |              |        |       |    |    |      |      |
-| Applied                                                          | 20220905234853/migrate | add       | notes       | to     | diary        | entries      | (2.657625ms) |        |       |    |    |      |      |
-| Applied                                                          | 20220906230725/migrate | readd     | notes       | to     | diary        | entries      | (1.491375ms) |        |       |    |    |      |      |
-| Applied                                                          | 20220909160251/migrate | add       | email       | to     | credentials  | (2.244083ms) |              |        |       |    |    |      |      |
-| error:                                                           | while                  | executing | migrations: | error  | returned     | from         | database:    | syntax | error | at | or | near | DROP |
-| d2e09e6de25e87feed8c3fde36f8f4b14d880073e375a4af2a130952270f546b |                        |           |             |        |              |              |              |        |       |    |    |      |      |
+| 05d955f2b0cd963fad2084409237409406480d2fd15bd1342264bbba94d4f82a |                        |        |          |         |              |              |              |
+| Applied                                                          | 20211228003329/migrate | create | diary    | skills  | table        | (2.717041ms) |              |
+| Applied                                                          | 20211228005507/migrate | create | skills   | table   | (6.872041ms) |              |              |
+| Applied                                                          | 20211228005520/migrate | create | diary    | table   | (5.356916ms) |              |              |
+| Applied                                                          | 20220410172326/migrate | create | users    | table   | (9.292958ms) |              |              |
+| Applied                                                          | 20220905234853/migrate | add    | notes    | to      | diary        | entries      | (4.867125ms) |
+| Applied                                                          | 20220906230725/migrate | readd  | notes    | to      | diary        | entries      | (2.612583ms) |
+| Applied                                                          | 20220909160251/migrate | add    | email    | to      | credentials  | (2.851166ms) |              |
+| Applied                                                          | 20220909161813/migrate | remove | defaults | users   | (1.852916ms) |              |              |
+| Applied                                                          | 20220911230813/migrate | diary  | entries  | updated | at           | (1.963541ms) |              |
+| Applied                                                          | 20211228003329/migrate | create | diary    | skills  | table        | (1.968791ms) |              |
+| Applied                                                          | 20211228005507/migrate | create | skills   | table   | (6.645208ms) |              |              |
+| Applied                                                          | 20211228005520/migrate | create | diary    | table   | (3.847166ms) |              |              |
+| Applied                                                          | 20220410172326/migrate | create | users    | table   | (6.578541ms) |              |              |
+| Applied                                                          | 20220905234853/migrate | add    | notes    | to      | diary        | entries      | (3.283208ms) |
+| Applied                                                          | 20220906230725/migrate | readd  | notes    | to      | diary        | entries      | (2.084375ms) |
+| Applied                                                          | 20220909160251/migrate | add    | email    | to      | credentials  | (2.505ms)    |              |
+| Applied                                                          | 20220909161813/migrate | remove | defaults | users   | (1.350291ms) |              |              |
+| Applied                                                          | 20220911230813/migrate | diary  | entries  | updated | at           | (2.022208ms) |              |
+| 4a9fb5ea707d43330a01a8a47573b89c6e9edc850bbba1e824693132f35aef32 |                        |        |          |         |              |              |              |
 
 ** Kill Postgres Server
 #+begin_src shell
@@ -69,6 +81,8 @@ SKIP_DOCKER=true ./scripts/init_db.sh
 #+end_src
 
 #+RESULTS:
+| Applied | 20220916170124/migrate | ratings | columns | (3.081125ms) |
+| Applied | 20220916170124/migrate | ratings | columns | (3.272166ms) |
 
 ** Seed the database
 #+begin_src shell
@@ -90,8 +104,8 @@ GET http://localhost:8000/health_check
 // content-length: 0
 // vary: Origin, Access-Control-Request-Method, Access-Control-Request-Headers
 // access-control-allow-credentials: true
-// date: Wed, 17 Aug 2022 22:48:47 GMT
-// Request duration: 0.004891s
+// date: Fri, 16 Sep 2022 18:36:31 GMT
+// Request duration: 0.005676s
 #+END_SRC
 
 When running a health check we should return a 200.
@@ -111,26 +125,51 @@ When running a health check we should return a 200.
 POST http://localhost:8000/diary_entries
 Content-Type: application/json
 {
-  "entry_date": "2022-08-16T17:53:59Z",
-  "skill_ids": [1, 5, 6]
+  "entry_form":
+  {
+    "entry_date": "2022-08-16",
+    "notes": "fd",
+    "pain": "One",
+    "sadness": "Zero",
+    "joy": "Two",
+    "shame": "Four",
+    "anger": "Three",
+    "fear": "One",
+    "drug_use": "Zero",
+    "suicide": "Five",
+    "self_harm": "Five"
+  },
+  "skill_ids": []
 }
 #+end_src
 
 #+RESULTS:
 #+BEGIN_SRC js
 {
-  "id": 1,
+  "id": 12,
+  "user_id": 1,
   "entry_date": "2022-08-16",
-  "created_at": "2022-08-17T22:49:18.937780Z"
+  "created_at": "2022-09-16T21:25:47.238547Z",
+  "updated_at": "2022-09-16T21:25:47.238547Z",
+  "notes": "fd",
+  "pain": "One",
+  "sadness": "Zero",
+  "joy": "Two",
+  "shame": "Four",
+  "anger": "Three",
+  "fear": "One",
+  "drug_use": "Zero",
+  "suicide": "Five",
+  "self_harm": "Five"
 }
 // POST http://localhost:8000/diary_entries
 // HTTP/1.1 201 Created
-// content-length: 77
+// content-length: 286
+// vary: Origin, Access-Control-Request-Method, Access-Control-Request-Headers
 // access-control-allow-credentials: true
 // content-type: application/json
-// vary: Origin, Access-Control-Request-Method, Access-Control-Request-Headers
-// date: Wed, 17 Aug 2022 22:49:19 GMT
-// Request duration: 0.177968s
+// date: Fri, 16 Sep 2022 21:25:47 GMT
+// Request duration: 0.020472s
 #+END_SRC
 
 *** Show Diary Entry by Date (Action: show)
