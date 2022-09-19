@@ -13,40 +13,39 @@ use actix_web::HttpResponse;
 pub async fn create(
     form: web::Json<DiaryForm>,
     config: web::Data<AppData>,
-    // session: Session,
+    session: Session,
 ) -> actix_web::Result<HttpResponse> {
-    // let user_id = match session.get::<i32>("user_id") {
-    //     Ok(user_id) => match user_id {
-    //         Some(user_id) => user_id,
-    //         None => return Ok(HttpResponse::InternalServerError().finish()),
-    //     },
-    //     Err(_) => return Ok(HttpResponse::InternalServerError().finish()),
-    // };
-
-    let diary_form = form.into_inner();
-    println!("{}", format!("test"));
-    let diary_entry = match DiaryEntryForm::save_from_form(1, &config, diary_form.entry_form).await
-    {
-        Ok(entry) => entry,
+    let user_id = match session.get::<i32>("user_id") {
+        Ok(user_id) => match user_id {
+            Some(user_id) => user_id,
+            None => return Ok(HttpResponse::InternalServerError().finish()),
+        },
         Err(_) => return Ok(HttpResponse::InternalServerError().finish()),
     };
+
+    let diary_form = form.into_inner();
+    let diary_entry =
+        match DiaryEntryForm::save_from_form(user_id, &config, diary_form.entry_form).await {
+            Ok(entry) => entry,
+            Err(_) => return Ok(HttpResponse::InternalServerError().finish()),
+        };
     let skills_list = diary_form.skill_ids;
     if skills_list.is_empty() {
         return Ok(HttpResponse::Created().json(&diary_entry));
     };
 
-    // let skill_records = Skill::find_by_ids(&config, &skills_list);
-    // let skills = match skill_records.await {
-    //     Ok(skills) => skills,
-    //     Err(_) => return Ok(HttpResponse::InternalServerError().finish()),
-    // };
-    // for skill in skills {
-    //     let diary_entry_skills =
-    //         DiaryEntrySkills::save_diary_entry_skill(&config, &skill, &diary_entry);
-    //     if diary_entry_skills.await.is_err() {
-    //         return Ok(HttpResponse::InternalServerError().finish());
-    //     }
-    // }
+    let skill_records = Skill::find_by_ids(&config, &skills_list);
+    let skills = match skill_records.await {
+        Ok(skills) => skills,
+        Err(_) => return Ok(HttpResponse::InternalServerError().finish()),
+    };
+    for skill in skills {
+        let diary_entry_skills =
+            DiaryEntrySkills::save_diary_entry_skill(&config, &skill, &diary_entry);
+        if diary_entry_skills.await.is_err() {
+            return Ok(HttpResponse::InternalServerError().finish());
+        }
+    }
     Ok(HttpResponse::Created().json(&diary_entry))
 }
 
@@ -76,7 +75,7 @@ pub async fn update(
     let diary_entry_form = diary_form.entry_form;
     let updated_entry = match DiaryEntryForm::update_diary_entry(
         &diary_entry.id,
-        &user_id,
+        user_id,
         diary_entry_form,
         &config,
     )
