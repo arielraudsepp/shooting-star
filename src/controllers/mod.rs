@@ -1,4 +1,3 @@
-use secrecy::Secret;
 use serde::{Deserialize, Serialize};
 
 use crate::models::DiaryEntryForm;
@@ -12,17 +11,4 @@ pub mod skills_controller;
 pub struct DiaryForm {
     pub entry_form: DiaryEntryForm,
     pub skill_ids: Vec<i32>,
-}
-
-#[derive(Deserialize, Debug)]
-pub struct LoginForm {
-    pub email: String,
-    pub password: Secret<String>,
-}
-
-#[derive(Deserialize, Debug)]
-pub struct SignupForm {
-    pub email: String,
-    pub name: String,
-    pub password: Secret<String>,
 }

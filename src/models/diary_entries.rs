@@ -1,7 +1,7 @@
 use crate::configuration::{AppData, Environment};
 use crate::models::Record;
 use async_trait::async_trait;
-use chrono::{DateTime, Utc};
+use chrono::Utc;
 use serde::{Deserialize, Serialize};
 use sqlx::FromRow;
 
@@ -110,29 +110,30 @@ impl DiaryEntryForm {
     )]
     pub async fn update_diary_entry(
         id: &i32,
-        user_id: &i32,
+        user_id: i32,
         diary_entry_form: Self,
         config: &AppData,
     ) -> Result<DiaryEntry, sqlx::Error> {
         let mut transaction = config.pg_pool.begin().await?;
         let query_statement = r#"
     UPDATE diary_entries
-    SET updated_at = $1, notes = $2, pain = $3, sadness = $4, joy = $5, shame = $6, anger = $8, fear = $9, drug_use = $10, suicide = $11, self_harm = $12
-    WHERE id = $13 AND user_id = $14
+    SET updated_at = $1, notes = $2, pain = $3, sadness = $4, joy = $5, shame = $6,
+    anger = $7, fear = $8, drug_use = $9, suicide = $10, self_harm = $11
+    WHERE id = $12 AND user_id = $13
     RETURNING *;
     "#;
         let query: DiaryEntry = sqlx::query_as(query_statement)
             .bind(Utc::now())
             .bind(diary_entry_form.notes)
-            .bind(diary_entry_form.pain.value())
-            .bind(diary_entry_form.sadness.value())
-            .bind(diary_entry_form.joy.value())
-            .bind(diary_entry_form.shame.value())
-            .bind(diary_entry_form.anger.value())
-            .bind(diary_entry_form.fear.value())
-            .bind(diary_entry_form.drug_use.value())
-            .bind(diary_entry_form.suicide.value())
-            .bind(diary_entry_form.self_harm.value())
+            .bind(diary_entry_form.pain)
+            .bind(diary_entry_form.sadness)
+            .bind(diary_entry_form.joy)
+            .bind(diary_entry_form.shame)
+            .bind(diary_entry_form.anger)
+            .bind(diary_entry_form.fear)
+            .bind(diary_entry_form.drug_use)
+            .bind(diary_entry_form.suicide)
+            .bind(diary_entry_form.self_harm)
             .bind(id)
             .bind(user_id)
             .fetch_one(&mut transaction)
@@ -182,7 +183,7 @@ impl Record for DiaryEntry {
     #[tracing::instrument(name = "Retrieving diary entry by id from the database", skip(config))]
     async fn find_by_id(config: &AppData, id: i32) -> Result<Self, sqlx::Error> {
         let mut transaction = config.pg_pool.begin().await?;
-        let query_statement = r#"SELECT id, user_id, entry_date, created_at, updated_at, notes FROM diary_entries WHERE id = $1"#;
+        let query_statement = r#"SELECT * FROM diary_entries WHERE id = $1"#;
         let diary_entry = sqlx::query_as(query_statement)
             .bind(id)
             .fetch_one(&mut transaction)
@@ -211,7 +212,8 @@ impl DiaryEntry {
         user_id: &i32,
     ) -> Result<Self, sqlx::Error> {
         let mut transaction = config.pg_pool.begin().await?;
-        let query_statement = r#"SELECT id, user_id, entry_date, created_at, updated_at, notes FROM diary_entries WHERE entry_date = $1 AND user_id = $2"#;
+        let query_statement =
+            r#"SELECT * FROM diary_entries WHERE entry_date = $1 AND user_id = $2"#;
         let diary_entry: DiaryEntry = sqlx::query_as(query_statement)
             .bind(date)
             .bind(user_id)
@@ -244,7 +246,7 @@ impl DiaryEntry {
                     .to_string();
         } else {
             query_statement = format!(
-                "SELECT id, user_id, entry_date, created_at, updated_at, notes FROM diary_entries WHERE entry_date BETWEEN '{}' AND '{}';",
+                "SELECT * FROM diary_entries WHERE entry_date BETWEEN '{}' AND '{}';",
                 date_range.start.unwrap(),
                 date_range.end.unwrap()
             );
@@ -279,13 +281,10 @@ impl DiaryEntry {
 
         let query_statement: String;
         if date_range.start.is_none() || date_range.end.is_none() {
-            query_statement = format!(
-                "SELECT id, user_id, entry_date, created_at, updated_at, notes FROM diary_entries WHERE user_id = {}",
-                user_id
-            );
+            query_statement = format!("SELECT * FROM diary_entries WHERE user_id = {}", user_id);
         } else {
             query_statement = format!(
-                "SELECT id, user_id, entry_date, created_at, updated_at, notes FROM diary_entries WHERE entry_date BETWEEN '{}' AND '{}' AND user_id = {};",
+                "SELECT * FROM diary_entries WHERE entry_date BETWEEN '{}' AND '{}' AND user_id = {};",
                 date_range.start.unwrap(),
                 date_range.end.unwrap(),
                 user_id
@@ -304,18 +303,5 @@ impl DiaryEntry {
         }
 
         Ok(diary_entries)
-    }
-}
-
-impl Rating {
-    fn value(&self) -> i32 {
-        match *self {
-            Rating::Zero => 0,
-            Rating::One => 1,
-            Rating::Two => 2,
-            Rating::Three => 3,
-            Rating::Four => 4,
-            Rating::Five => 5,
-        }
     }
 }

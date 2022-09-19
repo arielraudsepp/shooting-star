@@ -1,10 +1,10 @@
 use crate::configuration::{AppData, Environment};
-use crate::controllers::{LoginForm, SignupForm};
 use actix_web::rt::task::JoinHandle;
 use anyhow::Context;
 use argon2::password_hash::SaltString;
 use argon2::{Algorithm, Argon2, Params, PasswordHash, PasswordHasher, PasswordVerifier, Version};
 use secrecy::{ExposeSecret, Secret};
+use serde::Deserialize;
 
 #[derive(thiserror::Error, Debug)]
 pub enum AuthError {
@@ -12,6 +12,19 @@ pub enum AuthError {
     InvalidCredentials(#[source] anyhow::Error),
     #[error(transparent)]
     UnexpectedError(#[from] anyhow::Error),
+}
+
+#[derive(Deserialize, Debug)]
+pub struct LoginForm {
+    pub email: String,
+    pub password: Secret<String>,
+}
+
+#[derive(Deserialize, Debug)]
+pub struct SignupForm {
+    pub email: String,
+    pub name: String,
+    pub password: Secret<String>,
 }
 
 pub struct Credentials {

@@ -45,26 +45,28 @@ chmod +x scripts/init_redis.sh
 #+end_src
 
 #+RESULTS:
-| 05d955f2b0cd963fad2084409237409406480d2fd15bd1342264bbba94d4f82a |                        |        |          |         |              |              |              |
-| Applied                                                          | 20211228003329/migrate | create | diary    | skills  | table        | (2.717041ms) |              |
-| Applied                                                          | 20211228005507/migrate | create | skills   | table   | (6.872041ms) |              |              |
-| Applied                                                          | 20211228005520/migrate | create | diary    | table   | (5.356916ms) |              |              |
-| Applied                                                          | 20220410172326/migrate | create | users    | table   | (9.292958ms) |              |              |
-| Applied                                                          | 20220905234853/migrate | add    | notes    | to      | diary        | entries      | (4.867125ms) |
-| Applied                                                          | 20220906230725/migrate | readd  | notes    | to      | diary        | entries      | (2.612583ms) |
-| Applied                                                          | 20220909160251/migrate | add    | email    | to      | credentials  | (2.851166ms) |              |
-| Applied                                                          | 20220909161813/migrate | remove | defaults | users   | (1.852916ms) |              |              |
-| Applied                                                          | 20220911230813/migrate | diary  | entries  | updated | at           | (1.963541ms) |              |
-| Applied                                                          | 20211228003329/migrate | create | diary    | skills  | table        | (1.968791ms) |              |
-| Applied                                                          | 20211228005507/migrate | create | skills   | table   | (6.645208ms) |              |              |
-| Applied                                                          | 20211228005520/migrate | create | diary    | table   | (3.847166ms) |              |              |
-| Applied                                                          | 20220410172326/migrate | create | users    | table   | (6.578541ms) |              |              |
-| Applied                                                          | 20220905234853/migrate | add    | notes    | to      | diary        | entries      | (3.283208ms) |
-| Applied                                                          | 20220906230725/migrate | readd  | notes    | to      | diary        | entries      | (2.084375ms) |
-| Applied                                                          | 20220909160251/migrate | add    | email    | to      | credentials  | (2.505ms)    |              |
-| Applied                                                          | 20220909161813/migrate | remove | defaults | users   | (1.350291ms) |              |              |
-| Applied                                                          | 20220911230813/migrate | diary  | entries  | updated | at           | (2.022208ms) |              |
-| 4a9fb5ea707d43330a01a8a47573b89c6e9edc850bbba1e824693132f35aef32 |                        |        |          |         |              |              |              |
+| 644c1d9d934a828bc35ed49674988cc2fee0def154a89743909e1ec58ce6ed05 |                        |         |          |              |               |              |               |
+| Applied                                                          | 20211228003329/migrate | create  | diary    | skills       | table         | (2.811323ms) |               |
+| Applied                                                          | 20211228005507/migrate | create  | skills   | table        | (21.735334ms) |              |               |
+| Applied                                                          | 20211228005520/migrate | create  | diary    | table        | (9.434571ms)  |              |               |
+| Applied                                                          | 20220410172326/migrate | create  | users    | table        | (27.760125ms) |              |               |
+| Applied                                                          | 20220905234853/migrate | add     | notes    | to           | diary         | entries      | (8.51402ms)   |
+| Applied                                                          | 20220906230725/migrate | readd   | notes    | to           | diary         | entries      | (4.15729ms)   |
+| Applied                                                          | 20220909160251/migrate | add     | email    | to           | credentials   | (4.143615ms) |               |
+| Applied                                                          | 20220909161813/migrate | remove  | defaults | users        | (541.599µs)    |              |               |
+| Applied                                                          | 20220911230813/migrate | diary   | entries  | updated      | at            | (2.386694ms) |               |
+| Applied                                                          | 20220916170124/migrate | ratings | columns  | (2.959663ms) |               |              |               |
+| Applied                                                          | 20211228003329/migrate | create  | diary    | skills       | table         | (2.835843ms) |               |
+| Applied                                                          | 20211228005507/migrate | create  | skills   | table        | (21.323015ms) |              |               |
+| Applied                                                          | 20211228005520/migrate | create  | diary    | table        | (8.263925ms)  |              |               |
+| Applied                                                          | 20220410172326/migrate | create  | users    | table        | (31.94977ms)  |              |               |
+| Applied                                                          | 20220905234853/migrate | add     | notes    | to           | diary         | entries      | (12.939813ms) |
+| Applied                                                          | 20220906230725/migrate | readd   | notes    | to           | diary         | entries      | (9.957067ms)  |
+| Applied                                                          | 20220909160251/migrate | add     | email    | to           | credentials   | (3.440751ms) |               |
+| Applied                                                          | 20220909161813/migrate | remove  | defaults | users        | (535.97µs)     |              |               |
+| Applied                                                          | 20220911230813/migrate | diary   | entries  | updated      | at            | (2.722523ms) |               |
+| Applied                                                          | 20220916170124/migrate | ratings | columns  | (2.858533ms) |               |              |               |
+| 97da63be77bf80e7e9d803aa2d4c5ac44633e3bac1a8b72f9c79c62e941ae354 |                        |         |          |              |               |              |               |
 
 ** Kill Postgres Server
 #+begin_src shell
@@ -102,10 +104,10 @@ GET http://localhost:8000/health_check
 // GET http://localhost:8000/health_check
 // HTTP/1.1 200 OK
 // content-length: 0
-// vary: Origin, Access-Control-Request-Method, Access-Control-Request-Headers
 // access-control-allow-credentials: true
-// date: Fri, 16 Sep 2022 18:36:31 GMT
-// Request duration: 0.005676s
+// vary: Origin, Access-Control-Request-Method, Access-Control-Request-Headers
+// date: Mon, 19 Sep 2022 15:33:34 GMT
+// Request duration: 0.001312s
 #+END_SRC
 
 When running a health check we should return a 200.
@@ -127,7 +129,7 @@ Content-Type: application/json
 {
   "entry_form":
   {
-    "entry_date": "2022-08-16",
+    "entry_date": "2022-08-23",
     "notes": "fd",
     "pain": "One",
     "sadness": "Zero",
@@ -139,37 +141,19 @@ Content-Type: application/json
     "suicide": "Five",
     "self_harm": "Five"
   },
-  "skill_ids": []
+  "skill_ids": [2,3]
 }
 #+end_src
 
 #+RESULTS:
 #+BEGIN_SRC js
-{
-  "id": 12,
-  "user_id": 1,
-  "entry_date": "2022-08-16",
-  "created_at": "2022-09-16T21:25:47.238547Z",
-  "updated_at": "2022-09-16T21:25:47.238547Z",
-  "notes": "fd",
-  "pain": "One",
-  "sadness": "Zero",
-  "joy": "Two",
-  "shame": "Four",
-  "anger": "Three",
-  "fear": "One",
-  "drug_use": "Zero",
-  "suicide": "Five",
-  "self_harm": "Five"
-}
 // POST http://localhost:8000/diary_entries
-// HTTP/1.1 201 Created
-// content-length: 286
-// vary: Origin, Access-Control-Request-Method, Access-Control-Request-Headers
+// HTTP/1.1 500 Internal Server Error
+// content-length: 0
 // access-control-allow-credentials: true
-// content-type: application/json
-// date: Fri, 16 Sep 2022 21:25:47 GMT
-// Request duration: 0.020472s
+// vary: Origin, Access-Control-Request-Method, Access-Control-Request-Headers
+// date: Mon, 19 Sep 2022 16:09:18 GMT
+// Request duration: 0.001577s
 #+END_SRC
 
 *** Show Diary Entry by Date (Action: show)

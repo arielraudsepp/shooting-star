@@ -1,6 +1,6 @@
 use crate::configuration::AppData;
-use crate::controllers::LoginForm;
 use crate::models::{create_user, get_name, validate_credentials, AuthError};
+use crate::models::{LoginForm, SignupForm};
 use actix_session::Session;
 use actix_web::error::InternalError;
 use actix_web::http::header::LOCATION;
@@ -8,8 +8,6 @@ use actix_web::http::StatusCode;
 use actix_web::HttpResponse;
 use actix_web::{web, ResponseError};
 use validator::validate_email;
-
-use super::SignupForm;
 
 // Return an opaque 500 while preserving the error's root cause for logging.
 fn e500<T>(e: T) -> actix_web::Error
