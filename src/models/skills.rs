@@ -9,6 +9,7 @@ pub struct Skill {
     pub id: i32,
     pub name: String,
     pub category: String,
+    pub description: String,
 }
 
 #[async_trait]
@@ -17,13 +18,14 @@ impl Record for Skill {
     async fn save(self, config: &AppData) -> Result<Self, sqlx::Error> {
         let mut transaction = config.pg_pool.begin().await?;
         let query_statement = r#"
-    INSERT INTO skills (id, name, category)
-    VALUES ($1, $2) RETURNING id, name, category
+    INSERT INTO skills (id, name, category, description)
+    VALUES ($1, $2, $3) RETURNING id, name, category, description
     "#;
         let query: Skill = sqlx::query_as(query_statement)
             .bind(self.id)
             .bind(self.name)
             .bind(self.category)
+            .bind(self.description)
             .fetch_one(&mut transaction)
             .await
             .map_err(|e| {
